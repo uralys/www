@@ -15,6 +15,7 @@
     "styled-components": "^5.3.9"
   },
   "devDependencies": {
+    "@modyfi/vite-plugin-yaml": "^1.0.4",
     "@types/react": "^18.0.29",
     "@types/react-dom": "^18.0.11",
     "@types/styled-components": "^5.1.26",

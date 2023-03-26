@@ -1,0 +1,667 @@
+#-------------------------------------------------------------------------------
+# Projects overview for timeline
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2019'
+
+#-------------------------------------------------------------------------------
+#  Exalt
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: exalt
+  title: Exalt
+  location: Paris, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Lua
+    - Solar2d
+  dates: from Jan 2019
+  description: Designed and created a prototype for Coorpacademy R&D on gaming.
+
+#-------------------------------------------------------------------------------
+#  1024
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: ld44
+  title: '1024'
+  location: Paris, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Lua
+    - Solar2d
+  dates: April 2019
+  description: 'I submitted another Ludum Dare entry, on Compo category this time. Theme: Your life is currency'
+  links:
+    - type: github
+      url: https://github.com/chrisdugne/ld44
+    - type: ld
+      url: https://ldjam.com/events/ludum-dare/44/uralys-ld44
+    - type: play
+      url: http://www.uralys.com/ld44/
+
+#-------------------------------------------------------------------------------
+#  Kodo: find the Monster
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: kodo-monster
+  title: 'Kodo: find the Monster'
+  location: Paris, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Lua
+    - Solar2d
+  dates: May 2019
+  description: Landed a new Kodo theme on both iOS and Android
+  links:
+    - type: apple
+      url: https://itunes.apple.com/us/app/id1462688847
+    - type: android
+      url: https://play.google.com/store/apps/details?id=com.uralys.kodo.monster
+
+#-------------------------------------------------------------------------------
+#  Coorpacademy mobile
+#-------------------------------------------------------------------------------
+
+- category: job
+  id: coorp-mobile
+  title: App mobile Coorpacademy
+  location: Paris, France
+  roles:
+    - Mobile Developer
+  technos:
+    - React Native
+    - Ndde.js
+  dates: Nov 2018 - September 2019
+  description: Member of the mobile team, which delivered the first React Native app on stores for Coorpacademy.
+  links:
+    - type: github
+      url: https://github.com/CoorpAcademy/mobile
+    - type: apple
+      url: https://itunes.apple.com/us/app/id1448348795
+    - type: android
+      url: https://play.google.com/store/apps/details?id=com.coorpacademy.app
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2018'
+
+#-------------------------------------------------------------------------------
+#  Kodo: find the Color
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: kodo-color
+  title: 'Kodo: find the Color'
+  location: Paris, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Lua
+    - Solar2d
+  dates: May 2019
+  description: 'Kodo 3.0: created a mobile game for iOS and Android. This is the first app using my common leaderboard and common IAP.'
+  links:
+    - type: apple
+      url: https://itunes.apple.com/us/app/id684227637
+    - type: android
+      url: https://play.google.com/store/apps/details?id=com.uralys.kodo.find_the_color
+
+#-------------------------------------------------------------------------------
+#  Totem
+#-------------------------------------------------------------------------------
+
+- category: job
+  id: totem
+  title: Totem Coorpacademy
+  location: Paris, France
+  roles:
+    - Game Designer
+    - Web Developer
+  technos:
+    - React.js/Redux
+    - Node.js
+  dates: Nov 2017 - Oct 2018
+  description: Created a real-time multiplayer game for Coorpacademy. Each player answering questions on their on device, the first team completing the Totem wins.
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2017'
+
+#-------------------------------------------------------------------------------
+#  Cherry
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: cherry
+  title: Cherry
+  location: Paris, France
+  roles:
+    - Mobile Developer
+  technos:
+    - Lua
+    - Solar2d
+  dates: from early 2017
+  description: 'Cherry is the backbone to my games released from 2017. This is a toolset to help being quicker developing with Solar2D'
+  links:
+    - type: github
+      url: https://github.com/chrisdugne/cherry
+
+#-------------------------------------------------------------------------------
+#  Velvet Coffee website
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: velvet-website
+  title: Velvet Coffee website
+  location: Paris, France
+  roles:
+    - Web designer
+  technos:
+    - Jekyll
+    - Javascript
+  dates: July 2017
+  description: Designed and wrote Velvet Coffee first website
+  links:
+    - type: play
+      url: https://velvetcoffee.github.io
+    - type: github
+      url: https://github.com/velvetcoffee/velvetcoffee.github.io
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2016'
+
+#-------------------------------------------------------------------------------
+#  Cerise Music Ride
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: ld36
+  title: Cerise Music Ride
+  location: Paris, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Lua
+    - Solar2D
+  dates: August 2016
+  description: My first Ludum Dare participation. A mobile game developed with Solar2D, with my daughter's drawings <3
+  links:
+    - type: github
+      url: https://github.com/chrisdugne/ludum-dare-36
+    - type: ld
+      url: http://ludumdare.com/compo/ludum-dare-36/?action=preview&uid=112097
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2015'
+
+#-------------------------------------------------------------------------------
+#  Phantoms
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: phantoms
+  title: Phantoms
+  location: Paris, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Lua
+    - Solar2D
+  dates: Jan 2015 - Dec 2015
+  description: Phantoms is a new kind of mind game. You will have to find different paths in intricate 2D labyrinths. a mobile game released on Apple Store and Google Play.
+  details: true
+  links:
+    - type: apple
+      url: https://itunes.apple.com/us/app/id1037707233
+    - type: android
+      url: https://play.google.com/store/apps/details?id=com.uralys.phantoms
+
+#-------------------------------------------------------------------------------
+#  Coorpacademy
+#-------------------------------------------------------------------------------
+
+- category: job
+  id: coorpacademy
+  title: Coorpacademy
+  location: Paris, France
+  roles:
+    - Web Developer
+  technos:
+    - React.js/Redux
+    - Node.js
+  dates: since March 2015
+  description: 'Member of the dev team, we refactored the existing monolith into many React/Redux apps and AWS services. Coorpacademy offers a MOOC solution designed for corporations.'
+  links:
+    - type: github
+      url: https://github.com/CoorpAcademy/components/graphs/contributors
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2014'
+
+#-------------------------------------------------------------------------------
+#  Adillions
+#-------------------------------------------------------------------------------
+
+- category: partnership
+  id: adillions
+  title: Adillions
+  location: Paris, France
+  roles:
+    - Co-Founder / CTO
+    - Full Stack Developer
+  technos:
+    - Node.js
+    - Backbone.js
+    - Marionette.js
+    - Lua
+    - Solar2D
+  dates: Sept 2013 - Nov 2014
+  description: I co-founded Adillions as full-stack developer to build a disruptive new sweepstake.
+
+#-------------------------------------------------------------------------------
+#  Photobox MStudio
+#-------------------------------------------------------------------------------
+
+- category: freelance
+  id: mstudio
+  title: Photobox MStudio
+  location: Paris, France
+  roles:
+    - Front-end Developer
+    - Freelance
+  technos:
+    - Backbone.js
+    - Marionette.js
+    - HTML/CSS
+  dates: Dec 2013 - Nov 2014
+  description: "Customise a phonecase, a mug or a calendar with your mobile tablet: I've spent one year with Photobox as front-end freelance to help building their new web-mobile application."
+
+#-------------------------------------------------------------------------------
+#  Behind The Wind
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: behind-the-wind
+  title: Behind The Wind
+  location: Paris, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Lua
+    - Solar2D
+  dates: Jan - Apr 2014
+  description: My first platform game! Developed with Solar2D, with its twin app meant for level designing. Delivered on both iOS and Android.
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2013'
+
+#-------------------------------------------------------------------------------
+#  Maperial
+#-------------------------------------------------------------------------------
+
+- category: partnership
+  id: maperial
+  title: Maperial
+  location: Paris, France
+  roles:
+    - Co-Founder
+    - Front-end Developer
+  technos:
+    - JavaScript
+    - HTML5
+    - HTML/CSS
+  dates: Oct 2012 - Dec 2014
+  description: Maperial was an open source javascript API to create WebGL maps. It was the front to my teamates' awesome backend exposing tiles from scientist data.
+
+#-------------------------------------------------------------------------------
+#  Kodo 1.0
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: kodo-1
+  title: Kodo 1.0
+  location: Paris, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Lua
+    - Solar2D
+  dates: August 2013
+  description: Extending the previous mobile game to play with a funnier theme. Available on iOS and Android.
+
+#-------------------------------------------------------------------------------
+#  The Lightning Planet
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: the-lightning-planet
+  title: The Lightning Planet
+  location: Paris, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Lua
+    - Solar2D
+  dates: July - August 2013
+  description: My first mobile game developed with Solar2D. Available on iOS and Android.
+
+#-------------------------------------------------------------------------------
+# Diligis
+#-------------------------------------------------------------------------------
+
+- category: partnership
+  id: diligis
+  title: Diligis
+  location: Paris, France
+  roles:
+    - Full Stack Developer
+    - Mobile Developer
+  technos:
+    - Play! Framework
+    - PostgreSQL
+    - Lua
+    - Solar2D
+  dates: Apr – Jun 2013
+  description: "Diligis was an app that helped you meet new business connections during your business trips. I've build the whole platform and mobile prototype"
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2012'
+
+#-------------------------------------------------------------------------------
+#  Cadeaux
+#-------------------------------------------------------------------------------
+
+- category: partnership
+  id: cadeaux
+  title: Cadeaux
+  location: Bordeaux, France
+  roles:
+    - Full Stack Developer
+  technos:
+    - Play! Framework
+    - Facebook API
+    - JavaScript
+    - HTML/CSS
+  dates: Aug – Oct 2012
+  description: Developed a wishlist as Facebook app with 4 teamates. The app was connected to many API such as Amazon to centralise items.
+
+#-------------------------------------------------------------------------------
+#  The Band
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: the-band
+  title: The Band
+  location: Paris, France
+  roles:
+    - Full Stack Developer
+    - Game Designer
+  technos:
+    - Java
+    - Spring framework
+    - Hibernate
+    - JavaScript
+    - HTML/CSS
+  dates: Apr – May 2012
+  description: Developed a composition tool prototype with Flex. Inspired by dance e-jay saga!
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2011'
+
+#-------------------------------------------------------------------------------
+#  Eram Assortiment
+#-------------------------------------------------------------------------------
+
+- category: freelance
+  id: assort
+  title: Eram Assortiment
+  location: Paris, France
+  roles:
+    - Front-end Developer
+    - Freelance
+  technos:
+    - Flex 4
+  dates: Mar 2011 – Sept 2012
+  description: Developed 2 internal tools for Eram as freelance.
+
+#-------------------------------------------------------------------------------
+#  Tribes And Khans
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: tribes-and-khans
+  title: Tribes And Khans
+  location: Paris, France
+  roles:
+    - Full Stack Developer
+    - Game Designer
+  technos:
+    - Java
+    - Spring Framework
+    - Google AppEngine
+    - Flex 4
+  dates: Dec 2010 - Jul 2012
+  description: Tribes And Khans was a free MMO Strategy game. Build cities, raise armies to extend your lands, use merchants caravans to share your resources.
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2010'
+
+#-------------------------------------------------------------------------------
+# Robeco
+#-------------------------------------------------------------------------------
+
+- category: freelance
+  id: robeco
+  title: Robeco
+  location: Paris, France
+  roles:
+    - Front-end Developer
+  technos:
+    - PHP5
+    - Flex 4
+  dates: Oct - Dec 2010
+  description: 'My first freelance mission: I joined a team on a Flex project'
+
+#-------------------------------------------------------------------------------
+#  Fools
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: fools
+  title: Fools
+  location: Melun, France
+  roles:
+    - Full Stack Developer
+    - Game Designer
+  technos:
+    - Facebook Graph API
+    - Flex 3
+  dates: Aug - Oct 2010
+  description: Created a multiplayer Flash game, deployed as Facebook application.
+
+#-------------------------------------------------------------------------------
+#  Skooairs
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: skooairs
+  title: Skooairs
+  location: Melun, France
+  roles:
+    - Full Stack Developer
+    - Game Designer
+  technos:
+    - Java
+    - Spring Framework
+    - Google AppEngine
+    - Flex 3
+  dates: Jul - Aug 2010
+  description: Created a reflexion Flash game about squares.
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2009'
+
+#-------------------------------------------------------------------------------
+#  Uralys
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: lands-of-uralys
+  location: Toulouse, France
+  title: Lands of Uralys
+  roles:
+    - Full Stack Developer
+    - Game Designer
+  technos:
+    - Java
+    - Spring Framework
+    - Google AppEngine
+    - Flex 3
+  dates: Jan 2008 - Jun 2010
+  description: Developed a MMO browser game. The player controlled a dynasty of magicians and warriors, crafted items and fought against other players on turned based battles.
+
+#-------------------------------------------------------------------------------
+# Serendi
+#-------------------------------------------------------------------------------
+
+- category: partnership
+  id: serendi-voting
+  location: Bordeaux, France
+  title: Serendi 0.1
+  roles:
+    - Front-end Developer
+  technos:
+    - Flex 3
+  dates: Dec 2009 - Feb 2010
+  description: I joined 4 partners to create a voting platform, we ended with a small prototype.
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2006'
+
+#-------------------------------------------------------------------------------
+#  Ads-Click
+#-------------------------------------------------------------------------------
+
+- category: job
+  id: adsclick
+  location: Geneva, Switzerland
+  title: Ads-Click
+  roles:
+    - Backend developer
+  technos:
+    - Java
+  dates: Oct 2006 - Dec 2009
+  description: My first real job, in a start-up, where I developed a java API, and few client side pieces. I guess this awesome team gave me this taste for building dynamic projects that still drives me today.
+
+#-------------------------------------------------------------------------------
+#  Blub
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: blub
+  location: Edinburg, Scotland
+  title: Blub
+  roles:
+    - Game Developer
+  technos:
+    - Java
+  dates: July 2006
+  description: My first 2D platformer! coming with its own level editor <3
+  url: http://lespoissonsrouges.free.fr/blub/blub.html
+
+#-------------------------------------------------------------------------------
+#  Aspects Software
+#-------------------------------------------------------------------------------
+
+- category: internship
+  id: aspects
+  location: Edinburg, Scotland
+  title: Aspects Software
+  roles:
+    - Intern
+    - Backend developer
+  technos:
+    - Java
+    - Hibernate
+  dates: Feb - Jul 2006
+  description: 'This internship ended my graduate course: I helped the team develop internal tools to interface their building processes.'
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2005'
+
+#-------------------------------------------------------------------------------
+#  School
+#-------------------------------------------------------------------------------
+
+- category: school
+  id: enseirb
+  location: Bordeaux, France
+  title: ENSEIRB
+  roles:
+    - Student
+  technos:
+    - Software Engineering
+  dates: sept 2003 - sept 2006
+  description: ENSEIRB delivers a Diploma of Engineering at a level equivalent to 5 years of higher education.
+  links:
+    - type: github
+      url: http://www.enseirb-matmeca.fr/
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2003'
+
+#-------------------------------------------------------------------------------
+
+- category: school
+  id: prepa
+  location: Valence, France
+  title: Scientific CPGE
+  roles:
+    - Student
+  technos:
+    - Maths/Physics
+  dates: 2001 - 2003
+  description: Scientific CPGE, specialized in Mathematics and Physics (MP/MPSI).
+  links:
+    - type: github
+      url: http://en.wikipedia.org/wiki/Classe_pr%C3%A9paratoire_aux_grandes_%C3%A9coles
