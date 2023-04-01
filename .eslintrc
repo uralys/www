@@ -1,14 +1,13 @@
 {
   "env": {
-    "node": true,
-    "es6": true
+    "browser": true
   },
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "prettier"
   ],
-  "ignorePatterns": [
-    "**/dist/*"
+  "extends": [
+    "eslint:recommended"
   ],
   "rules": {
     "prettier/prettier": [
