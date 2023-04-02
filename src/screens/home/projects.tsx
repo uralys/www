@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import projectsYAML from '../../../assets/content/projects.yaml';
 
@@ -37,6 +37,8 @@ const Projects = () => {
   if (!projects) {
     return null;
   }
+
+  console.log({projects});
 
   return (
     <$Projects>
