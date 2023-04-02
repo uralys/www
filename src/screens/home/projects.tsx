@@ -4,15 +4,16 @@ import projectsYAML from '../../../assets/content/projects.yaml';
 
 // -----------------------------------------------------------------------------
 
-const $Projects = styled.div`
-  overflow: hidden;
-`;
+type ProjectId = string;
+type ProjectImages = {
+  logo: string;
+};
 
-// -----------------------------------------------------------------------------
+type Images = Record<ProjectId, ProjectImages>;
 
 type Project = {
   category: 'games' | 'freelance' | 'job' | 'partnership' | 'school' | 'year';
-  id: string;
+  id: ProjectId;
   title: string;
   location: string;
   roles: Array<string>;
@@ -24,6 +25,42 @@ type Project = {
     url: string;
   }>;
 };
+
+// -----------------------------------------------------------------------------
+
+const _images: ProjectImages[] = await Promise.all(
+  projectsYAML.map(
+    async (p: Project): Promise<Record<ProjectId, ProjectImages>> => {
+      let logo = null;
+      try {
+        logo = (
+          await import(`../../../assets/images/projects/${p.id}/logo.png`)
+        ).default;
+      } catch (e) {
+        logo = null;
+      }
+
+      return {
+        [p.id]: {
+          logo
+        }
+      };
+    }
+  )
+);
+
+const images: Images = _images.reduce((acc, primages) => {
+  return {
+    ...acc,
+    ...primages
+  };
+}, {});
+
+// -----------------------------------------------------------------------------
+
+const $Projects = styled.div`
+  overflow: hidden;
+`;
 
 // -----------------------------------------------------------------------------
 
@@ -44,7 +81,13 @@ const Projects = () => {
     <$Projects>
       <h3>projects</h3>
       {projects.map((p: Project) => (
-        <p key={`${p.id}`}>{p.title}</p>
+        <>
+          <p key={`${p.id}`}>
+            {p.title} | {p.id}
+          </p>
+
+          <img src={images[p.id]?.logo} />
+        </>
       ))}
     </$Projects>
   );
