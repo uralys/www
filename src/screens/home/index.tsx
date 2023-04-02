@@ -17,7 +17,7 @@ const $Home = styled.div`
   z-index: 1;
   background-color: rgba(44, 42, 54, 0.893);
   box-shadow: 0rem 20px 50px 5px rgba(60, 58, 60, 0.865);
-  color: #ededed;
+  color: #e2e2e2;
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
   line-height: 1.75;
@@ -42,6 +42,7 @@ const $Home = styled.div`
 const Home = () => (
   <$Home>
     <Hero />
+    <hr />
     <Projects />
   </$Home>
 );

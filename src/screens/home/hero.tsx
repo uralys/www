@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Logo from '../../../assets/images/logo.svg';
+import LogoText from '../../../assets/images/logo-text.svg';
 
 // -----------------------------------------------------------------------------
 
@@ -12,6 +13,8 @@ const $Hero = styled.div`
 
   > hr {
     border: 0;
+    padding-top: 10px;
+    padding-bottom: 20px;
   }
 
   > hr:before {
@@ -28,8 +31,9 @@ const $Hero = styled.div`
 
 const Hero = () => (
   <$Hero>
-    <img src={Logo} width="120px" />
-    <h1>Uralys</h1>
+    <img src={LogoText} width="420px" />
+    <h2>Indie Studio</h2>
+    <img src={Logo} width="170px" />
     <hr />
   </$Hero>
 );
