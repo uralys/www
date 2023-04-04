@@ -32,8 +32,13 @@ const Hero = () => (
   <$Hero>
     <img src={LogoText} width="420px" />
     <h2>Indie Studio</h2>
-    <img src={Logo} width="170px" />
     <hr />
+    <p>I help web and mobile teams as freelance.</p>
+    <p>I produce electronic music, usually for movies and video games.</p>
+    <p>I design mobile games with Godot.</p>
+    <hr />
+    <p>Let's talk about your project.</p>
+    <img src={Logo} width="170px" />
   </$Hero>
 );
 

@@ -42,7 +42,6 @@ const $Home = styled.div`
 const Home = () => (
   <$Home>
     <Hero />
-    <hr />
     <Projects />
   </$Home>
 );
