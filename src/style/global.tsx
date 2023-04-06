@@ -66,6 +66,10 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 200;
     letter-spacing: 0.025rem;
     line-height: 1.75;
+
+    > b {
+      font-weight: 800;
+    }
   }
 `;
 

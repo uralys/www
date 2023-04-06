@@ -21,8 +21,6 @@ const $Home = styled.div`
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
   line-height: 1.75;
-  font-weight: 200;
-  letter-spacing: 0.025rem;
   width: 38rem;
   border-radius: 0.5rem;
   padding: 3.75em 3em;
