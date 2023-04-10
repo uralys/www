@@ -25,6 +25,9 @@ type Project = {
     type: string;
     url: string;
   }>;
+  meta?: {
+    inverseOrder: boolean;
+  };
 };
 
 // -----------------------------------------------------------------------------
@@ -148,7 +151,11 @@ const Projects = () => {
 
         return (
           <$Project key={`${project.id}`}>
-            <$Texts style={{order: index % 2}}>
+            <$Texts
+              style={{
+                order: (index + (project.meta?.inverseOrder ? 1 : 0)) % 2
+              }}
+            >
               <$Title>{project.title}</$Title>
               <$Description>{project.description}</$Description>
               <p>
