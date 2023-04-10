@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import projectsYAML from '../../../assets/content/projects.yaml';
-import {maxWidth_736} from '../../style/breakpoints';
+import {maxWidth_480, maxWidth_736} from '../../style/breakpoints';
 
 // -----------------------------------------------------------------------------
 
@@ -49,15 +49,42 @@ const $Texts = styled.div`
   flex-direction: column;
   text-align: left;
   padding: 10px 50px;
+  width: 100%;
 
   ${maxWidth_736} {
     order: 1 !important;
   }
 `;
 
+const $Title = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const $MiniImage = styled.div`
+  display: none;
+
+  ${maxWidth_736} {
+    display: flex;
+  }
+
+  > img {
+    width: 70px;
+    margin-right: 30px;
+    border-radius: 16px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+`;
+
 const $Image = styled.div`
   padding: 20px;
   flex: 1;
+
+  ${maxWidth_736} {
+    display: none;
+  }
 
   > img {
     width: 100%;
@@ -66,7 +93,7 @@ const $Image = styled.div`
   }
 `;
 
-const $Title = styled.p`
+const $TitleText = styled.p`
   text-transform: uppercase;
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
@@ -75,6 +102,10 @@ const $Title = styled.p`
   font-size: 0.875em;
   line-height: 1.375;
   font-weight: 400;
+
+  ${maxWidth_736} {
+    display: flex;
+  }
 `;
 
 const $Description = styled.p`
@@ -156,7 +187,12 @@ const Projects = () => {
                 order: (index + (project.meta?.inverseOrder ? 1 : 0)) % 2
               }}
             >
-              <$Title>{project.title}</$Title>
+              <$Title>
+                <$MiniImage>
+                  <img src={images[project.id]?.logo} />
+                </$MiniImage>
+                <$TitleText>{project.title}</$TitleText>
+              </$Title>
               <$Description>{project.description}</$Description>
               <p>
                 catgory: {project.category} id: {project.id}

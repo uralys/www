@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Logo from '../../../assets/images/logo.svg';
 import LogoText from '../../../assets/images/logo-text.svg';
 
 // -----------------------------------------------------------------------------
@@ -30,7 +29,7 @@ const $Hero = styled.div`
 
 const Hero = () => (
   <$Hero>
-    <img src={LogoText} width="420px" />
+    <img src={LogoText} />
     <h2>Indie Studio</h2>
     <hr />
     <p>

@@ -28,6 +28,7 @@ const $Home = styled.div`
 
   ${maxWidth_736} {
     padding: 1.875rem 3.125rem;
+    margin-top: 80px;
   }
 
   ${maxWidth_360} {
