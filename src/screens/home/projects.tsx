@@ -53,6 +53,7 @@ const $Texts = styled.div`
 
   ${maxWidth_736} {
     order: 1 !important;
+    padding: 10px;
   }
 `;
 
@@ -105,6 +106,7 @@ const $TitleText = styled.p`
 
   ${maxWidth_736} {
     display: flex;
+    font-size: 1em;
   }
 `;
 
@@ -194,9 +196,9 @@ const Projects = () => {
                 <$TitleText>{project.title}</$TitleText>
               </$Title>
               <$Description>{project.description}</$Description>
-              <p>
+              {/* <p>
                 catgory: {project.category} id: {project.id}
-              </p>
+              </p> */}
             </$Texts>
 
             <$Image>

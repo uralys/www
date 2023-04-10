@@ -25,6 +25,13 @@ const $Hero = styled.div`
   }
 `;
 
+// spotify src ?theme=0 to remove color
+const $Iframe = styled.iframe`
+  border: none;
+  height: 400px;
+  width: 100%;
+`;
+
 // -----------------------------------------------------------------------------
 
 const Hero = () => (
@@ -45,7 +52,7 @@ const Hero = () => (
     <p>
       Let's talk about <b>your project.</b>
     </p>
-    {/* <img src={Logo} width="170px" /> */}
+    <$Iframe src="https://open.spotify.com/embed/track/5aIRwFwXMgGIpjZqKt55zj" />
   </$Hero>
 );
 
