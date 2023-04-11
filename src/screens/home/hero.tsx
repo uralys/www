@@ -19,7 +19,7 @@ const $Hero = styled.div`
     content: '';
     border: 0;
     width: 3rem;
-    border-top: solid 2px #ffffff;
+    border-top: solid 2px #e2e2e2;
     height: 2px;
     display: inline-block;
   }
@@ -54,9 +54,12 @@ const Hero = () => (
     </p>
     <hr />
     <p>
-      Let's talk about <b>your project.</b>
+      <a href="mailto:hello@uralys.com">
+        Let's talk about <b>your project.</b>
+      </a>
     </p>
-    <$Iframe src="https://open.spotify.com/embed/track/5aIRwFwXMgGIpjZqKt55zj" />
+    <p></p>
+    {/* <$Iframe src="https://open.spotify.com/embed/track/5aIRwFwXMgGIpjZqKt55zj" /> */}
   </$Hero>
 );
 

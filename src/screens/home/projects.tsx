@@ -96,7 +96,7 @@ const $Image = styled.div`
 
 const $TitleText = styled.p`
   text-transform: uppercase;
-  color: #ffffff;
+  color: #e2e2e2;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 0.275rem;
   width: calc(100% + 0.275rem);
@@ -111,7 +111,7 @@ const $TitleText = styled.p`
 `;
 
 const $Description = styled.p`
-  color: #ffffff;
+  color: #e2e2e2;
   font-family: 'Source Sans Pro', sans-serif;
   letter-spacing: 0.025rem;
   width: calc(100% + 0.025rem);
