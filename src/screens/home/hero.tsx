@@ -25,6 +25,10 @@ const $Hero = styled.div`
   }
 `;
 
+const $LogoTitle = styled.img`
+  margin-top: 45px;
+`;
+
 // spotify src ?theme=0 to remove color
 const $Iframe = styled.iframe`
   border: none;
@@ -36,7 +40,7 @@ const $Iframe = styled.iframe`
 
 const Hero = () => (
   <$Hero>
-    <img src={LogoText} />
+    <$LogoTitle src={LogoText} />
     <h2>Indie Studio</h2>
     <hr />
     <p>
