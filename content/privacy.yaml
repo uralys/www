@@ -32,5 +32,5 @@ sections:
 
   - type: texts
     texts:
-      - paragraph: 'Last update: 2022-02-15'
-      - paragraph: If you have any questions, feel free to email `hello@uralys.com`
+      - html: If you have any questions, <a href="mailto:hello@uralys.com">please let me know</a>
+      - paragraph: 'Last update: 2023-04-12'
