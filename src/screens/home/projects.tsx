@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import projectsYAML from '../../../assets/content/projects.yaml';
-import {maxWidth_480, maxWidth_736} from '../../style/breakpoints';
+import projectsYAML from '../../../content/projects.yaml';
+import {maxWidth_736} from '../../style/breakpoints';
 
 // -----------------------------------------------------------------------------
 

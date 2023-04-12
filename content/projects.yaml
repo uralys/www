@@ -3,10 +3,36 @@
 #-------------------------------------------------------------------------------
 
 - category: year
-  id: '2022'
+  id: '2023'
 
 #-------------------------------------------------------------------------------
-#  Battle Squares
+
+- category: job
+  id: coorp-mobile-freelance
+  title: App mobile Coorpacademy
+  location: Paris, France
+  roles:
+    - Mobile Developer
+  technos:
+    - React Native
+    - Node.js
+  dates: from 2022
+  description: Back with the Coorp dev team, refreshing the mobile app with new features.
+  links:
+    - type: github
+      url: https://github.com/CoorpAcademy/components/packages/components
+    - type: apple
+      url: https://itunes.apple.com/us/app/id1448348795
+    - type: android
+      url: https://play.google.com/store/apps/details?id=com.coorpacademy.app
+  meta:
+    inverseOrder: true
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2022'
+
 #-------------------------------------------------------------------------------
 
 - category: games
@@ -27,8 +53,6 @@
     - type: apple
       url: https://apps.apple.com/fr/app/battle-squares/id1609783397
 
-#-------------------------------------------------------------------------------
-#  Lockey Land
 #-------------------------------------------------------------------------------
 
 - category: games
