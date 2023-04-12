@@ -1,0 +1,36 @@
+id: privacy
+title: Privacy Policy
+sections:
+  - type: texts
+    texts:
+      - html: '<a href="http://uralys.com">Uralys</a> games are operated and maintained by <a href="https://twitter.com/uralys">@uralys</a>.'
+      - html: This document outlines the data handling practices for all <i>Uralys</i> mobile games.
+
+  - type: texts
+    texts:
+      - subtitle: 'Uralys games:'
+      - list:
+          - Do not collect any personal information
+          - Do not collect location data
+          - Do not have third party advertisements
+
+  - type: texts
+    texts:
+      - paragraph: The term “personal information” refers to personally identifiable information through which a user can be identified as an individual.
+      - paragraph: The term “Non-personal information” refers to information that does not directly identify a user. For example, your scores and badges, which are stored in a secured DB.
+
+  - type: texts
+    texts:
+      - subtitle: 'Collection and use of "personal information" via our games:'
+      - paragraph: Uralys do not collect any personal information through their apps. Simple as that.
+
+  - type: texts
+    texts:
+      - subtitle: What other third parties are used within the games?
+      - html: <b>Godot Engine</b> for coding. You can read their privacy policy <a target="_blank" href="https://godotengine.org/privacy-policy">here</a>
+      - html: Your scores and game progress are anonymously stored using <b>Amazon Web Services</b>. You can read their privacy policy <a href="https://aws.amazon.com/privacy/">here</a>
+
+  - type: texts
+    texts:
+      - paragraph: 'Last update: 2022-02-15'
+      - paragraph: If you have any questions, feel free to email `hello@uralys.com`

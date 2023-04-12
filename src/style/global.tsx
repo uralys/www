@@ -60,17 +60,22 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 0.35rem;
   }
 
+  hr {
+    width: 100%;
+  }
+
   a {
-    font-weight: 500;
+    font-weight: bold;
     text-decoration: none;
-    color: #e2e2e2;
+    color: #b264df;
 
     :hover {
       color: #fff;
     }
   }
 
-  p {
+
+  li, p {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1em;
     font-weight: 200;

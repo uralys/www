@@ -3,7 +3,7 @@ import {maxWidth_360, maxWidth_480, maxWidth_736} from './breakpoints';
 
 // -----------------------------------------------------------------------------
 
-export const $Wrapper = styled.div`
+const $Wrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -25,3 +25,5 @@ export const $Wrapper = styled.div`
     padding: 0.5rem;
   }
 `;
+
+export default $Wrapper;

@@ -1,0 +1,534 @@
+--- # Projects details for each page
+#-------------------------------------------------------------------------------
+# ld44
+#-------------------------------------------------------------------------------
+
+- page:
+    id: ld44
+    title: LD44
+    keywords:
+      - ludum dare
+      - ld44
+      - games
+      - prototype
+    sections:
+      - type: texts
+        id: title
+        texts:
+          - title: 'Ludum Dare 44'
+          - paragraph: 'Your life is currency'
+
+      - type: texts
+        timeline: true
+        texts:
+          - html: '<p align="center">
+              <img
+              src="https://user-images.githubusercontent.com/910636/56871257-97813780-6a1b-11e9-80c4-fb2a9553b5ae.gif"
+              width="200"
+              >
+              </p>'
+
+      - type: texts
+        texts:
+          - title: '1024: Blockfall prototype'
+          - paragraph: 'I managed to find 10 hours that weekend to push an entry. Somehow it was even an advantage not to use these 48h: I was definitely pushed to remove stuffs as the time passed.'
+          - list:
+              - I wanted many rules, (only one remained at the end)
+              - I wanted a leaderboard (but I would have used stuffs already coded)
+              - I wanted music and sounds (guess what)
+          - paragraph: 'You have 10 clicks to destroy the blocks. Try to reach more than 1024 points.'
+
+      - type: texts
+        id: links
+        texts:
+          - title: Links
+          - html: '<a href="https://ldjam.com/events/ludum-dare/44/uralys-ld44">LDjam page</a>'
+            type: credit
+          - html: 'Source code on <a href="https://github.com/chrisdugne/ld44">Github</a>'
+            type: credit
+          - html: 'Play the HTML5 version <a href="http://chrisdugne.github.io/ld44/">here</a>'
+            type: credit
+          - html: 'Devlog as a <a href="https://twitter.com/chrisdugne/status/1122041386088505344">Twitter thread</a>'
+            type: credit
+
+      - type: texts
+        id: credits
+        texts:
+          - title: Credits
+          - html: 'Idea, Coding, Game Design and Soundtracks by <a href="https://twitter.com/chrisdugne">Chris Dugne</a>'
+            icon: frog
+            type: credit
+          - html: '❤ Lua ❤ and <a href="http://www.coronalabs.com/">Corona SDK</a> ❤'
+            icon: corona
+            type: credit
+
+#-------------------------------------------------------------------------------
+# kodo-monster
+#-------------------------------------------------------------------------------
+
+- page:
+    id: kodo-monster
+    title: 'Kodo: find the monster'
+    keywords:
+      - kodo
+      - games
+
+    sections:
+      - type: texts
+        id: title
+        texts:
+          - title: 'Kodo: find the monster'
+          - paragraph: 'A Kodo theme'
+
+      - type: images
+        timeline: true
+        images:
+          - asset: store
+
+      - type: stores
+        google: https://play.google.com/store/apps/details?id=com.uralys.kodo.monster
+        apple: https://itunes.apple.com/us/app/id1462688847
+
+      - type: texts
+        texts:
+          - title: 'Technos:'
+          - list:
+              - Corona SDK
+              - Node.js
+              - AWS DynamoDb
+              - AWS Lambdas
+
+      - type: texts
+        id: credits
+        texts:
+          - title: Credits
+          - html: 'Idea, Coding, Game Design and Soundtracks by <a href="https://twitter.com/chrisdugne">Chris Dugne</a>'
+            icon: frog
+            type: credit
+          - html: '❤ Lua ❤ and <a href="http://www.coronalabs.com/">Corona SDK</a> ❤'
+            icon: corona
+            type: credit
+
+#-------------------------------------------------------------------------------
+# exalt
+#-------------------------------------------------------------------------------
+
+- page:
+    id: exalt
+    title: Coorpacademy Playground!
+    keywords:
+      - studio
+      - prototype
+      - games
+      - coorpacademy
+
+    sections:
+      - type: centeredText
+        id: title
+        texts:
+          - title: Coorpacademy Playground!
+          - paragraph: Prototyping new gaming experiences for learners.
+
+      - type: centeredText
+        texts:
+          - subtitle: Jan 2019 - Apr 2019
+
+      - type: texts
+        texts:
+          - paragraph: I've built a quizzer prototype to demonstrate new gameplay for Coorpacademy clients.
+          - paragraph: Using Coorpacademy learning content, 2 games runs with a common quizzer, each having different rules and visual effects.
+
+      - type: images
+        images:
+          - asset: home
+          - asset: gameselection
+
+      - type: images
+        timeline: true
+        images:
+          - asset: game1
+          - asset: game2
+
+      - type: texts
+        id: credits
+        texts:
+          - title: Credits
+          - html: 'Idea, Coding, Game Design and Soundtracks by <a href="https://twitter.com/chrisdugne">Chris Dugne</a>'
+            icon: frog
+            type: credit
+          - html: '❤ Lua ❤ and <a href="http://www.coronalabs.com/">Corona SDK</a> ❤'
+            icon: corona
+            type: credit
+
+#-------------------------------------------------------------------------------
+# coorp-mobile
+#-------------------------------------------------------------------------------
+
+- page:
+    id: coorp-mobile
+    title: Coorpacademy mobile app
+    keywords:
+      - mission
+      - job
+      - coorpacademy
+
+    sections:
+      - type: centeredText
+        id: title
+        texts:
+          - title: Coorpacademy mobile app
+          - paragraph: Coorpacademy experience in your pocket.
+
+      - type: images
+        images:
+          - asset: store
+
+      - type: texts
+        texts:
+          - title: 'Role:'
+          - paragraph: Member of the mobile team, which delivered the first mobile app on stores for Coorpacademy.
+
+      - type: images
+        timeline: true
+        images:
+          - asset: store1
+          - asset: store2
+
+      - type: texts
+        texts:
+          - title: 'Technos:'
+          - list:
+              - React Native
+              - Redux
+              - Node.js
+
+      - type: stores
+        google: https://play.google.com/store/apps/details?id=com.coorpacademy.app
+        apple: https://itunes.apple.com/us/app/id1448348795
+
+      - type: images
+        images:
+          - asset: ratings
+
+#-------------------------------------------------------------------------------
+# kodo-color
+#-------------------------------------------------------------------------------
+
+- page:
+    id: kodo-color
+    title: 'Kodo: find the color'
+    keywords:
+      - kodo
+      - games
+
+    sections:
+      - type: centeredText
+        id: title
+        texts:
+          - title: 'Kodo: find the color'
+          - paragraph: 'the first Kodo theme'
+
+      - type: images
+        timeline: true
+        images:
+          - asset: store
+
+      - type: stores
+        google: https://play.google.com/store/apps/details?id=com.uralys.kodo.find_the_color
+        apple: https://itunes.apple.com/us/app/id684227637
+
+      - type: texts
+        texts:
+          - title: 'Technos:'
+          - list:
+              - Corona SDK
+              - Node.js
+              - AWS DynamoDb
+              - AWS Lambdas
+
+      - type: texts
+        id: credits
+        texts:
+          - title: Credits
+          - html: 'Idea, Coding, Game Design and Soundtracks by <a href="https://twitter.com/chrisdugne">Chris Dugne</a>'
+            icon: frog
+            type: credit
+          - html: '❤ Lua ❤ and <a href="http://www.coronalabs.com/">Corona SDK</a> ❤'
+            icon: corona
+            type: credit
+
+#-------------------------------------------------------------------------------
+# totem
+#-------------------------------------------------------------------------------
+
+- page:
+    id: totem
+    title: Totem
+    keywords:
+      - mission
+      - job
+      - prototype
+      - studio
+      - coorpacademy
+      - games
+
+    sections:
+      - type: centeredText
+        id: title
+        texts:
+          - images:
+              - asset: logo
+                style:
+                  width: 150px
+          - title: Totem
+          - paragraph: A multiplayer game for Coorpacademy
+
+      - type: centeredText
+        texts:
+          - subtitle: Nov 2017 - Oct 2018
+
+      - type: texts
+        texts:
+          - paragraph: I created a real-time multiplayer game for Coorpacademy, based on the classical question player used for the web MOOC.
+          - paragraph: Each player is member of a team, and must answer questions. A good answer gives a new totem part, a bad one removes a part. The first team to reach the top is the winner.
+
+      - type: images
+        images:
+          - asset: game1
+
+      - type: images
+        images:
+          - asset: game2
+
+      - type: images
+        images:
+          - asset: game3
+
+      - type: images
+        timeline: true
+        images:
+          - asset: game1
+          - asset: game3
+
+      - type: texts
+        texts:
+          - title: 'Technos:'
+          - list:
+              - Node.js
+              - React/Redux
+
+#-------------------------------------------------------------------------------
+# cherry
+#-------------------------------------------------------------------------------
+
+- page:
+    id: cherry
+    title: Cherry
+    keywords:
+      - cherry
+      - games
+
+    sections:
+      - type: centeredText
+        id: title
+        texts:
+          - title: Cherry
+          - paragraph: Backbone to all my mobile games from 2017
+
+      - type: images
+        timeline: true
+        images:
+          - asset: cover
+
+      - type: texts
+        timeline: true
+        texts:
+          - paragraph: Cherry is a layer above Corona SDK, providing a toolset to create Corona games quicker.
+          - html: 'Full documentation on <a href="https://github.com/chrisdugne/cherry">Github readme</a>'
+            icon: github
+            type: credit
+          - html: 'Game starter <a href="https://github.com/chrisdugne/cherry-starter">example</a>, used for LD44.'
+            icon: github
+            type: credit
+
+      - type: texts
+        texts:
+          - title: 'Technos:'
+          - list:
+              - Corona SDK
+              - Busted
+
+      - type: texts
+        id: credits
+        texts:
+          - title: Credits
+          - html: 'Maintained by <a href="https://twitter.com/chrisdugne">Chris Dugne</a>'
+            icon: frog
+            type: credit
+          - html: '❤ Lua ❤ and <a href="http://www.coronalabs.com/">Corona SDK</a> ❤'
+            icon: corona
+            type: credit
+          - html: 'Unit tests with <a href="http://olivinelabs.com/busted/">Busted</a>'
+            icon: github
+            type: credit
+
+#-------------------------------------------------------------------------------
+# phantoms
+#-------------------------------------------------------------------------------
+
+- page:
+    id: phantoms
+    title: Phantoms
+    keywords:
+      - phantoms
+      - games
+
+    sections:
+      - type: images
+        images:
+          - asset: title
+            style:
+              width: 250px
+
+      - type: intro
+        title: Get ready for labyrinths
+        subtitle: A mobile mind game
+        asset: cover
+        info: Discover the first Chapters!
+
+      - type: stores
+        google: https://play.google.com/store/apps/details?id=com.uralys.phantoms
+        apple: https://itunes.apple.com/us/app/id1037707233
+
+      - type: video
+        url: https://www.youtube.com/embed/JELDE2yfwKI
+
+      - type: images
+        images:
+          - asset: '1'
+          - asset: '2'
+          - asset: '3'
+          - asset: '4'
+
+      - type: images
+        images:
+          - asset: '5'
+          - asset: '6'
+          - asset: '7'
+          - asset: '8'
+
+      - type: images
+        timeline: true
+        images:
+          - asset: '9'
+          - asset: '10'
+          - asset: '11'
+          - asset: '12'
+
+      - type: texts
+        texts:
+          - paragraph: Phantoms is a mobile mind game providing 2D labyrinths where teams of phantoms trigger colored doors and rooms to modify the paths. Reaching the exit may sometimes be quite easy, but you'll have to find all gems along the way...
+          - paragraph: You will move phantoms one by one, toggling many kinds of triggers to open doors, rotate rooms, reveal hidden areas, to find a way, step by step, toward the exit. From simple houses to devious castles, you'll be challenged to find all the Gems.
+          - list:
+              - free!
+              - on iOS and Android, check both phone and tablet versions
+              - 2 chapters, 16 levels for the first public release
+              - Music by Velvet Coffee (be sure to plug your headphones ♫ )
+
+      - type: texts
+        id: credits
+        texts:
+          - title: Credits
+          - html: 'Idea, Coding, Game Design and Soundtracks by <a href="https://twitter.com/chrisdugne">Chris Dugne</a>'
+            icon: frog
+            credit: true
+          - html: 'Music + SFX (as a half of <a href="https://www.facebook.com/velvetcoffeemusic">Velvet Coffee</a>)'
+            icon: velvetcoffee
+            credit: true
+          - html: '❤ Lua ❤ and <a href="http://www.coronalabs.com/">Corona SDK</a> ❤'
+            icon: corona
+            credit: true
+          - html: '<a href="https://github.com/GymbylCoding/CBEffects">CBEffects 3.2</a>: Thanks <a href="http://gymbyl.com">Gymbyl Coding</a> ❤ for this awesome effects lib !'
+            credit: true
+            icon: cbeffects
+          - html: Phantoms from Yurike's <a href="http://yurike11.deviantart.com/art/Furry-Creatures-164706499">Furry Creatures</a>
+            icon: phantoms/phantom
+            credit: true
+          - html: Background by <a href="https://www.facebook.com/white.leyth">Oussama Agazzoum</a>
+            credit: true
+          - html: GUI by <a href="http://graphicburger.com/mobile-game-gui/">GraphicBurger</a>
+            credit: true
+          - html: Triggers, buttons and avatars from <a href="http://www.glitchthegame.com/public-domain-game-art/">Tiny Speck</a>
+            credit: true
+          - html: Rooms, doors, walls by.....me and Gimp 2.8...
+            credit: true
+          - html: Few additional icons for buttons come from <a href="http://thenounproject.com/">The Noun Project</a>
+            credit: true
+          - html: <a href="https://thenounproject.com/term/headphones/1416/">The headphones</a> designed by <a href="https://thenounproject.com/Madebyelvis/">Madebyelvis</a>
+            credit: true
+          - html: <a href="https://thenounproject.com/term/headphones/77971/">The profile</a> designed by <a href="https://thenounproject.com/acider/">Miguel C Balandrano</a>
+            credit: true
+
+#-------------------------------------------------------------------------------
+# adillions
+#-------------------------------------------------------------------------------
+
+- page:
+    id: adillions
+    title: Adillions
+    keywords:
+      - adillions
+      - partnership
+
+    sections:
+      - type: centeredText
+        id: title
+        texts:
+          - images:
+              - asset: logo
+                style:
+                  width: 150px
+          - title: Adillions
+          - paragraph: Free Sweepstake funded by advertisement
+
+      - type: centeredText
+        texts:
+          - subtitle: Sept 2013 - Nov 2014
+
+      - type: images
+        timeline: true
+        images:
+          - asset: mobile
+            style:
+              width: 250px
+
+      - type: texts
+        texts:
+          - title: 'Role:'
+          - paragraph: I co-founded Adillions as full-stack developer to build a disruptive new sweepstake.
+          - paragraph: "I've built the whole platform to launch the game:"
+          - list:
+              - The mobile game (iOS + Android)
+              - 'The server side: DB + API'
+              - Dev, stage and production platforms using Heroku
+              - Social networks integration
+              - Evaluated and set up Google analytics to track users over the journey on the App.
+
+      - type: texts
+        texts:
+          - title: 'Technos:'
+          - list:
+              - Corona SDK
+              - Node.js
+              - Marionette.js
+              - PostgreSQL
+              - Python
+              - Heroku
+
+      - type: images
+        images:
+          - asset: website
+
+      - type: images
+        images:
+          - asset: stars
