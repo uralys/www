@@ -28,7 +28,7 @@ const App = () => {
     setTimeout(() => {
       const body = document.querySelector('body');
       body?.style.setProperty('--after-opacity', '0');
-    }, 1000);
+    }, 50);
   }, []);
 
   return (

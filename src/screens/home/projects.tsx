@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {Fragment, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import projectsYAML from '../../../content/projects.yaml';
 import {maxWidth_736} from '../../style/breakpoints';
@@ -174,11 +174,11 @@ const Projects = () => {
       {projects.map((project: Project, index: number) => {
         if (project.category === 'year') {
           return (
-            <>
+            <Fragment key={`year-${project.id}`}>
               <hr />
               <p> {project.id}</p>
               <hr />
-            </>
+            </Fragment>
           );
         }
 

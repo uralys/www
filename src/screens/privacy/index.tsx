@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import $Panel from './../../style/panel';
+import Panel from './../../style/panel';
 import privacyYAML from '../../../content/privacy.yaml';
 
 // -----------------------------------------------------------------------------
@@ -68,7 +68,6 @@ const Texts = ({texts, centered}: TextsProps) => (
 // -----------------------------------------------------------------------------
 
 const SectionComponent = ({section}: {section: Section}) => {
-  console.log({section});
   switch (section.type) {
     case 'images':
       return <p>todo section images</p>;
@@ -137,10 +136,10 @@ const PrivacyScreen = () => {
   const {sections} = privacy;
 
   return (
-    <$Panel alignItems="flex-start">
+    <Panel alignItems="flex-start">
       <h1>{privacy.title}</h1>
       <Sections sections={sections} />
-    </$Panel>
+    </Panel>
   );
 };
 

@@ -27,6 +27,7 @@ const $Hero = styled.div`
 
 const $LogoTitle = styled.img`
   margin-top: 45px;
+  width: 400px;
 `;
 
 // spotify src ?theme=0 to remove color
