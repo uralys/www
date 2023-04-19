@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 
 import Home from './screens/home';
@@ -23,12 +23,21 @@ const router = createBrowserRouter([
 
 // -----------------------------------------------------------------------------
 
-const App = () => (
-  <$Wrapper>
-    <GlobalStyle />
-    <RouterProvider router={router} />
-  </$Wrapper>
-);
+const App = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      const body = document.querySelector('body');
+      body?.style.setProperty('--after-opacity', '0');
+    }, 1000);
+  }, []);
+
+  return (
+    <$Wrapper>
+      <GlobalStyle />
+      <RouterProvider router={router} />
+    </$Wrapper>
+  );
+};
 
 // -----------------------------------------------------------------------------
 

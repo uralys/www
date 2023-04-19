@@ -3,6 +3,7 @@ import bg from '../../assets/images/bg.jpg';
 import {maxWidth_980} from './breakpoints';
 
 const GlobalStyle = createGlobalStyle`
+
   *,
   *:before,
   *:after {
@@ -19,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    --after-opacity: 1;
     line-height: 1.0;
     min-height: 100vh;
     min-width: 320px;
@@ -27,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     border:0;
     overflow-x: hidden;
     word-wrap: break-word;
+    z-index: 1;
   }
 
   body:before {
@@ -45,6 +48,22 @@ const GlobalStyle = createGlobalStyle`
     background-position: 0% 0%, center;
     background-repeat: repeat, no-repeat;
     background-size: cover, cover;
+  }
+
+  body:after {
+    content: '';
+    display: block;
+    background-attachment: scroll;
+    height: 100vh;
+    left: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    opacity: var(--after-opacity);
+    width: 100vw;
+    z-index: 0;
+    transition: opacity 1.25s ease-in-out 0.75s, visibility 1.25s 0.75s;
+    background-color: #ab96a6;
   }
 
   h1,h2 {
