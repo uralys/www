@@ -1,4 +1,4 @@
-import {CSSProperties, useEffect} from 'react';
+import {CSSProperties, ReactNode, useEffect} from 'react';
 import styled from 'styled-components';
 import {maxWidth_360, maxWidth_736} from './breakpoints';
 
@@ -44,7 +44,12 @@ const usePanelFadeIn = () => {
   }, []);
 };
 
-const Panel = props => {
+type Props = {
+  children?: ReactNode;
+  alignItems?: CSSProperties['alignItems'];
+};
+
+const Panel = (props: Props) => {
   usePanelFadeIn();
 
   return <$Panel className="panel" {...props} />;
