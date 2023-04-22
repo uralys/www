@@ -1,15 +1,19 @@
 import Hero from './hero';
 import Projects from './projects';
 import Panel from './../../style/panel';
+import Filters from './filters';
 
 // -----------------------------------------------------------------------------
 
 const Home = () => {
   return (
-    <Panel>
-      <Hero />
-      <Projects />
-    </Panel>
+    <>
+      <Filters />
+      <Panel>
+        <Hero />
+        <Projects />
+      </Panel>
+    </>
   );
 };
 
