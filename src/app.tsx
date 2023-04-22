@@ -1,12 +1,18 @@
 import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+
+import createLaTaverne from 'taverne';
+import {Taverne} from 'taverne/hooks';
+import {createDevtools} from 'taverne/middlewares';
+
+import filters from './barrels/filters.barrel';
 
 import Home from './screens/home';
 import Privacy from './screens/privacy';
 
 import GlobalStyle from './style/global';
 import $Wrapper from './style/wrapper';
-import {RouterProvider, createBrowserRouter} from 'react-router-dom';
 
 // -----------------------------------------------------------------------------
 
@@ -41,8 +47,16 @@ const App = () => {
 
 // -----------------------------------------------------------------------------
 
+const barrels = {filters};
+const devtools = createDevtools();
+const {dispatch, taverne} = createLaTaverne(barrels, [devtools]);
+
+// -----------------------------------------------------------------------------
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <Taverne dispatch={dispatch} taverne={taverne}>
+      <App />
+    </Taverne>
   </React.StrictMode>
 );
