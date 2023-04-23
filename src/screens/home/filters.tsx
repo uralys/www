@@ -5,6 +5,7 @@ import {useCallback} from 'react';
 import {TOGGLE_FILTER} from '../../barrels/filters.barrel';
 
 import type {Filter, ToggleFilterAction} from '../../barrels/filters.barrel';
+import {maxWidth_736} from '../../style/breakpoints';
 
 // -----------------------------------------------------------------------------
 
@@ -24,6 +25,10 @@ const $Filters = styled.div<{scrollPosition: number}>`
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   padding: 5px 12px 8px;
   border-radius: 0 0 10px 10px;
+
+  ${maxWidth_736} {
+    left: auto;
+  }
 `;
 
 // -----------------------------------------------------------------------------
@@ -34,20 +39,23 @@ const $Filter = styled.div`
   align-items: center;
   margin-bottom: 2px;
   padding: 0;
-  height: 2.4em;
+  height: 30px;
+  cursor: pointer;
 `;
 
-const $FilterName = styled.p``;
+const $FilterName = styled.p`
+  font-size: 0.9rem;
+  letter-spacing: 0.062rem;
+`;
 
 const $Toggle = styled.div<{selected: boolean}>`
-  width: 62px;
-  height: 30px;
+  width: 40px;
+  height: 5px;
   margin-top: 4px;
   margin-right: 10px;
   border-radius: 1em;
   background-color: ${props => (props.selected ? `#cccccc` : `#848484`)};
   box-shadow: inset 0px 0px 2px 1px rgba(87, 126, 177, 0.3);
-  cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   justify-content: center;
   align-items: center;
@@ -56,12 +64,12 @@ const $Toggle = styled.div<{selected: boolean}>`
   :after {
     content: '';
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
     background-color: ${props => (props.selected ? `#e8e8e8` : `#ddd`)};
     box-shadow: 0rem 1px 1px 1px rgba(60, 58, 60, 0.365);
     border-radius: 50%;
-    margin-left: ${props => (props.selected ? `30px` : `-30px`)};
+    margin-left: ${props => (props.selected ? `26px` : `-26px`)};
     transition: margin-left 0.15s ease-in-out;
   }
 `;

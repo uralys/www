@@ -15,7 +15,14 @@ type ProjectImages = {
 type Images = Record<ProjectId, ProjectImages>;
 
 type Project = {
-  category: 'games' | 'freelance' | 'job' | 'partnership' | 'school' | 'year';
+  category:
+    | 'games'
+    | 'freelance'
+    | 'music'
+    | 'job'
+    | 'partnership'
+    | 'school'
+    | 'year';
   id: ProjectId;
   title: string;
   location: string;
@@ -26,6 +33,12 @@ type Project = {
   links: Array<{
     type: string;
     url: string;
+    platform?:
+      | 'spotify'
+      | 'applemusic'
+      | 'deezer'
+      | 'amazonmusic'
+      | 'soundcloud';
   }>;
   meta?: {
     inverseOrder: boolean;
@@ -82,7 +95,8 @@ const $MiniImage = styled.div`
 `;
 
 const $Image = styled.div`
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   flex: 1;
 
   ${maxWidth_736} {
@@ -154,8 +168,20 @@ const images: Images = _images.reduce((acc, primages) => {
 
 // -----------------------------------------------------------------------------
 
+// spotify src ?theme=0 to remove color
+const $Iframe = styled.iframe`
+  border: none;
+  height: 160px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+`;
+
+// -----------------------------------------------------------------------------
+
 const $Projects = styled.div`
   overflow: hidden;
+  width: 100%;
 `;
 
 // -----------------------------------------------------------------------------
@@ -200,6 +226,14 @@ const Projects = () => {
 
         if (!isSelected('everything') && !isSelected(project.category)) {
           return null;
+        }
+
+        if (project.category === 'music') {
+          return (
+            <$Iframe
+              src={project.links.find(link => link.platform === 'spotify')?.url}
+            />
+          );
         }
 
         return (

@@ -7,6 +7,18 @@
 
 #-------------------------------------------------------------------------------
 
+- category: music
+  id: rough-draft
+  title: Rough Draft
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Apr 2023
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/5zhLSjbmXh4dc6oDmb4J1b
+
 - category: freelance
   id: coorp-mobile-freelance
   title: App mobile Coorpacademy
@@ -25,8 +37,18 @@
       url: https://itunes.apple.com/us/app/id1448348795
     - type: android
       url: https://play.google.com/store/apps/details?id=com.coorpacademy.app
-  meta:
-    inverseOrder: true
+
+- category: music
+  id: emergence
+  title: Emergence
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Feb 2023
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/5aIRwFwXMgGIpjZqKt55zj
 
 #-------------------------------------------------------------------------------
 
@@ -34,6 +56,55 @@
   id: '2022'
 
 #-------------------------------------------------------------------------------
+
+- category: music
+  id: resilience
+  title: Resilience
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Dec 2022
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/4JYYamzSA1sek5lCWsMYVB
+
+- category: music
+  id: radiorat
+  title: Radiorat
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Oct 2022
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/3KdW5y4IZCn6XFRuPxai8j
+
+- category: music
+  id: dancing-with-devils
+  title: Dancing With Sevils
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Oct 2022
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/2CNF8xFhdEa4oOfBzJSa6V
+
+- category: music
+  id: departure
+  title: Departure
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Jul 2022
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/4CCjS6wyi7C0V8AwZNn6T2
+
 
 - category: games
   id: battle-squares
@@ -53,7 +124,19 @@
     - type: apple
       url: https://apps.apple.com/fr/app/battle-squares/id1609783397
 
-#-------------------------------------------------------------------------------
+
+- category: music
+  id: lockeyland-soundtrack
+  title: Lockey Land Soundtrack
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Jan 2022
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/4h9Gi6Z6Jalthgk49UkU4F
+
 
 - category: games
   id: lockeyland
@@ -71,6 +154,74 @@
       url: https://play.google.com/store/apps/details?id=com.uralys.lockeyland.chapter0
     - type: apple
       url: https://apps.apple.com/app/lockey-land/id1603491928
+
+
+- category: music
+  id: mascarade
+  title: Mascarade
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Feb 2022
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/39FuYlAOljdgZQ87LToZT3
+
+#-------------------------------------------------------------------------------
+
+- category: year
+  id: '2021'
+
+#-------------------------------------------------------------------------------
+
+- category: music
+  id: tribute-to-profesor-kliq
+  title: Tribute To Profesor Kliq
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Jun 2021
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/7IQu7QA8B2j2cLYwH26ZVN
+
+- category: music
+  id: from-dust
+  title: From Dust
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Jun 2021
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/4Fncsyr4acn1YJviUvuUaM
+
+- category: music
+  id: from-the-mountains
+  title: From The Mountains
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Jun 2021
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/31Y8atSNGaLOXIdYGRKAyo
+
+- category: music
+  id: with-love
+  title: With Love
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Oct 2021
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/7gZGrChByVt99D1Eeuknnd
 
 #-------------------------------------------------------------------------------
 
@@ -269,6 +420,18 @@
 
 #-------------------------------------------------------------------------------
 
+- category: music
+  id: winter-waltz
+  title: Winter Waltz
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Jun 2016
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/08KLyM4u8GHQNhRNjyy0aY
+
 - category: games
   id: ld36
   title: Cerise Music Ride
@@ -406,6 +569,18 @@
     - HTML/CSS
   dates: Oct 2012 - Dec 2014
   description: Maperial was an open source javascript API to create WebGL maps. It was the front to my teamates' awesome backend exposing tiles from scientist data.
+
+- category: music
+  id: nocturne-waltz
+  title: Nocturne Waltz
+  location: Paris, France
+  roles:
+    - Producer
+  dates: Jun 2013
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/14jlpHiR8cOKSJL7kBWRBe
 
 #-------------------------------------------------------------------------------
 

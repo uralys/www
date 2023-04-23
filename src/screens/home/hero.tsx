@@ -34,13 +34,6 @@ const $LogoTitle = styled.img`
   width: 400px;
 `;
 
-// spotify src ?theme=0 to remove color
-const $Iframe = styled.iframe`
-  border: none;
-  height: 400px;
-  width: 100%;
-`;
-
 // -----------------------------------------------------------------------------
 
 const Hero = () => (
@@ -59,11 +52,9 @@ const Hero = () => (
     </p>
     <hr />
     <p>
-      <a href="mailto:hello@uralys.com">Let's talk about</a>
-      <b>your project.</b>
+      <a href="mailto:hello@uralys.com">Let's talk</a>
+      <b>about your project.</b>
     </p>
-    <p></p>
-    {/* <$Iframe src="https://open.spotify.com/embed/track/5aIRwFwXMgGIpjZqKt55zj" /> */}
   </$Hero>
 );
 
