@@ -23,6 +23,10 @@ const $Hero = styled.div`
     height: 2px;
     display: inline-block;
   }
+
+  > * a ~ b {
+    margin-left: 5px;
+  }
 `;
 
 const $LogoTitle = styled.img`
@@ -55,9 +59,8 @@ const Hero = () => (
     </p>
     <hr />
     <p>
-      <a href="mailto:hello@uralys.com">
-        Let's talk about <b>your project.</b>
-      </a>
+      <a href="mailto:hello@uralys.com">Let's talk about</a>
+      <b>your project.</b>
     </p>
     <p></p>
     {/* <$Iframe src="https://open.spotify.com/embed/track/5aIRwFwXMgGIpjZqKt55zj" /> */}

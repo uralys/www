@@ -5,18 +5,18 @@ export const TOGGLE_FILTER = '@@filters/TOGGLE';
 // -----------------------------------------------------------------------------
 
 export type Filter = {
-  name: 'everything' | 'music' | 'games' | 'projects' | 'freelance';
+  name: 'everything' | 'music' | 'games' | 'freelance';
+  text: string;
   selected: boolean;
 };
 
 type State = Array<Filter>;
 
 const initialState: State = [
-  {name: 'everything', selected: true},
-  {name: 'music', selected: true},
-  {name: 'games', selected: true},
-  {name: 'projects', selected: true},
-  {name: 'freelance', selected: true}
+  {name: 'everything', text: 'all projects', selected: true},
+  {name: 'music', text: 'music', selected: true},
+  {name: 'games', text: 'games', selected: true},
+  {name: 'freelance', text: 'freelance', selected: true}
 ];
 
 // -----------------------------------------------------------------------------
@@ -32,10 +32,10 @@ const onToggleFilter = {
   on: TOGGLE_FILTER,
   reduce: (state: State, payload: ToggleFilterPayload) => {
     const {selectedName} = payload;
-    const isEverythingSelected = state.find(
-      f => 'everything' === f.name
-    )?.selected;
+    const everythingFilter = state.find(f => 'everything' === f.name) as Filter;
+    const isEverythingSelected = everythingFilter.selected;
 
+    let nbSelected = 0;
     state.forEach(filter => {
       if ('everything' === selectedName) {
         filter.selected = true;
@@ -44,12 +44,20 @@ const onToggleFilter = {
           ? filter.name === selectedName
           : filter.name === selectedName
           ? !filter.selected
-          : filter.selected;
+          : false;
+      }
+
+      if (filter.selected) {
+        nbSelected++;
       }
     });
 
-    if (!state.find(f => f.selected)) {
+    if (nbSelected === 0) {
       state.forEach(filter => (filter.selected = true));
+    }
+
+    if (nbSelected === state.length - 1) {
+      everythingFilter.selected = true;
     }
   }
 };

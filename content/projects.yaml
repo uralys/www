@@ -7,7 +7,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: job
+- category: freelance
   id: coorp-mobile-freelance
   title: App mobile Coorpacademy
   location: Paris, France
@@ -79,7 +79,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: partnership
+- category: freelance
   id: twinlify
   title: Twinlify
   location: Paris, France
@@ -105,7 +105,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: games
+- category: freelance
   id: exalt
   title: Exalt
   location: Paris, France
@@ -162,7 +162,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: job
+- category: freelance
   id: coorp-mobile
   title: App mobile Coorpacademy
   location: Paris, France
@@ -208,7 +208,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: job
+- category: freelance
   id: totem
   title: Totem Coorpacademy
   location: Paris, France
@@ -317,7 +317,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: job
+- category: freelance
   id: coorpacademy
   title: Coorpacademy
   location: Paris, France
@@ -339,7 +339,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: partnership
+- category: freelance
   id: adillions
   title: Adillions
   location: Paris, France
@@ -393,7 +393,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: partnership
+- category: freelance
   id: maperial
   title: Maperial
   location: Paris, France
@@ -439,7 +439,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: partnership
+- category: freelance
   id: diligis
   title: Diligis
   location: Paris, France
@@ -461,7 +461,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: partnership
+- category: freelance
   id: cadeaux
   title: Cadeaux
   location: Bordeaux, France
@@ -604,7 +604,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: partnership
+- category: freelance
   id: serendi-voting
   location: Bordeaux, France
   title: Serendi 0.1
@@ -622,7 +622,7 @@
 
 #-------------------------------------------------------------------------------
 
-- category: job
+- category: freelance
   id: adsclick
   location: Geneva, Switzerland
   title: Ads-Click

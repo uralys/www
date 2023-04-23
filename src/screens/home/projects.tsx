@@ -1,7 +1,9 @@
-import {Fragment, useEffect, useState} from 'react';
+import {Fragment, useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components';
+import {useTaverne} from 'taverne/hooks';
 import projectsYAML from '../../../content/projects.yaml';
 import {maxWidth_736} from '../../style/breakpoints';
+import {Filter} from '../../barrels/filters.barrel';
 
 // -----------------------------------------------------------------------------
 
@@ -161,9 +163,23 @@ const $Projects = styled.div`
 const Projects = () => {
   const [projects, setProjects] = useState<Array<Project>>();
 
+  const {pour} = useTaverne();
+  const filters = pour('filters');
+
   useEffect(() => {
     setProjects(projectsYAML as Array<Project>);
   }, []);
+
+  const isSelected = useCallback(
+    (filterName: string) => {
+      return filters.find((f: Filter) => f.name === filterName)?.selected;
+    },
+    [filters]
+  );
+
+  if (!filters) {
+    return null;
+  }
 
   if (!projects) {
     return null;
@@ -180,6 +196,10 @@ const Projects = () => {
               <hr />
             </Fragment>
           );
+        }
+
+        if (!isSelected('everything') && !isSelected(project.category)) {
+          return null;
         }
 
         return (
