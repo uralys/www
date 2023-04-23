@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 
-export const SELECT_FILTER = '@@filters/SELECT';
+export const TOGGLE_FILTER = '@@filters/TOGGLE';
 
 // -----------------------------------------------------------------------------
 
@@ -21,21 +21,36 @@ const initialState: State = [
 
 // -----------------------------------------------------------------------------
 
-type SelectFilterPayload = {selectedName: Filter['name']};
+type ToggleFilterPayload = {selectedName: Filter['name']};
 
-export type SelectFilterAction = {
-  type: '@@filters/SELECT';
-  payload: SelectFilterPayload;
+export type ToggleFilterAction = {
+  type: '@@filters/TOGGLE';
+  payload: ToggleFilterPayload;
 };
 
-const onSelectFilter = {
-  on: SELECT_FILTER,
-  reduce: (state: State, payload: SelectFilterPayload) => {
+const onToggleFilter = {
+  on: TOGGLE_FILTER,
+  reduce: (state: State, payload: ToggleFilterPayload) => {
     const {selectedName} = payload;
+    const isEverythingSelected = state.find(
+      f => 'everything' === f.name
+    )?.selected;
 
     state.forEach(filter => {
-      filter.selected = filter.name === selectedName;
+      if ('everything' === selectedName) {
+        filter.selected = true;
+      } else {
+        filter.selected = isEverythingSelected
+          ? filter.name === selectedName
+          : filter.name === selectedName
+          ? !filter.selected
+          : filter.selected;
+      }
     });
+
+    if (!state.find(f => f.selected)) {
+      state.forEach(filter => (filter.selected = true));
+    }
   }
 };
 
@@ -43,5 +58,5 @@ const onSelectFilter = {
 
 export default {
   initialState,
-  reactions: [onSelectFilter]
+  reactions: [onToggleFilter]
 };

@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import {useTaverne} from 'taverne/hooks';
 import {useScrollPosition} from '../../hooks/use-scroll-position';
 import {useCallback} from 'react';
-import {SELECT_FILTER} from '../../barrels/filters.barrel';
+import {TOGGLE_FILTER} from '../../barrels/filters.barrel';
 
-import type {Filter, SelectFilterAction} from '../../barrels/filters.barrel';
+import type {Filter, ToggleFilterAction} from '../../barrels/filters.barrel';
 
 // -----------------------------------------------------------------------------
 
-const $Filters = styled.p<{scrollPosition: number}>`
+const $Filters = styled.div<{scrollPosition: number}>`
   margin: 0;
   z-index: 10;
   top: 0;
@@ -31,18 +31,18 @@ type FilterDisplayProps = {filter: Filter};
 
 const FilterDisplay = (props: FilterDisplayProps) => {
   const {filter} = props;
+  const {name: filterName} = filter;
   const {dispatch} = useTaverne();
 
-  const selectFilter = (filterName: Filter['name']) =>
-    useCallback(() => {
-      dispatch({
-        type: SELECT_FILTER,
-        payload: {selectedName: filterName}
-      } as SelectFilterAction);
-    }, []);
+  const toggleFilter = useCallback(() => {
+    dispatch({
+      type: TOGGLE_FILTER,
+      payload: {selectedName: filterName}
+    } as ToggleFilterAction);
+  }, [filterName]);
 
   return (
-    <p onClick={selectFilter(filter.name)}>
+    <p onClick={toggleFilter}>
       {filter.name} / {filter.selected && 'selected'}
     </p>
   );
@@ -54,7 +54,6 @@ const Filters = () => {
   const scrollPosition = useScrollPosition();
   const {pour} = useTaverne();
   const filters = pour('filters');
-  console.log({filters});
 
   if (!filters) {
     return null;
@@ -63,7 +62,7 @@ const Filters = () => {
   return (
     <$Filters scrollPosition={scrollPosition}>
       {filters.map((filter: Filter) => (
-        <FilterDisplay filter={filter} />
+        <FilterDisplay filter={filter} key={filter.name} />
       ))}
     </$Filters>
   );
