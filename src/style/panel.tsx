@@ -5,6 +5,7 @@ import {maxWidth_360, maxWidth_736} from './breakpoints';
 const $Panel = styled.div<CSSProperties>`
   --transform: translateY(50px);
   --opacity: 0;
+  --inner-opacity: 0;
   display: flex;
   flex-direction: column;
   align-items: ${props => props.alignItems || 'center'};
@@ -34,6 +35,11 @@ const $Panel = styled.div<CSSProperties>`
   }
 `;
 
+const $InnerPanel = styled.div<CSSProperties>`
+  opacity: var(--inner-opacity);
+  transition: opacity 1.25s ease;
+`;
+
 const usePanelFadeIn = () => {
   useEffect(() => {
     setTimeout(() => {
@@ -41,6 +47,11 @@ const usePanelFadeIn = () => {
       panel?.style.setProperty('--opacity', '1');
       panel?.style.setProperty('--transform', 'translateY(0)');
     }, 50);
+
+    setTimeout(() => {
+      const innerPanel = document.querySelector('.inner-panel') as HTMLElement;
+      innerPanel?.style.setProperty('--inner-opacity', '1');
+    }, 450);
   }, []);
 };
 
@@ -52,7 +63,11 @@ type Props = {
 const Panel = (props: Props) => {
   usePanelFadeIn();
 
-  return <$Panel className="panel" {...props} />;
+  return (
+    <$Panel className="panel" alignItems={props.alignItems}>
+      <$InnerPanel className="inner-panel" {...props} />
+    </$Panel>
+  );
 };
 
 export default Panel;
