@@ -2,15 +2,15 @@ import {CSSProperties, ReactNode, useEffect} from 'react';
 import styled from 'styled-components';
 import {maxWidth_360, maxWidth_736} from './breakpoints';
 
-const padding = `
-  padding: 3.75em 3em;
+const margin = `
+  margin: 3.75em 3em;
 
   ${maxWidth_736} {
-    padding: 1.875rem 3.125rem;
+    margin: 1.875rem 3.125rem;
   }
 
   ${maxWidth_360} {
-    padding: 1.40625rem 3.34375rem;
+    margin: 1.40625rem 3.34375rem;
   }
 `;
 
@@ -22,8 +22,8 @@ type Props = {
 };
 
 /**
-  - Home uses 2 inner panels left/right; they both have the required "padding"
-  - Privacy uses no inner panel: "padding" is applied on Panel itself
+  - Home uses 2 inner panels left/right; they both have the required "margin"
+  - Privacy uses no inner panel: "margin" is applied on Panel itself
 **/
 const $Panel = styled.div<CSSProperties>`
   --transform: translateY(50px);
@@ -42,12 +42,13 @@ const $Panel = styled.div<CSSProperties>`
   transform: var(--transform);
   transition: opacity 1.25s ease 0s, transform 1.25s ease 0s;
   overflow: hidden;
-  ${(props: Props) => !props.leftContent && padding};
+  ${(props: Props) => !props.leftContent && margin};
 `;
 
 const $InnerPanel = styled.div<CSSProperties>`
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   width: 200%;
 `;
 
@@ -62,7 +63,7 @@ const $InnerPanelLeft = styled.div<CSSProperties>`
   opacity: var(--inner-left-opacity);
   transition: opacity 1.25s ease;
   transform: translateX(--inner-left-translate-x);
-  ${padding}
+  ${margin}
 `;
 
 const $InnerPanelRight = styled.div<CSSProperties>`
@@ -73,7 +74,7 @@ const $InnerPanelRight = styled.div<CSSProperties>`
   transition: opacity 1.25s ease;
   background-color: #24f;
   transform: translateX(--inner-right-translate-x);
-  ${padding}
+  ${margin}
 `;
 
 const usePanelFadeIn = () => {
