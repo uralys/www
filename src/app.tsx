@@ -7,6 +7,7 @@ import {Taverne} from 'taverne/hooks';
 import {createDevtools} from 'taverne/middlewares';
 
 import filters from './barrels/filters.barrel';
+import navigation from './barrels/navigation.barrel';
 
 import Home from './screens/home';
 import Privacy from './screens/privacy';
@@ -47,7 +48,7 @@ const App = () => {
 
 // -----------------------------------------------------------------------------
 
-const barrels = {filters};
+const barrels = {filters, navigation};
 const devtools = createDevtools();
 const {dispatch, taverne} = createLaTaverne(barrels, [devtools]);
 

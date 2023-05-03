@@ -33,7 +33,7 @@ type TextsProps = {
   centered: boolean;
 };
 
-const Texts = ({texts, centered}: TextsProps) => (
+const Texts = ({texts}: TextsProps) => (
   <>
     {texts.map(
       ({

@@ -2,15 +2,15 @@ import {CSSProperties, ReactNode, useEffect} from 'react';
 import styled from 'styled-components';
 import {maxWidth_360, maxWidth_736} from './breakpoints';
 
-const margin = `
-  margin: 3.75em 3em;
+const withMarginOrPadding = (marginOrPadding: 'margin' | 'padding') => `
+  ${marginOrPadding}: 3.75em 3em;
 
   ${maxWidth_736} {
-    margin: 1.875rem 3.125rem;
+    ${marginOrPadding}: 1.875rem 3.125rem;
   }
 
   ${maxWidth_360} {
-    margin: 1.40625rem 3.34375rem;
+    ${marginOrPadding}: 1.40625rem 3.34375rem;
   }
 `;
 
@@ -23,7 +23,7 @@ type Props = {
 
 /**
   - Home uses 2 inner panels left/right; they both have the required "margin"
-  - Privacy uses no inner panel: "margin" is applied on Panel itself
+  - Privacy uses no inner panel: "margin" is applied on Panel itself --> as padding
 **/
 const $Panel = styled.div<CSSProperties>`
   --transform: translateY(50px);
@@ -42,7 +42,7 @@ const $Panel = styled.div<CSSProperties>`
   transform: var(--transform);
   transition: opacity 1.25s ease 0s, transform 1.25s ease 0s;
   overflow: hidden;
-  ${(props: Props) => !props.leftContent && margin};
+  ${(props: Props) => !props.leftContent && withMarginOrPadding('padding')}
 `;
 
 const $InnerPanel = styled.div<CSSProperties>`
@@ -63,7 +63,7 @@ const $InnerPanelLeft = styled.div<CSSProperties>`
   opacity: var(--inner-left-opacity);
   transition: opacity 1.25s ease;
   transform: translateX(--inner-left-translate-x);
-  ${margin}
+  ${withMarginOrPadding('margin')}
 `;
 
 const $InnerPanelRight = styled.div<CSSProperties>`
@@ -74,7 +74,7 @@ const $InnerPanelRight = styled.div<CSSProperties>`
   transition: opacity 1.25s ease;
   background-color: #24f;
   transform: translateX(--inner-right-translate-x);
-  ${margin}
+  ${withMarginOrPadding('margin')}
 `;
 
 const usePanelFadeIn = () => {
@@ -98,7 +98,7 @@ const Panel = (props: Props) => {
   usePanelFadeIn();
 
   return props.leftContent ? (
-    <$Panel className="panel" alignItems={props.alignItems}>
+    <$Panel className="panel">
       <$InnerPanel className="inner-panel">
         <$InnerPanelLeft className="inner-panel-left">
           {props.leftContent}

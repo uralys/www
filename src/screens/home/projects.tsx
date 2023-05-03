@@ -4,6 +4,10 @@ import {useTaverne} from 'taverne/hooks';
 import projectsYAML from '../../../content/projects.yaml';
 import {maxWidth_736} from '../../style/breakpoints';
 import {Filter} from '../../barrels/filters.barrel';
+import {
+  SELECT_PROJECT,
+  SelectProjectAction
+} from '../../barrels/navigation.barrel';
 
 // -----------------------------------------------------------------------------
 
@@ -14,7 +18,7 @@ type ProjectImages = {
 
 type Images = Record<ProjectId, ProjectImages>;
 
-type Project = {
+export type Project = {
   category:
     | 'games'
     | 'freelance'
@@ -186,26 +190,82 @@ const $Projects = styled.div`
 
 // -----------------------------------------------------------------------------
 
-const Projects = () => {
-  const [projects, setProjects] = useState<Array<Project>>();
-
-  const {pour} = useTaverne();
+const ProjectDisplay = ({
+  project,
+  index
+}: {
+  project: Project;
+  index: number;
+}) => {
+  const {dispatch, pour} = useTaverne();
   const filters = pour('filters');
-
-  useEffect(() => {
-    setProjects(projectsYAML as Array<Project>);
+  const selectProject = useCallback(() => {
+    dispatch({
+      type: SELECT_PROJECT,
+      payload: {project}
+    } as SelectProjectAction);
   }, []);
 
   const isSelected = useCallback(
     (filterName: string) => {
-      return filters.find((f: Filter) => f.name === filterName)?.selected;
+      return filters?.find((f: Filter) => f.name === filterName)?.selected;
     },
     [filters]
   );
 
-  if (!filters) {
+  if (project.category === 'year') {
+    return (
+      <Fragment key={`year-${project.id}`}>
+        <hr />
+        <p> {project.id}</p>
+        <hr />
+      </Fragment>
+    );
+  }
+
+  if (!isSelected('everything') && !isSelected(project.category)) {
     return null;
   }
+
+  if (project.category === 'music') {
+    return (
+      <$Iframe
+        src={project.links.find(link => link.platform === 'spotify')?.url}
+      />
+    );
+  }
+
+  return (
+    <$Project key={`${project.id}`} onClick={selectProject}>
+      <$Texts
+        style={{
+          order: (index + (project.meta?.inverseOrder ? 1 : 0)) % 2
+        }}
+      >
+        <$Title>
+          <$MiniImage>
+            <img src={images[project.id]?.logo} />
+          </$MiniImage>
+          <$TitleText>{project.title}</$TitleText>
+        </$Title>
+        <$Description>{project.description}</$Description>
+      </$Texts>
+
+      <$Image>
+        <img src={images[project.id]?.logo} />
+      </$Image>
+    </$Project>
+  );
+};
+
+// -----------------------------------------------------------------------------
+
+const Projects = () => {
+  const [projects, setProjects] = useState<Array<Project>>();
+
+  useEffect(() => {
+    setProjects(projectsYAML as Array<Project>);
+  }, []);
 
   if (!projects) {
     return null;
@@ -213,54 +273,13 @@ const Projects = () => {
 
   return (
     <$Projects>
-      {projects.map((project: Project, index: number) => {
-        if (project.category === 'year') {
-          return (
-            <Fragment key={`year-${project.id}`}>
-              <hr />
-              <p> {project.id}</p>
-              <hr />
-            </Fragment>
-          );
-        }
-
-        if (!isSelected('everything') && !isSelected(project.category)) {
-          return null;
-        }
-
-        if (project.category === 'music') {
-          return (
-            <$Iframe
-              src={project.links.find(link => link.platform === 'spotify')?.url}
-            />
-          );
-        }
-
-        return (
-          <$Project key={`${project.id}`}>
-            <$Texts
-              style={{
-                order: (index + (project.meta?.inverseOrder ? 1 : 0)) % 2
-              }}
-            >
-              <$Title>
-                <$MiniImage>
-                  <img src={images[project.id]?.logo} />
-                </$MiniImage>
-                <$TitleText>{project.title}</$TitleText>
-              </$Title>
-              <$Description>{project.description}</$Description>
-              {/* <p>
-                catgory: {project.category} id: {project.id}
-              </p> */}
-            </$Texts>
-
-            <$Image>
-              <img src={images[project.id]?.logo} />
-            </$Image>
-          </$Project>
-        );
-      })}
+      {projects.map((project: Project, index: number) => (
+        <ProjectDisplay
+          key={`project-${index}`}
+          project={project}
+          index={index}
+        />
+      ))}
     </$Projects>
   );
 };
