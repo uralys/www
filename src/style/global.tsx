@@ -3,7 +3,6 @@ import bg from '../../assets/images/bg.jpg';
 import {maxWidth_980} from './breakpoints';
 
 const GlobalStyle = createGlobalStyle`
-
   *,
   *:before,
   *:after {

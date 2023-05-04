@@ -6,11 +6,12 @@ const withMarginOrPadding = (marginOrPadding: 'margin' | 'padding') => `
   ${marginOrPadding}: 3.75em 3em;
 
   ${maxWidth_736} {
-    ${marginOrPadding}: 1.875rem 3.125rem;
+    ${marginOrPadding}: 1.875rem 0.9rem;
   }
 
   ${maxWidth_360} {
-    ${marginOrPadding}: 1.40625rem 3.34375rem;
+    width: 45%;
+    ${marginOrPadding}: 2.5%;
   }
 `;
 
@@ -21,11 +22,16 @@ type Props = {
   alignItems?: CSSProperties['alignItems'];
 };
 
+type RootPanelProps = {
+  isSingle?: boolean;
+  alignItems?: CSSProperties['alignItems'];
+};
+
 /**
   - Home uses 2 inner panels left/right; they both have the required "margin"
   - Privacy uses no inner panel: "margin" is applied on Panel itself --> as padding
 **/
-const $Panel = styled.div<CSSProperties>`
+const $Panel = styled.div<RootPanelProps>`
   --transform: translateY(50px);
   --opacity: 0;
   max-width: 100%;
@@ -42,7 +48,7 @@ const $Panel = styled.div<CSSProperties>`
   transform: var(--transform);
   transition: opacity 1.25s ease 0s, transform 1.25s ease 0s;
   overflow: hidden;
-  ${(props: Props) => !props.leftContent && withMarginOrPadding('padding')}
+  ${(props: RootPanelProps) => props.isSingle && withMarginOrPadding('padding')}
 `;
 
 const $InnerPanel = styled.div<CSSProperties>`
@@ -52,7 +58,7 @@ const $InnerPanel = styled.div<CSSProperties>`
   width: 200%;
 `;
 
-const $InnerPanelLeft = styled.div<CSSProperties>`
+const $InnerPanelSingle = styled.div<CSSProperties>`
   --inner-left-opacity: 0;
   --inner-left-translate-x: 0;
   width: 100%;
@@ -63,6 +69,9 @@ const $InnerPanelLeft = styled.div<CSSProperties>`
   opacity: var(--inner-left-opacity);
   transition: opacity 1.25s ease;
   transform: translateX(--inner-left-translate-x);
+`;
+
+const $InnerPanelLeft = styled($InnerPanelSingle)`
   ${withMarginOrPadding('margin')}
 `;
 
@@ -109,7 +118,9 @@ const Panel = (props: Props) => {
       </$InnerPanel>
     </$Panel>
   ) : (
-    <$Panel className="panel" {...props} />
+    <$Panel className="panel" isSingle alignItems={props.alignItems}>
+      <$InnerPanelSingle className="inner-panel-left" {...props} />
+    </$Panel>
   );
 };
 

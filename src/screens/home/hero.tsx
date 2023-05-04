@@ -31,7 +31,7 @@ const $Hero = styled.div`
 
 const $LogoTitle = styled.img`
   margin-top: 45px;
-  width: 400px;
+  max-width: 400px;
 `;
 
 // -----------------------------------------------------------------------------
