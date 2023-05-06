@@ -1,22 +1,17 @@
 import {Fragment, useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {useTaverne} from 'taverne/hooks';
-import projectsYAML from '../../../content/projects.yaml';
+
 import {maxWidth_736} from '../../style/breakpoints';
 import {Filter} from '../../barrels/filters.barrel';
 import {
   SELECT_PROJECT,
   SelectProjectAction
 } from '../../barrels/navigation.barrel';
+import useImages from '../../hooks/use-images';
+import useProjects from '../../hooks/use-projects';
 
 // -----------------------------------------------------------------------------
-
-type ProjectId = string;
-type ProjectImages = {
-  logo: string;
-};
-
-type Images = Record<ProjectId, ProjectImages>;
 
 export type Project = {
   category:
@@ -27,7 +22,7 @@ export type Project = {
     | 'partnership'
     | 'school'
     | 'year';
-  id: ProjectId;
+  id: string;
   title: string;
   location: string;
   roles: Array<string>;
@@ -142,36 +137,6 @@ const $Description = styled.p`
 
 // -----------------------------------------------------------------------------
 
-const _images: ProjectImages[] = await Promise.all(
-  projectsYAML.map(
-    async (p: Project): Promise<Record<ProjectId, ProjectImages>> => {
-      let logo = null;
-      try {
-        logo = (
-          await import(`../../../assets/images/projects/${p.id}/logo.png`)
-        ).default;
-      } catch (e) {
-        logo = null;
-      }
-
-      return {
-        [p.id]: {
-          logo
-        }
-      };
-    }
-  )
-);
-
-const images: Images = _images.reduce((acc, primages) => {
-  return {
-    ...acc,
-    ...primages
-  };
-}, {});
-
-// -----------------------------------------------------------------------------
-
 // spotify src ?theme=0 to remove color
 const $Iframe = styled.iframe`
   border: none;
@@ -199,6 +164,8 @@ const ProjectDisplay = ({
 }) => {
   const {dispatch, pour} = useTaverne();
   const filters = pour('filters');
+  const images = useImages();
+
   const selectProject = useCallback(() => {
     // dispatch({
     //   type: SELECT_PROJECT,
@@ -261,11 +228,7 @@ const ProjectDisplay = ({
 // -----------------------------------------------------------------------------
 
 const Projects = () => {
-  const [projects, setProjects] = useState<Array<Project>>();
-
-  useEffect(() => {
-    setProjects(projectsYAML as Array<Project>);
-  }, []);
+  const projects = useProjects();
 
   if (!projects) {
     return null;
