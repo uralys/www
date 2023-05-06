@@ -1,8 +1,8 @@
-import {CSSProperties, ReactNode, useEffect} from 'react';
+import {CSSProperties, ReactNode, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {maxWidth_360, maxWidth_736} from './breakpoints';
 
-const withMarginOrPadding = (marginOrPadding: 'margin' | 'padding') => `
+export const withMarginOrPadding = (marginOrPadding: 'margin' | 'padding') => `
   ${marginOrPadding}: 3.75em 3em;
 
   ${maxWidth_736} {
@@ -15,25 +15,12 @@ const withMarginOrPadding = (marginOrPadding: 'margin' | 'padding') => `
   }
 `;
 
-type Props = {
+export type PanelProps = {
   children?: ReactNode;
-  leftContent?: ReactNode;
-  rightContent?: ReactNode;
   alignItems?: CSSProperties['alignItems'];
 };
 
-type RootPanelProps = {
-  isSingle?: boolean;
-  alignItems?: CSSProperties['alignItems'];
-};
-
-/**
-  - Home uses 2 inner panels left/right; they both have the required "margin"
-  - Privacy uses no inner panel: "margin" is applied on Panel itself --> as padding
-**/
-const $Panel = styled.div<RootPanelProps>`
-  --transform: translateY(50px);
-  --opacity: 0;
+const $Panel = styled.div<PanelProps & {opacity: number; translateY: number}>`
   max-width: 100%;
   z-index: 1;
   background-color: rgba(44, 42, 54, 0.893);
@@ -44,82 +31,47 @@ const $Panel = styled.div<RootPanelProps>`
   line-height: 1.75;
   width: 38rem;
   border-radius: 0.5rem;
-  opacity: var(--opacity);
-  transform: var(--transform);
+  opacity: ${props => `${props.opacity}`};
+  transform: ${props => `translateY(${props.translateY}px)`};
   transition: opacity 1.25s ease 0s, transform 1.25s ease 0s;
   overflow: hidden;
-  ${(props: RootPanelProps) => props.isSingle && withMarginOrPadding('padding')}
+  ${withMarginOrPadding('padding')}
 `;
 
-const $InnerPanel = styled.div<CSSProperties>`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 200%;
-`;
-
-const $InnerPanelSingle = styled.div<CSSProperties>`
-  --inner-left-opacity: 0;
-  --inner-left-translate-x: 0;
+const $InnerPanel = styled.div<CSSProperties & {opacity: number}>`
   width: 100%;
   flex-direction: column;
   align-items: ${props => props.alignItems || 'center'};
   justify-content: ${props => props.justifyContent || 'center'};
   text-align: ${props => (props.alignItems ? '' : 'center')};
-  opacity: var(--inner-left-opacity);
+  opacity: ${props => `${props.opacity}`};
   transition: opacity 1.25s ease;
-  transform: translateX(--inner-left-translate-x);
 `;
 
-const $InnerPanelLeft = styled($InnerPanelSingle)`
-  ${withMarginOrPadding('margin')}
-`;
+const Panel = (props: PanelProps) => {
+  const [opacity, setOpacity] = useState<number>(0);
+  const [innerOpacity, setInnerOpacity] = useState<number>(0);
+  const [translateY, setTranslateY] = useState<number>(50);
 
-const $InnerPanelRight = styled.div<CSSProperties>`
-  --inner-right-opacity: 1;
-  --inner-right-translate-x: 0;
-  width: 100%;
-  opacity: var(--inner-right-opacity);
-  transition: opacity 1.25s ease;
-  background-color: #24f;
-  transform: translateX(--inner-right-translate-x);
-  ${withMarginOrPadding('margin')}
-`;
-
-const usePanelFadeIn = () => {
   useEffect(() => {
     setTimeout(() => {
-      const panel = document.querySelector('.panel') as HTMLElement;
-      panel?.style.setProperty('--opacity', '1');
-      panel?.style.setProperty('--transform', 'translateY(0)');
+      setOpacity(1);
+      setTranslateY(0);
     }, 50);
 
     setTimeout(() => {
-      const innerPanel = document.querySelector(
-        '.inner-panel-left'
-      ) as HTMLElement;
-      innerPanel?.style.setProperty('--inner-left-opacity', '1');
-    }, 650);
+      setInnerOpacity(1);
+    }, 750);
   }, []);
-};
 
-const Panel = (props: Props) => {
-  usePanelFadeIn();
-
-  return props.leftContent ? (
-    <$Panel className="panel">
-      <$InnerPanel className="inner-panel">
-        <$InnerPanelLeft className="inner-panel-left">
-          {props.leftContent}
-        </$InnerPanelLeft>
-        <$InnerPanelRight className="inner-panel-right">
-          {props.rightContent}
-        </$InnerPanelRight>
-      </$InnerPanel>
-    </$Panel>
-  ) : (
-    <$Panel className="panel" isSingle alignItems={props.alignItems}>
-      <$InnerPanelSingle className="inner-panel-left" {...props} />
+  return (
+    <$Panel
+      className="panel"
+      opacity={opacity}
+      translateY={translateY}
+      {...props}
+    >
+      <$InnerPanel className="inner-panel" opacity={innerOpacity} {...props} />
     </$Panel>
   );
 };

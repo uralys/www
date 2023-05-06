@@ -11,7 +11,7 @@ import {maxWidth_736} from '../../style/breakpoints';
 
 const $Filters = styled.div<{scrollPosition: number}>`
   margin: 0;
-  z-index: 10;
+  z-index: 4;
   left: 0;
   top: 0;
   opacity: ${props => (props.scrollPosition > 500 ? 1 : 0)};

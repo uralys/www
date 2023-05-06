@@ -14,7 +14,7 @@ const initialState: State = {
 
 // -----------------------------------------------------------------------------
 
-type SelectProjectPayload = {project: Project};
+type SelectProjectPayload = {project: Project | null};
 
 export type SelectProjectAction = {
   type: '@@navigation/SELECT_PROJECT';

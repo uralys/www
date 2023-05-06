@@ -200,10 +200,10 @@ const ProjectDisplay = ({
   const {dispatch, pour} = useTaverne();
   const filters = pour('filters');
   const selectProject = useCallback(() => {
-    dispatch({
-      type: SELECT_PROJECT,
-      payload: {project}
-    } as SelectProjectAction);
+    // dispatch({
+    //   type: SELECT_PROJECT,
+    //   payload: {project}
+    // } as SelectProjectAction);
   }, []);
 
   const isSelected = useCallback(
