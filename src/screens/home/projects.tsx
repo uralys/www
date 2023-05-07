@@ -1,4 +1,4 @@
-import {Fragment, useCallback, useEffect, useState} from 'react';
+import {Fragment, useCallback} from 'react';
 import styled from 'styled-components';
 import {useTaverne} from 'taverne/hooks';
 
@@ -167,10 +167,11 @@ const ProjectDisplay = ({
   const images = useImages();
 
   const selectProject = useCallback(() => {
-    // dispatch({
-    //   type: SELECT_PROJECT,
-    //   payload: {project}
-    // } as SelectProjectAction);
+    return;
+    dispatch({
+      type: SELECT_PROJECT,
+      payload: {project}
+    } as SelectProjectAction);
   }, []);
 
   const isSelected = useCallback(

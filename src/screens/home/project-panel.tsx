@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {useTaverne} from 'taverne/hooks';
 import {withMarginOrPadding} from '../../style/panel';
-import {useCallback} from 'react';
+import {useCallback, useEffect} from 'react';
 import {
   SELECT_PROJECT,
   SelectProjectAction
@@ -10,24 +10,33 @@ import useImages from '../../hooks/use-images';
 
 // -----------------------------------------------------------------------------
 
-const $DetailledProject = styled.div<{visible: boolean}>`
-  height: 75vh;
-  position: fixed;
-  z-index: 5;
+const $Popin = styled.div<{visible: boolean}>`
   pointer-events: ${props => `${props.visible ? 'all' : 'none'}`};
-  top: 5vh;
+  transition: opacity 0.35s ease 0s;
+  opacity: ${props => `${props.visible ? '1' : '0'}`};
+  z-index: 5;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+`;
+
+const $DetailledProject = styled.div`
+  height: 80vh;
+  width: 48rem;
   max-width: 100%;
-  background-color: rgba(44, 42, 54, 0.893);
+  background-color: rgba(44, 42, 54, 0.967);
   box-shadow: 0rem 20px 50px 5px rgba(60, 58, 60, 0.865);
   color: #e2e2e2;
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
   line-height: 1.75;
-  width: 38rem;
   border-radius: 0.5rem;
-  transition: opacity 1.25s ease 0s;
   overflow: hidden;
-  opacity: ${props => `${props.visible ? '1' : '0'}`};
   ${withMarginOrPadding('padding')}
 `;
 
@@ -45,13 +54,18 @@ const ProjectPanel = () => {
     } as SelectProjectAction);
   }, []);
 
-  console.log({project});
+  useEffect(() => {
+    const body = document.querySelector('body');
+    body?.style.setProperty('overflow', project ? 'hidden' : 'inherit');
+  }, [project]);
 
   return (
-    <$DetailledProject onClick={closeProject} visible={project}>
-      {project?.title}
-      <img src={images[project?.id]?.logo} />
-    </$DetailledProject>
+    <$Popin onClick={closeProject} visible={project}>
+      <$DetailledProject onClick={closeProject}>
+        {project?.title}
+        <img src={images[project?.id]?.logo} />
+      </$DetailledProject>
+    </$Popin>
   );
 };
 

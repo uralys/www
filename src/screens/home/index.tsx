@@ -9,11 +9,11 @@ import ProjectPanel from './project-panel';
 const Home = () => (
   <>
     <Filters />
-    <ProjectPanel />
     <Panel>
       <Hero />
       <Projects />
     </Panel>
+    <ProjectPanel />
   </>
 );
 
