@@ -17,12 +17,16 @@ const $Filters = styled.div<{scrollPosition: number}>`
   opacity: ${props => (props.scrollPosition > 500 ? 1 : 0)};
   margin-top: ${props => (props.scrollPosition > 500 ? 0 : `-200px`)};
   position: fixed;
-  transition: opacity 0.35s ease, margin-top 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    margin-top 0.35s ease;
   color: #e2e2e2;
   font-size: 1.2rem;
   font-weight: bold;
   background-color: rgba(44, 42, 54, 0.9);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
   padding: 5px 12px 8px;
   border-radius: 0 0 10px 10px;
 
@@ -61,7 +65,7 @@ const $Toggle = styled.div<{selected: boolean}>`
   align-items: center;
   display: flex;
 
-  :after {
+  &:after {
     content: '';
     display: block;
     width: 14px;

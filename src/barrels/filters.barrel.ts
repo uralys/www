@@ -5,7 +5,7 @@ export const TOGGLE_FILTER = '@@filters/TOGGLE';
 // -----------------------------------------------------------------------------
 
 export type Filter = {
-  name: 'everything' | 'music' | 'games' | 'freelance';
+  name: 'everything' | 'games' | 'freelance';
   text: string;
   selected: boolean;
 };
@@ -14,7 +14,6 @@ type State = Array<Filter>;
 
 const initialState: State = [
   {name: 'everything', text: 'all projects', selected: true},
-  {name: 'music', text: 'music', selected: true},
   {name: 'games', text: 'games', selected: true},
   {name: 'freelance', text: 'freelance', selected: true}
 ];

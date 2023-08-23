@@ -11,6 +11,8 @@ import {
 import useImages from '../../hooks/use-images';
 import useProjects from '../../hooks/use-projects';
 
+import {$Iframe} from '../music';
+
 // -----------------------------------------------------------------------------
 
 export type Project = {
@@ -89,7 +91,9 @@ const $MiniImage = styled.div`
     width: 70px;
     margin-right: 30px;
     border-radius: 16px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow:
+      0 3px 6px rgba(0, 0, 0, 0.16),
+      0 3px 6px rgba(0, 0, 0, 0.23);
   }
 `;
 
@@ -105,7 +109,9 @@ const $Image = styled.div`
   > img {
     width: 100%;
     border-radius: 16px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow:
+      0 3px 6px rgba(0, 0, 0, 0.16),
+      0 3px 6px rgba(0, 0, 0, 0.23);
   }
 `;
 
@@ -133,17 +139,6 @@ const $Description = styled.p`
   font-size: 1em;
   line-height: 1.75;
   font-weight: 200;
-`;
-
-// -----------------------------------------------------------------------------
-
-// spotify src ?theme=0 to remove color
-const $Iframe = styled.iframe`
-  border: none;
-  height: 160px;
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
 `;
 
 // -----------------------------------------------------------------------------
@@ -230,6 +225,7 @@ const ProjectDisplay = ({
 
 const Projects = () => {
   const projects = useProjects();
+  const homeProjects = projects?.filter(p => !['music'].includes(p.category));
 
   if (!projects) {
     return null;
@@ -237,7 +233,7 @@ const Projects = () => {
 
   return (
     <$Projects>
-      {projects.map((project: Project, index: number) => (
+      {homeProjects?.map((project: Project, index: number) => (
         <ProjectDisplay
           key={`project-${index}`}
           project={project}

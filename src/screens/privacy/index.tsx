@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import Panel from './../../style/panel';
 import privacyYAML from '../../../content/privacy.yaml';

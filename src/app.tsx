@@ -11,6 +11,7 @@ import navigation from './barrels/navigation.barrel';
 
 import Home from './screens/home';
 import Privacy from './screens/privacy';
+import Music from './screens/music';
 
 import GlobalStyle from './style/global';
 import $Wrapper from './style/wrapper';
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/privacy',
     element: <Privacy />
+  },
+  {
+    path: '/music',
+    element: <Music />
   }
 ]);
 
