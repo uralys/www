@@ -15,6 +15,7 @@ import Music from './screens/music';
 
 import GlobalStyle from './style/global';
 import $Wrapper from './style/wrapper';
+import LockeyLand from './screens/lockeyland';
 
 // -----------------------------------------------------------------------------
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: '/music',
     element: <Music />
+  },
+  {
+    path: '/lockeyland',
+    element: <LockeyLand />
   }
 ]);
 
