@@ -4,18 +4,20 @@ import LogoText from '../../../assets/images/logos/logo-text.svg';
 // -----------------------------------------------------------------------------
 
 const $Hero = styled.div`
-  > h1 {
+  padding-bottom: 30px;
+
+  h1 {
     font-size: 3rem;
     margin: 0;
   }
 
-  > hr {
+  hr {
     border: 0;
     padding-top: 10px;
     padding-bottom: 20px;
   }
 
-  > hr:before {
+  hr:before {
     content: '';
     border: 0;
     width: 3rem;
@@ -24,7 +26,7 @@ const $Hero = styled.div`
     display: inline-block;
   }
 
-  > * a ~ b {
+  * a ~ b {
     margin-left: 5px;
   }
 `;
@@ -54,6 +56,9 @@ const Hero = () => (
     <p>
       <a href="mailto:hello@uralys.com">Let's talk</a>
       <b>about your project.</b>
+    </p>
+    <p>
+      Here is my <a href="./cv-2023.pdf">CV</a>
     </p>
   </$Hero>
 );
