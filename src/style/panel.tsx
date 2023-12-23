@@ -33,7 +33,9 @@ const $Panel = styled.div<PanelProps & {opacity: number; translateY: number}>`
   border-radius: 0.5rem;
   opacity: ${props => `${props.opacity}`};
   transform: ${props => `translateY(${props.translateY}px)`};
-  transition: opacity 1.25s ease 0s, transform 1.25s ease 0s;
+  transition:
+    opacity 1.25s ease 0s,
+    transform 1.25s ease 0s;
   overflow: hidden;
   ${withMarginOrPadding('padding')}
 `;

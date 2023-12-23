@@ -42,8 +42,8 @@ const onToggleFilter = {
         filter.selected = isEverythingSelected
           ? filter.name === selectedName
           : filter.name === selectedName
-          ? !filter.selected
-          : false;
+            ? !filter.selected
+            : false;
       }
 
       if (filter.selected) {

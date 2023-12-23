@@ -117,7 +117,7 @@
     - Godot Engine
     - AWS
   dates: Mar 2022
-  description: Revisited my previous LD44 entry using Godot Engine. A mobile game released on Apple Store and Google Play. Devlog: https://twitter.com/battle_squares
+  description: "Revisited my previous LD44 entry using Godot Engine. A mobile game released on Apple Store and Google Play. Devlog: https://twitter.com/battle_squares"
   links:
     - type: android
       url: https://play.google.com/store/apps/details?id=com.uralys.battlesquares
