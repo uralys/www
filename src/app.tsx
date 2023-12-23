@@ -10,12 +10,14 @@ import filters from './barrels/filters.barrel';
 import navigation from './barrels/navigation.barrel';
 
 import Home from './screens/home';
-import Privacy from './screens/privacy';
+import Avindi from './screens/avindi';
+import LockeyLand from './screens/lockeyland';
+import LockeyLandPressKit from './screens/lockeyland/press';
 import Music from './screens/music';
+import Privacy from './screens/privacy';
 
 import GlobalStyle from './style/global';
 import $Wrapper from './style/wrapper';
-import LockeyLand from './screens/lockeyland';
 
 // -----------------------------------------------------------------------------
 
@@ -33,8 +35,16 @@ const router = createBrowserRouter([
     element: <Music />
   },
   {
+    path: '/avindi',
+    element: <Avindi />
+  },
+  {
     path: '/lockeyland',
     element: <LockeyLand />
+  },
+  {
+    path: '/lockeyland/press',
+    element: <LockeyLandPressKit />
   }
 ]);
 

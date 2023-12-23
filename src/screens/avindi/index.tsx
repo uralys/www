@@ -7,9 +7,9 @@ import {maxWidth_736} from '../../style/breakpoints';
 
 // -----------------------------------------------------------------------------
 
-import LogoLockey from '../../../assets/images/projects/lockeyland/logo-title.png';
+import LogoTitle from '../../../assets/images/projects/avindi/logo-title.webp';
+import LogoAvindi from '../../../assets/images/projects/avindi/logo-avindi.webp';
 import LogoUralys from '../../../assets/images/logos/uralys.webp';
-import Icon256 from '../../../assets/images/projects/lockeyland/chapters/chapter0/icon-256x256.png';
 import AppleIcon from '../../../assets/images/logos/appstore.png';
 import GoogleIcon from '../../../assets/images/logos/playstore.png';
 
@@ -18,37 +18,35 @@ import Instagram from '../../../assets/images/logos/instagram.png';
 
 import Spotify from '../../../assets/images/logos/spotify.webp';
 import Applemusic from '../../../assets/images/logos/applemusic.png';
+import Linktree from '../../../assets/images/logos/linktree.webp';
 import Godot from '../../../assets/images/logos/godot.webp';
-import Assetforge from '../../../assets/images/logos/assetforge.png';
-import Fertile from '../../../assets/images/logos/fertile-soil-production.png';
+import Fox from '../../../assets/images/logos/logo-fox.webp';
 
-import Chapter0Screenshot1 from '../../../assets/images/projects/lockeyland/chapters/chapter0/screenshot-1.jpg';
-import Chapter0Screenshot2 from '../../../assets/images/projects/lockeyland/chapters/chapter0/screenshot-2.jpg';
-import Chapter0Screenshot3 from '../../../assets/images/projects/lockeyland/chapters/chapter0/screenshot-3.jpg';
-import Chapter0Screenshot4 from '../../../assets/images/projects/lockeyland/chapters/chapter0/screenshot-4.jpg';
-import Chapter1Screenshot1 from '../../../assets/images/projects/lockeyland/chapters/chapter1/screenshot-1.jpg';
-import Chapter1Screenshot2 from '../../../assets/images/projects/lockeyland/chapters/chapter1/screenshot-2.jpg';
-import Chapter1Screenshot3 from '../../../assets/images/projects/lockeyland/chapters/chapter1/screenshot-3.jpg';
-import Chapter1Screenshot4 from '../../../assets/images/projects/lockeyland/chapters/chapter1/screenshot-4.jpg';
+import Screenshot1 from '../../../assets/images/projects/avindi/screenshots/world2-2160x1215.webp';
+import Screenshot2 from '../../../assets/images/projects/avindi/screenshots/discovered-2160x1215.webp';
+import Screenshot3 from '../../../assets/images/projects/avindi/screenshots/house1-2160x1215.webp';
+import Screenshot4 from '../../../assets/images/projects/avindi/screenshots/ornament-2160x1215.webp';
+import Screenshot5 from '../../../assets/images/projects/avindi/screenshots/book-2160x1215.webp';
+import Screenshot6 from '../../../assets/images/projects/avindi/screenshots/new-building-2160x1215.webp';
+import Screenshot7 from '../../../assets/images/projects/avindi/screenshots/house4-2160x1215.webp';
+import Screenshot8 from '../../../assets/images/projects/avindi/screenshots/laboratory-2160x1215.webp';
+import Screenshot9 from '../../../assets/images/projects/avindi/screenshots/house2-2160x1215.webp';
+import Screenshot10 from '../../../assets/images/projects/avindi/screenshots/world-2160x1215.webp';
+import Screenshot11 from '../../../assets/images/projects/avindi/screenshots/house3-2160x1215.webp';
 
 // -----------------------------------------------------------------------------
 
 const CHAPTERS = [
   {
     playStoreUrl:
-      'https://play.google.com/store/apps/details?id=com.uralys.lockeyland.chapter0',
+      'https://play.google.com/store/apps/details?id=com.uralys.avindi',
     appStoreUrl: 'https://apps.apple.com/app/id1603491928'
-  },
-  {
-    playStoreUrl:
-      'https://play.google.com/store/apps/details?id=com.uralys.lockeyland',
-    appStoreUrl: 'https://apps.apple.com/app/id1602128149'
   }
 ];
 
 // -----------------------------------------------------------------------------
 
-const $LockeyLand = styled.div`
+const $Avindi = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -56,7 +54,7 @@ const $LockeyLand = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(#13639e 0%, rgb(27, 28, 29) 100%);
+  background: linear-gradient(#3b1041 0%, rgb(27, 28, 29) 100%);
   color: #ededed;
   width: 100vw;
   margin-bottom: -62px;
@@ -83,15 +81,15 @@ const $Text = styled.p`
 `;
 
 const $Logo = styled.img`
-  width: 500px;
+  width: 600px;
 
   ${maxWidth_736} {
-    width: 400px;
+    width: 500px;
   }
 `;
 
 const $Subtitle = styled.h2`
-  margin-top: 130px;
+  margin-top: 50px;
   margin-bottom: 0;
 `;
 
@@ -111,6 +109,12 @@ const $Flex = styled.div`
   flex-wrap: wrap;
   margin-top: 10px;
   margin-bottom: 55px;
+`;
+
+const $Description = styled($Flex)`
+  margin-top: 50px;
+  margin-bottom: 55px;
+  flex-direction: column;
 `;
 
 const $FlexStores = styled.div`
@@ -134,7 +138,7 @@ const $Screenshot = styled.img`
     0 3px 6px rgba(0, 0, 0, 0.23);
 `;
 
-const $AppIcon = styled.img`
+const $LogoAvindi = styled.img`
   width: 120px;
   border-radius: 50px;
   margin: 50px;
@@ -186,7 +190,7 @@ const $AudioPlayer = styled.iframe`
 `;
 
 const $Video = styled.iframe`
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 30px;
   border-radius: 10px;
   border: 0px;
@@ -204,19 +208,16 @@ const $Video = styled.iframe`
 // inspiration https://ashorthike.com/
 // -----------------------------------------------------------------------------
 
-const LockeyLand = () => (
-  <$LockeyLand>
-    <$Logo src={LogoLockey} />
+const Avindi = () => (
+  <$Avindi>
+    <$Logo src={LogoTitle} />
     <$Intro>
-      <$Text>Discover a beautiful puzzle game,</$Text>
-      <$Text>unlock paths through levels of growing complexity</$Text>
+      <$Text>Discover a beautiful building game,</$Text>
+      <$Text>Create your own village and collect magical items.</$Text>
     </$Intro>
 
-    <$Subtitle>Prologue</$Subtitle>
-    <$Text>10 FREE levels to discover Lockey's gameplay</$Text>
-
     <$FlexStores>
-      <$AppIcon src={Icon256} />
+      <$LogoAvindi src={LogoAvindi} />
       <a href={CHAPTERS[0].appStoreUrl} target="_blank" rel="noreferrer">
         <$Button src={AppleIcon} />
       </a>
@@ -229,40 +230,42 @@ const LockeyLand = () => (
       title="video"
       width="740"
       height="415"
-      src="https://www.youtube.com/embed/UYhbYkd27BM"
+      src="https://www.youtube.com/embed/jzXGpT6z-aU"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
     />
 
-    <$Flex>
-      <$Screenshot src={Chapter0Screenshot1} />
-      <$Screenshot src={Chapter0Screenshot2} />
-      <$Screenshot src={Chapter0Screenshot3} />
-      <$Screenshot src={Chapter0Screenshot4} />
-    </$Flex>
+    <$Subtitle>Avindi's Valley</$Subtitle>
+    <$Description>
+      <$Text>
+        Help Avindi build her Valley by discovering all the combinations of
+        magical potions.
+      </$Text>
 
-    <$Text>
-      For every level, unlock the 3 stars with the shortest path to get the
-      trophy.
-    </$Text>
+      <$Text>
+        The inhabitants will enable you to create new potions or magical items
+        that you can collect and use to decorate the Valley and the interiors of
+        the houses.
+      </$Text>
 
-    <$Subtitle>Lockey Land: Discovery</$Subtitle>
-    <$Text>Play 20 additional levels for the 0,99€</$Text>
-    <$FlexStores>
-      <$AppIcon src={Icon256} />
-      <a href={CHAPTERS[1].appStoreUrl} target="_blank" rel="noreferrer">
-        <$Button src={AppleIcon} />
-      </a>
-      <a href={CHAPTERS[1].playStoreUrl} target="_blank" rel="noreferrer">
-        <$Button src={GoogleIcon} />
-      </a>
-    </$FlexStores>
+      <$Text>
+        The Grimoire will assist you in finding the potion combinations, and the
+        Crystal Ball will teleport you to the Valley.
+      </$Text>
+    </$Description>
 
     <$Flex>
-      <$Screenshot src={Chapter1Screenshot1} />
-      <$Screenshot src={Chapter1Screenshot2} />
-      <$Screenshot src={Chapter1Screenshot3} />
-      <$Screenshot src={Chapter1Screenshot4} />
+      <$Screenshot src={Screenshot1} />
+      <$Screenshot src={Screenshot2} />
+      <$Screenshot src={Screenshot3} />
+      <$Screenshot src={Screenshot4} />
+      <$Screenshot src={Screenshot5} />
+      <$Screenshot src={Screenshot6} />
+      <$Screenshot src={Screenshot7} />
+      <$Screenshot src={Screenshot8} />
+      <$Screenshot src={Screenshot9} />
+      <$Screenshot src={Screenshot10} />
+      <$Screenshot src={Screenshot11} />
     </$Flex>
 
     <$Subtitle id="credits">Credits</$Subtitle>
@@ -290,7 +293,7 @@ const LockeyLand = () => (
     <$Text>Music by Uralys</$Text>
 
     <$AudioPlayer
-      src="https://open.spotify.com/embed/track/4h9Gi6Z6Jalthgk49UkU4F?utm_source=lockeyland.com"
+      src="https://open.spotify.com/embed/track/4h9Gi6Z6Jalthgk49UkU4F?utm_source=uralys.com&play=1"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
     ></$AudioPlayer>
 
@@ -302,6 +305,9 @@ const LockeyLand = () => (
       >
         <$LinkButton src={Spotify} />
       </a>
+      <a href="https://linktr.ee/uralys" target="_blank" rel="noreferrer">
+        <$LinkButton src={Linktree} />
+      </a>
       <a
         href="https://music.apple.com/us/album/lockeys-journey-single/1601503585"
         target="_blank"
@@ -311,33 +317,23 @@ const LockeyLand = () => (
       </a>
     </$Flex>
 
-    <$Text>Created with Godot Engine and AssetForge.</$Text>
+    <$Text>Created with Godot Engine and Fox.</$Text>
 
     <$Flex>
       <a href="https://godotengine.org" target="_blank" rel="noreferrer">
         <$LinkButton src={Godot} />
       </a>
-      <a href="https://assetforge.io" target="_blank" rel="noreferrer">
-        <$LinkButton src={Assetforge} />
+      <a href="https://github.com/uralys/fox" target="_blank" rel="noreferrer">
+        <$LinkButton src={Fox} />
       </a>
     </$Flex>
 
-    <$Text>additional models from Fertile Soil Production</$Text>
-
-    <$Flex>
-      <a
-        href="https://www.fertilesoilproductions.com"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <$LinkButton src={Fertile} />
-      </a>
-    </$Flex>
-
-    <Link to="/lockeyland/press">press kit</Link>
-  </$LockeyLand>
+    <hr />
+    <Link to="/avindi/press">Press Kit</Link>
+    <Link to="/">Home</Link>
+  </$Avindi>
 );
 
 // -----------------------------------------------------------------------------
 
-export default LockeyLand;
+export default Avindi;

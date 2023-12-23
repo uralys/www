@@ -23,8 +23,10 @@ export type PanelProps = {
 const $Panel = styled.div<PanelProps & {opacity: number; translateY: number}>`
   max-width: 100%;
   z-index: 1;
-  background-color: rgba(44, 42, 54, 0.893);
-  box-shadow: 0rem 20px 50px 5px rgba(60, 58, 60, 0.865);
+  background-color: rgba(34, 32, 42, 0.733);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
   color: #e2e2e2;
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;

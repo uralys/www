@@ -1,5 +1,5 @@
 import {createGlobalStyle} from 'styled-components';
-import bg from '../../assets/images/bg.jpg';
+import bg from '../../assets/images/bg.webp';
 import {maxWidth_980} from './breakpoints';
 
 const GlobalStyle = createGlobalStyle`
@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
     transform: scale(1);
     width: 100vw;
     z-index: -1;
-    background-image: linear-gradient(45deg, rgba(28, 29, 39, 0.347) 0%, rgba(98, 9, 73, 0.477) 100%), url(${bg});
+    background-image: linear-gradient(45deg, rgba(28, 29, 39, 0.347) 0%, rgba(0, 0, 0, 0.477) 100%), url(${bg});
     background-position: 0% 0%, center;
     background-repeat: repeat, no-repeat;
     background-size: cover, cover;
@@ -62,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     z-index: 0;
     transition: opacity 1.25s ease-in-out 0.75s, visibility 1.25s 0.75s;
-    background-color: #ab96a6;
+    background-color: #071018;
   }
 
   h1,h2 {
@@ -85,7 +85,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     font-weight: bold;
     text-decoration: none;
-    color: #b264df;
+    color: #a01682;
 
     :hover {
       color: #fff;
