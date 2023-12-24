@@ -7,6 +7,49 @@
 
 #-------------------------------------------------------------------------------
 
+- category: games
+  id: avindi
+  title: Avindi's Valley
+  location: Toulouse, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Godot Engine
+  dates: Dec 2023
+  description: "A mobile game created with Godot Engine, released on Apple Store and Google Play Store. Help Avindi build her Valley by discovering all the combinations of magical potions"
+  links:
+    - type: Web page
+      label: Web page
+      url: /avindi
+    - type: presskit
+      label: Press Kit
+      url: /avindi/press
+    - type: android
+      label: Play Store
+      url: https://play.google.com/store/apps/details?id=com.uralys.avindi
+    - type: apple
+      label: App Store
+      url: https://apps.apple.com/fr/app/battle-squares/id1609783397
+
+
+- category: games
+  id: fox
+  title: Fox
+  location: Toulouse, France
+  roles:
+    - Mobile Developer
+  technos:
+    - GDScript
+    - Godot Engine
+    - Javascript
+  dates: from 2020
+  description: 'Fox is the backbone to my games released with GodotEngine. This is an Open Source toolset to help being quicker developing with GodotEngine'
+  links:
+    - type: github
+      label: Github
+      url: https://github.com/uralys/fox
+
 - category: music
   id: rough-draft
   title: Rough Draft

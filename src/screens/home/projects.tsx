@@ -33,6 +33,7 @@ export type Project = {
   description: string;
   links: Array<{
     type: string;
+    label: string;
     url: string;
     platform?:
       | 'spotify'
@@ -64,7 +65,7 @@ const $Texts = styled.div`
   flex: 1;
   flex-direction: column;
   text-align: left;
-  padding: 10px 30px;
+  padding: 10px 25px;
   width: 100%;
 
   ${maxWidth_736} {
@@ -212,9 +213,6 @@ const ProjectDisplay = ({
           <$TitleText>{project.title}</$TitleText>
         </$Title>
         <$Description>{project.description}</$Description>
-
-        {/* {project.page ? <a href={project.page}>see dedicated page</a> : null}
-        {project.presskit ? <a href={project.presskit}>presskit</a> : null} */}
 
         {project.links ? (
           <ul>
