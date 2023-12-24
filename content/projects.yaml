@@ -523,9 +523,12 @@
     - type: github
       label: Github
       url: https://github.com/chrisdugne/ludum-dare-36
+    - type: youtube
+      label: Youtube
+      url: https://www.youtube.com/watch?v=nLMZd05FQKc
     - type: ld
       label: Ludum Dare
-      url: http://ludumdare.com/compo/ludum-dare-36/?action=preview&uid=112097
+      url: https://web.archive.org/web/20161112160320/http://ludumdare.com/compo/ludum-dare-36/?action=preview&uid=112097
   meta:
     inverseOrder: true
 
