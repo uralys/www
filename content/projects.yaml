@@ -29,13 +29,16 @@
     - React Native
     - Node.js
   dates: from 2022
-  description: Back with the Coorp dev team, refreshing the mobile app with new features.
+  description: Mobile lead dev the Coorp team, refreshing the mobile app with new features.
   links:
     - type: github
-      url: https://github.com/CoorpAcademy/components/packages/components
+      label: Open source contributions
+      url: https://github.com/CoorpAcademy/components
     - type: apple
+      label: App Store
       url: https://itunes.apple.com/us/app/id1448348795
     - type: android
+      label: Play Store
       url: https://play.google.com/store/apps/details?id=com.coorpacademy.app
 
 - category: music
@@ -117,13 +120,16 @@
     - Godot Engine
     - AWS
   dates: Mar 2022
-  description: "Revisited my previous LD44 entry using Godot Engine. A mobile game released on Apple Store and Google Play. Devlog: https://twitter.com/battle_squares"
+  description: "Revisited my previous LD44 entry using Godot Engine. A mobile game released on Apple Store and Google Play."
   links:
     - type: android
+      label: Play Store
       url: https://play.google.com/store/apps/details?id=com.uralys.battlesquares
     - type: apple
+      label: App Store
       url: https://apps.apple.com/fr/app/battle-squares/id1609783397
     - type: twitter
+      label: devlog on X
       url: https://twitter.com/battle_squares
 
 
@@ -152,9 +158,17 @@
   dates: Jan 2022
   description: My first game created with Godot Engine. You will have to your way through intricate labyrinths. A mobile game released on Apple Store and Google Play.
   links:
+    - type: Web page
+      label: Web page
+      url: /lockeyland
+    - type: presskit
+      label: Press Kit
+      url: /lockeyland/press
     - type: android
+      label: Play Store
       url: https://play.google.com/store/apps/details?id=com.uralys.lockeyland.chapter0
     - type: apple
+      label: App Store
       url: https://apps.apple.com/app/lockey-land/id1603491928
 
 
@@ -244,10 +258,14 @@
     - Node.js
     - AWS
   dates: from Jan 2020
-  description: I designed and developed the web 3d visualisator with its AWS backend. Sponsored by "BPI France", "La French Tech" and "Région Sud". More on www.twinlify.com
+  description: I designed and developed the web 3d visualisator with its AWS backend. Sponsored by "BPI France", "La French Tech" and "Région Sud".
   links:
     - type: github
+      label: Github
       url: https://github.com/twinlify
+    - type: website
+      label: www.twinlify.com
+      url: https://www.twinlify.com
   meta:
     inverseOrder: true
 
@@ -287,8 +305,10 @@
   description: 'I submitted another Ludum Dare entry, on Compo category this time. Theme: Your life is currency'
   links:
     - type: github
+      label: Github
       url: https://github.com/chrisdugne/ld44
     - type: ld
+      label: Ludum Dare
       url: https://ldjam.com/events/ludum-dare/44/uralys-ld44
     - type: play
       url: http://www.uralys.com/ld44/
@@ -309,8 +329,10 @@
   description: Landed a new Kodo theme on both iOS and Android
   links:
     - type: apple
+      label: App Store
       url: https://itunes.apple.com/us/app/id1462688847
     - type: android
+      label: Play Store
       url: https://play.google.com/store/apps/details?id=com.uralys.kodo.monster
 
 #-------------------------------------------------------------------------------
@@ -328,10 +350,13 @@
   description: Member of the mobile team, which delivered the first React Native app on stores for Coorpacademy.
   links:
     - type: github
+      label: Github
       url: https://github.com/CoorpAcademy/mobile
     - type: apple
+      label: App Store
       url: https://itunes.apple.com/us/app/id1448348795
     - type: android
+      label: Play Store
       url: https://play.google.com/store/apps/details?id=com.coorpacademy.app
 
 #-------------------------------------------------------------------------------
@@ -355,8 +380,10 @@
   description: 'Kodo 3.0: created a mobile game for iOS and Android. This is the first app using my common leaderboard and common IAP.'
   links:
     - type: apple
+      label: App Store
       url: https://itunes.apple.com/us/app/id684227637
     - type: android
+      label: Play Store
       url: https://play.google.com/store/apps/details?id=com.uralys.kodo.find_the_color
 
 #-------------------------------------------------------------------------------
@@ -394,6 +421,7 @@
   description: 'Cherry is the backbone to my games released from 2017. This is a toolset to help being quicker developing with Solar2D'
   links:
     - type: github
+      label: Github
       url: https://github.com/chrisdugne/cherry
 
 #-------------------------------------------------------------------------------
@@ -411,8 +439,10 @@
   description: Designed and wrote Velvet Coffee first website
   links:
     - type: play
+      label: Website
       url: https://velvetcoffee.github.io
     - type: github
+      label: Github
       url: https://github.com/velvetcoffee/velvetcoffee.github.io
 
 #-------------------------------------------------------------------------------
@@ -448,8 +478,10 @@
   description: My first Ludum Dare participation. A mobile game developed with Solar2D, with my daughter's drawings <3
   links:
     - type: github
+      label: Github
       url: https://github.com/chrisdugne/ludum-dare-36
     - type: ld
+      label: Ludum Dare
       url: http://ludumdare.com/compo/ludum-dare-36/?action=preview&uid=112097
   meta:
     inverseOrder: true
@@ -476,8 +508,10 @@
   details: true
   links:
     - type: apple
+      label: App Store
       url: https://itunes.apple.com/us/app/id1037707233
     - type: android
+      label: Play Store
       url: https://play.google.com/store/apps/details?id=com.uralys.phantoms
 
 #-------------------------------------------------------------------------------
@@ -495,6 +529,7 @@
   description: 'Member of the dev team, we refactored the existing monolith into many React/Redux apps and AWS services. Coorpacademy offers a MOOC solution designed for corporations.'
   links:
     - type: github
+      label: Github
       url: https://github.com/CoorpAcademy/components/graphs/contributors
 
 #-------------------------------------------------------------------------------
@@ -857,7 +892,8 @@
   dates: sept 2003 - sept 2006
   description: ENSEIRB delivers a Diploma of Engineering at a level equivalent to 5 years of higher education.
   links:
-    - type: github
+    - type: wevsite
+      label: Website
       url: http://www.enseirb-matmeca.fr/
   meta:
     inverseOrder: true
@@ -880,5 +916,6 @@
   dates: 2001 - 2003
   description: Scientific CPGE, specialized in Mathematics and Physics (MP/MPSI).
   links:
-    - type: github
+    - type: website
+      label: Wikipedia
       url: http://en.wikipedia.org/wiki/Classe_pr%C3%A9paratoire_aux_grandes_%C3%A9coles
