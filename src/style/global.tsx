@@ -85,7 +85,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     font-weight: bold;
     text-decoration: none;
-    color: #a01682;
+    color: #7b77b1;
 
     :hover {
       color: #fff;
@@ -97,7 +97,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1em;
     font-weight: 200;
-    letter-spacing: 0.025rem;
+    letter-spacing: 0.045rem;
     line-height: 1.75;
 
     > b {
