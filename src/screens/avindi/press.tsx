@@ -194,7 +194,7 @@ const LockeyLandPressKit = () => (
         <h2>Fact Sheet</h2>
         <hr />
         <p>
-          <b>Release:</b> January 10th 2022
+          <b>Release:</b> December 23th 2023
         </p>
         <p>
           <b>Platforms:</b>
@@ -209,7 +209,7 @@ const LockeyLandPressKit = () => (
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://play.google.com/store/apps/details?id=com.uralys.lockeyland.chapter0"
+            href="https://play.google.com/store/apps/details?id=com.uralys.avindi"
           >
             Android
           </a>
