@@ -553,12 +553,9 @@
   description: Phantoms is a new kind of mind game. You will have to find different paths in intricate 2D labyrinths. a mobile game released on Apple Store and Google Play.
   details: true
   links:
-    - type: apple
-      label: App Store
-      url: https://itunes.apple.com/us/app/id1037707233
-    - type: android
-      label: Play Store
-      url: https://play.google.com/store/apps/details?id=com.uralys.phantoms
+    - type: youtube
+      label: Youtube
+      url: https://www.youtube.com/watch?v=JELDE2yfwKI
 
 #-------------------------------------------------------------------------------
 
@@ -859,6 +856,10 @@
     - Flex 3
   dates: Jan 2008 - Jun 2010
   description: Developed a MMO browser game. The player controlled a dynasty of magicians and warriors, crafted items and fought against other players on turned based battles.
+  links:
+    - type: youtube
+      label: Youtube
+      url: https://www.youtube.com/watch?v=c068YUwARPo
 
 #-------------------------------------------------------------------------------
 
