@@ -219,7 +219,9 @@ const ProjectDisplay = ({
             {project.links.map(linkInfo => {
               return (
                 <li>
-                  <a href={linkInfo.url}>{linkInfo.label}</a>
+                  <a target="_blank" rel="noreferrer" href={linkInfo.url}>
+                    {linkInfo.label}
+                  </a>
                 </li>
               );
             })}
