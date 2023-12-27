@@ -40,7 +40,7 @@ const CHAPTERS = [
   {
     playStoreUrl:
       'https://play.google.com/store/apps/details?id=com.uralys.avindi',
-    appStoreUrl: 'https://apps.apple.com/app/id1603491928'
+    appStoreUrl: 'https://apps.apple.com/app/id6473050626'
   }
 ];
 

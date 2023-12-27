@@ -201,7 +201,7 @@ const LockeyLandPressKit = () => (
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://apps.apple.com/app/id1603491928"
+            href="https://apps.apple.com/app/id6473050626"
           >
             iOS
           </a>
