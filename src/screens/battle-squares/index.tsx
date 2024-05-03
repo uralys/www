@@ -351,7 +351,7 @@ const BattleSquares = () => (
     </$Flex>
 
     <hr />
-    <Link to="/avindi/press">Press Kit</Link>
+    <Link to="/battle-squares/press">Press Kit</Link>
     <Link to="/">Home</Link>
   </$BattleSquares>
 );
