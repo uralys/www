@@ -51,7 +51,7 @@ const $BattleSquares = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(#657f95 0%, #1f2c39 100%);
+  background: linear-gradient(#8398aa 0%, #1f2c39 100%);
   color: #ededed;
   width: 100vw;
   margin-bottom: -62px;

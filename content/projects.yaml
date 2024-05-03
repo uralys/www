@@ -22,9 +22,9 @@
     - type: Web page
       label: Web page
       url: /battle-squares
-    # - type: presskit
-    #   label: Press Kit
-    #   url: /avindi/press
+    - type: presskit
+      label: Press Kit
+      url: /battle-squares/press
     - type: android
       label: Play Store
       url: https://play.google.com/store/apps/details?id=com.uralys.battlesquares

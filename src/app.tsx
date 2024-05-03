@@ -11,9 +11,10 @@ import navigation from './barrels/navigation.barrel';
 
 import Home from './screens/home';
 import Avindi from './screens/avindi';
-import BattleSquares from './screens/battle-squares';
-import LockeyLand from './screens/lockeyland';
 import AvindiPressKit from './screens/avindi/press';
+import BattleSquares from './screens/battle-squares';
+import BattleSquaresPressKit from './screens/battle-squares/press';
+import LockeyLand from './screens/lockeyland';
 import LockeyLandPressKit from './screens/lockeyland/press';
 import Music from './screens/music';
 import Privacy from './screens/privacy';
@@ -41,12 +42,16 @@ const router = createBrowserRouter([
     element: <Avindi />
   },
   {
+    path: '/avindi/press',
+    element: <AvindiPressKit />
+  },
+  {
     path: '/battle-squares',
     element: <BattleSquares />
   },
   {
-    path: '/avindi/press',
-    element: <AvindiPressKit />
+    path: '/battle-squares/press',
+    element: <BattleSquaresPressKit />
   },
   {
     path: '/lockeyland',
