@@ -311,16 +311,16 @@ const LockeyLandPressKit = () => (
     </$Intro>
 
     <$Info>
-      {/* <h2>TRAILER</h2>
+      <h2>TRAILER</h2>
 
       <$Video
         title="video"
         width="860px"
         height="480px"
-        src="https://www.youtube.com/embed/jzXGpT6z-aU"
+        src="https://www.youtube.com/embed/Oj3-F9ifIRM"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-      /> */}
+      />
 
       <h2>SCREENSHOTS</h2>
       <$Screenshots>

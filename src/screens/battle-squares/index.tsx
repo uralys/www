@@ -224,14 +224,14 @@ const BattleSquares = () => (
       </a>
     </$FlexStores>
 
-    {/* <$Video
+    <$Video
       title="video"
       width="740"
       height="415"
-      src="https://www.youtube.com/embed/jzXGpT6z-aU"
+      src="https://www.youtube.com/embed/Oj3-F9ifIRM"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
-    /> */}
+    />
 
     {/* <$Subtitle>Battle Squares</$Subtitle> */}
 
