@@ -19,9 +19,9 @@
   dates: Dec 2023
   description: "A mobile game created with Godot Engine, released on Apple Store and Google Play Store. Join a competitive game where you need to break as many blocks as possible in 25 or 45 seconds!"
   links:
-    # - type: Web page
-    #   label: Web page
-    #   url: /avindi
+    - type: Web page
+      label: Web page
+      url: /battle-squares
     # - type: presskit
     #   label: Press Kit
     #   url: /avindi/press

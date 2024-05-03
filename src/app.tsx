@@ -11,6 +11,7 @@ import navigation from './barrels/navigation.barrel';
 
 import Home from './screens/home';
 import Avindi from './screens/avindi';
+import BattleSquares from './screens/battle-squares';
 import LockeyLand from './screens/lockeyland';
 import AvindiPressKit from './screens/avindi/press';
 import LockeyLandPressKit from './screens/lockeyland/press';
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: '/avindi',
     element: <Avindi />
+  },
+  {
+    path: '/battle-squares',
+    element: <BattleSquares />
   },
   {
     path: '/avindi/press',
