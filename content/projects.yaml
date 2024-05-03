@@ -3,6 +3,73 @@
 #-------------------------------------------------------------------------------
 
 - category: year
+  id: '2024'
+
+#-------------------------------------------------------------------------------
+
+- category: games
+  id: battle-squares
+  title: Battle Squares
+  location: Toulouse, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Godot Engine
+  dates: Dec 2023
+  description: "A mobile game created with Godot Engine, released on Apple Store and Google Play Store. Join a competitive game where you need to break as many blocks as possible in 25 or 45 seconds!"
+  links:
+    # - type: Web page
+    #   label: Web page
+    #   url: /avindi
+    # - type: presskit
+    #   label: Press Kit
+    #   url: /avindi/press
+    - type: android
+      label: Play Store
+      url: https://play.google.com/store/apps/details?id=com.uralys.battlesquares
+    - type: apple
+      label: App Store
+      url: https://apps.apple.com/fr/app/battle-squares/id1609783397
+
+
+- category: freelance
+  id: alterego
+  title: AlterEgo
+  location: Paris, France
+  roles:
+    - Co-Founder / CTO
+    - Full Stack Developer
+  technos:
+    - Node.js
+    - Serverless
+    - React.js
+  dates: from Jan 2024
+  description: I'm building the AlterEgo platform. Find projects that showcase your unique style. Alter Ego, where creativity meets personal expression."
+  links:
+    - type: instagram
+      label: Instagram
+      url: https://www.instagram.com/alterego.community/
+    - type: website
+      label: alterego.community/
+      url: https://alterego.community/
+
+
+- category: music
+  id: dodgeball
+  title: Dodgeball
+  location: Toulouse, France
+  roles:
+    - Producer
+  dates: May 2024
+  description:
+  links:
+    - platform: spotify
+      url: https://open.spotify.com/embed/track/0mh8EDMI6ZKBaMyWj1TGOk
+
+#-------------------------------------------------------------------------------
+
+- category: year
   id: '2023'
 
 #-------------------------------------------------------------------------------
@@ -153,7 +220,7 @@
 
 
 - category: games
-  id: battle-squares
+  id: battle-squares-v1
   title: Battle Squares
   location: Paris, France
   roles:
@@ -165,12 +232,6 @@
   dates: Mar 2022
   description: "Revisited my previous LD44 entry using Godot Engine. A mobile game released on Apple Store and Google Play."
   links:
-    - type: android
-      label: Play Store
-      url: https://play.google.com/store/apps/details?id=com.uralys.battlesquares
-    - type: apple
-      label: App Store
-      url: https://apps.apple.com/fr/app/battle-squares/id1609783397
     - type: twitter
       label: devlog on X
       url: https://twitter.com/battle_squares
