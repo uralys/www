@@ -58,7 +58,7 @@ const Hero = () => (
       <b>about your project.</b>
     </p>
     <p>
-      Here is my <a href="./cv-2023.pdf">CV</a>
+      Here is my <a href="./cv-2024.pdf">CV</a>
     </p>
   </$Hero>
 );
