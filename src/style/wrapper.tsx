@@ -11,18 +11,18 @@ const $Wrapper = styled.div`
   min-height: 100vh;
   overflow: hidden;
   position: relative;
-  padding: 3.5rem;
+  /* padding: 3.5rem; */
 
   ${maxWidth_736} {
-    padding: 1.75rem;
+    /* padding: 1.75rem; */
   }
 
   ${maxWidth_480} {
-    padding: 0.75rem;
+    /* padding: 0.75rem; */
   }
 
   ${maxWidth_360} {
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
   }
 `;
 

@@ -1,21 +1,17 @@
-import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {maxWidth_736, maxWidth_980} from '../../style/breakpoints';
 
-import LogoTitle from '../../../assets/images/projects/battle-squares/logo-title.webp';
+import LogoTitle from '../../../assets/images/projects/xoozz/logo-title.webp';
 
 import LogoUralys from '../../../assets/images/logos/uralys.webp';
-import LogoGame from '../../../assets/images/projects/battle-squares/logo-battle-squares.webp';
+import LogoGame from '../../../assets/images/projects/xoozz/logo.webp';
 
-import ScreenshotAbout from '../../../assets/images/projects/battle-squares/screenshots/about-1215x2160.webp';
-import ScreenshotDaily from '../../../assets/images/projects/battle-squares/screenshots/daily-bonus-1215x2160.webp';
-import ScreenshotEndScreen from '../../../assets/images/projects/battle-squares/screenshots/end-screen-1215x2160.webp';
-import ScreenshotExplosion from '../../../assets/images/projects/battle-squares/screenshots/explosion-1215x2160.webp';
-import ScreenshotHome from '../../../assets/images/projects/battle-squares/screenshots/home-1215x2160.webp';
-import ScreenshotLeaderboards from '../../../assets/images/projects/battle-squares/screenshots/leaderboards-1215x2160.webp';
-import ScreenshotPlayground from '../../../assets/images/projects/battle-squares/screenshots/playground-1215x2160.webp';
-import ScreenshotStore from '../../../assets/images/projects/battle-squares/screenshots/store-1215x2160.webp';
-import {$Video} from '../../style/common';
+import ScreenshotSuggestions from '../../../assets/images/projects/xoozz/screenshots/suggestions-1215x2160.webp';
+import ScreenshotQuizz1 from '../../../assets/images/projects/xoozz/screenshots/quizz1-1215x2160.webp';
+import ScreenshotQuizz2 from '../../../assets/images/projects/xoozz/screenshots/quizz2-1215x2160.webp';
+import ScreenshotHome from '../../../assets/images/projects/xoozz/screenshots/home.webp';
+import ScreenshotLeaderboard from '../../../assets/images/projects/xoozz/screenshots/leaderboard-1215x2160.webp';
+import {$Link} from '../../style/common';
 
 // -----------------------------------------------------------------------------
 
@@ -29,8 +25,6 @@ const $Press = styled.div`
   width: 100vw;
   margin: 0;
   padding: 30px 35px;
-  margin-bottom: -62px;
-  margin-top: -62px;
   box-sizing: border-box;
   color: #dddddd;
   background-color: #141414c0;
@@ -90,7 +84,7 @@ const $Descriptions = styled.div`
 `;
 
 const $Logo = styled.img`
-  width: 600px;
+  width: 300px;
 
   ${maxWidth_736} {
     width: 310px;
@@ -174,14 +168,14 @@ const LockeyLandPressKit = () => (
         <h2>Fact Sheet</h2>
         <hr />
         <p>
-          <b>Release:</b> May 1th 2024
+          <b>Release:</b> May 30th 2024
         </p>
         <p>
           <b>Platforms:</b>
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://apps.apple.com/app/id1609783397"
+            href="https://apps.apple.com/app/id6503286401"
           >
             iOS
           </a>
@@ -189,7 +183,7 @@ const LockeyLandPressKit = () => (
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://play.google.com/store/apps/details?id=com.uralys.battlesquares"
+            href="https://play.google.com/store/apps/details?id=com.uralys.xoozz"
           >
             Android
           </a>
@@ -242,9 +236,9 @@ const LockeyLandPressKit = () => (
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://www.uralys.com/battle-squares"
+            href="https://www.uralys.com/xoozz"
           >
-            www.uralys.com/battle-squares
+            www.uralys.com/xoozz
           </a>
         </p>
         <p>
@@ -254,30 +248,45 @@ const LockeyLandPressKit = () => (
       <$Descriptions>
         <h2>The Game</h2>
         <p>
-          <b>Battle Squares</b>- a competitive bloc game.
-        </p>
-        <p>Break as many blocks as possible in 25 or 45 seconds!</p>
-        <p>
-          Blocks can be broken when at least two blocks of the same color are
-          aligned. The larger the group, the more points you score!
+          <b>xOOzz</b>- a competitive quiz game.
         </p>
         <p>
-          Some bombs will be available during the game to eliminate all blocks
-          of one color, even if they are not grouped.
+          Welcome to xOOzz, the ultimate quiz game to test and expand your
+          knowledge on a multitude of themes!
         </p>
         <p>
-          A daily and weekly leaderboard is established for each game mode to
-          distribute season points. The season ranking will determine the
-          top-level players!
+          Whether you are a Harry Potter fan, passionate about the Olympic
+          Games, or a general knowledge enthusiast, xOOzz has everything to
+          satisfy your thirst for knowledge and competition.
+        </p>
+        <p>Main Features:</p>
+        <p>
+          - Varied Themes: Discover quizzes covering a wide range of topics,
+          including series, sports, music, and much more.
         </p>
         <p>
-          Keywords: blocks, puzzle, competitive, ranking, season, top level,
-          casual, quick, fun, addictive, colors, alignment, arcade
+          - Leaderboards: Compete with friends and players from around the world
+          with leaderboards for each quiz.
+        </p>
+        <p>
+          - Global Ranking by Season: Participate in competitive seasons and see
+          where you stand on a global scale.
+        </p>
+        <p>
+          - Daily Challenges: Take on new challenges every day to earn rewards
+          and improve your ranking.
+        </p>
+        <p>
+          - Fun Learning: Learn new information while playing and having fun.
+        </p>
+        <p>
+          Keywords: Quiz, Quiz game, Trivia, Q&A, General knowledge, Quiz
+          challenge, Educational game
         </p>
         <h2>About the dev</h2>
         <p>
-          Battle Squares is developed by Christophe Dugne-Esquevin aka Uralys
-          Studio, a solo indie dev from France.
+          xOOzz is developed by Christophe Dugne-Esquevin aka Uralys Studio, a
+          solo indie dev from France.
         </p>
         <p>
           Before this, he worked as freelance web architect for 15 years, and
@@ -294,7 +303,7 @@ const LockeyLandPressKit = () => (
     </$Intro>
 
     <$Info>
-      <h2>TRAILER</h2>
+      {/* <h2>TRAILER</h2>
 
       <$Video
         title="video"
@@ -303,18 +312,15 @@ const LockeyLandPressKit = () => (
         src="https://www.youtube.com/embed/Oj3-F9ifIRM"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-      />
+      /> */}
 
       <h2>SCREENSHOTS</h2>
       <$Screenshots>
         <$Screenshot src={ScreenshotHome} />
-        <$Screenshot src={ScreenshotPlayground} />
-        <$Screenshot src={ScreenshotEndScreen} />
-        <$Screenshot src={ScreenshotDaily} />
-        <$Screenshot src={ScreenshotLeaderboards} />
-        <$Screenshot src={ScreenshotStore} />
-        <$Screenshot src={ScreenshotExplosion} />
-        <$Screenshot src={ScreenshotAbout} />
+        <$Screenshot src={ScreenshotQuizz1} />
+        <$Screenshot src={ScreenshotQuizz2} />
+        <$Screenshot src={ScreenshotLeaderboard} />
+        <$Screenshot src={ScreenshotSuggestions} />
       </$Screenshots>
 
       <h2>LOGOS</h2>
@@ -324,7 +330,7 @@ const LockeyLandPressKit = () => (
       </$Screenshots>
 
       <h2>Uralys 2024</h2>
-      <Link to="/">home</Link>
+      <$Link to="/">home</$Link>
     </$Info>
   </$Press>
 );

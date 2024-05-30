@@ -6,8 +6,8 @@ import {maxWidth_736} from '../../style/breakpoints';
 
 // -----------------------------------------------------------------------------
 
-import LogoTitle from '../../../assets/images/projects/battle-squares/logo-title.webp';
-import LogoGame from '../../../assets/images/projects/battle-squares/logo-battle-squares.webp';
+import LogoTitle from '../../../assets/images/projects/xoozz/logo-title.webp';
+import LogoGame from '../../../assets/images/projects/xoozz/logo.webp';
 import LogoUralys from '../../../assets/images/logos/uralys.webp';
 import AppleIcon from '../../../assets/images/logos/appstore.png';
 import GoogleIcon from '../../../assets/images/logos/playstore.png';
@@ -21,14 +21,12 @@ import Linktree from '../../../assets/images/logos/linktree.webp';
 import Godot from '../../../assets/images/logos/godot.webp';
 import Fox from '../../../assets/images/logos/logo-fox.webp';
 
-import ScreenshotAbout from '../../../assets/images/projects/battle-squares/screenshots/about-1215x2160.webp';
-import ScreenshotDaily from '../../../assets/images/projects/battle-squares/screenshots/daily-bonus-1215x2160.webp';
-import ScreenshotEndScreen from '../../../assets/images/projects/battle-squares/screenshots/end-screen-1215x2160.webp';
-import ScreenshotExplosion from '../../../assets/images/projects/battle-squares/screenshots/explosion-1215x2160.webp';
-import ScreenshotHome from '../../../assets/images/projects/battle-squares/screenshots/home-1215x2160.webp';
-import ScreenshotLeaderboards from '../../../assets/images/projects/battle-squares/screenshots/leaderboards-1215x2160.webp';
-import ScreenshotPlayground from '../../../assets/images/projects/battle-squares/screenshots/playground-1215x2160.webp';
-import ScreenshotStore from '../../../assets/images/projects/battle-squares/screenshots/store-1215x2160.webp';
+import ScreenshotPromo from '../../../assets/images/projects/xoozz/screenshots/promo.webp';
+import ScreenshotSuggestions from '../../../assets/images/projects/xoozz/screenshots/suggestions-1215x2160.webp';
+import ScreenshotQuizz1 from '../../../assets/images/projects/xoozz/screenshots/quizz1-1215x2160.webp';
+import ScreenshotQuizz2 from '../../../assets/images/projects/xoozz/screenshots/quizz2-1215x2160.webp';
+import ScreenshotHome from '../../../assets/images/projects/xoozz/screenshots/home.webp';
+import ScreenshotLeaderboard from '../../../assets/images/projects/xoozz/screenshots/leaderboard-1215x2160.webp';
 
 import {
   $AudioPlayer,
@@ -39,8 +37,7 @@ import {
   $Link,
   $LinkButton,
   $LogoGame,
-  $Screenshot,
-  $Video
+  $Screenshot
 } from '../../style/common';
 
 // -----------------------------------------------------------------------------
@@ -48,14 +45,14 @@ import {
 const CHAPTERS = [
   {
     playStoreUrl:
-      'https://play.google.com/store/apps/details?id=com.uralys.battlesquares',
-    appStoreUrl: 'https://apps.apple.com/app/id1609783397'
+      'https://play.google.com/store/apps/details?id=com.uralys.xoozz',
+    appStoreUrl: 'https://apps.apple.com/app/id6503286401'
   }
 ];
 
 // -----------------------------------------------------------------------------
 
-const $BattleSquares = styled.div`
+const $Xoozz = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -63,7 +60,7 @@ const $BattleSquares = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(#333e47 0%, #1f2c39 100%);
+  background: linear-gradient(#2b2e4a 0%, #131525 100%);
   color: #ededed;
   width: 100vw;
   padding: 60px;
@@ -72,10 +69,6 @@ const $BattleSquares = styled.div`
     font-family: 'Montserrat', sans-serif;
     font-size: 23px;
     margin: 15px 0;
-  }
-
-  a {
-    font-family: 'Montserrat', sans-serif;
   }
 `;
 
@@ -88,11 +81,7 @@ const $Text = styled.p`
 `;
 
 const $Logo = styled.img`
-  width: 600px;
-
-  ${maxWidth_736} {
-    width: 80vw;
-  }
+  width: 300px;
 `;
 
 const $Subtitle = styled.h2`
@@ -113,12 +102,11 @@ const $Intro = styled.section`
 // inspiration https://ashorthike.com/
 // -----------------------------------------------------------------------------
 
-const BattleSquares = () => (
-  <$BattleSquares>
+const Xoozz = () => (
+  <$Xoozz>
     <$Logo src={LogoTitle} />
     <$Intro>
-      <$Text>Experience a competitive game</$Text>
-      <$Text>Break as many blocks as possible in 25 or 45 seconds!</$Text>
+      <$Text>Experience a competitive quiz game</$Text>
     </$Intro>
 
     <$FlexStores>
@@ -131,46 +119,64 @@ const BattleSquares = () => (
       </a>
     </$FlexStores>
 
-    <$Video
+    {/* <$Video
       title="video"
       width="740"
       height="415"
       src="https://www.youtube.com/embed/Oj3-F9ifIRM"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
-    />
+    /> */}
 
-    {/* <$Subtitle>Battle Squares</$Subtitle> */}
+    <$Description>
+      <$Text>
+        Welcome to xOOzz, the ultimate quiz game to test and expand your
+        knowledge on a multitude of themes!
+      </$Text>
+
+      <$Flex>
+        <$Screenshot src={ScreenshotPromo} />
+      </$Flex>
+
+      <$Text>
+        Whether you are a Harry Potter fan, passionate about the Olympic Games,
+        or a general knowledge enthusiast, xOOzz has everything to satisfy your
+        thirst for knowledge and competition.
+      </$Text>
+    </$Description>
+
+    <$Flex>
+      <$Screenshot src={ScreenshotQuizz1} />
+      <$Screenshot src={ScreenshotQuizz2} />
+    </$Flex>
+
+    <$Description>
+      <$Text>
+        <p>Main Features:</p>
+        <p>
+          - Varied Themes: Discover quizzes covering a wide range of topics,
+          including series, sports, music, and much more.
+        </p>
+        <p>
+          - Leaderboards: Compete with friends and players from around the world
+          with leaderboards for each quiz.
+        </p>
+        <p>
+          - Global Ranking by Season: Participate in competitive seasons and see
+          where you stand on a global scale.
+        </p>
+        <p>
+          - Daily Challenges: Take on new challenges every day to earn rewards
+          and improve your ranking.
+        </p>
+        <p>
+          - Fun Learning: Learn new information while playing and having fun.
+        </p>
+      </$Text>
+    </$Description>
 
     <$Flex>
       <$Screenshot src={ScreenshotHome} />
-    </$Flex>
-
-    <$Description>
-      <$Text>
-        Join a competitive game where you need to break as many blocks as
-        possible in 25 or 45 seconds!
-      </$Text>
-
-      <$Text>
-        Blocks can be broken when at least two blocks of the same color are
-        aligned. The larger the group, the more points you score!
-      </$Text>
-    </$Description>
-
-    <$Flex>
-      <$Screenshot src={ScreenshotPlayground} />
-    </$Flex>
-
-    <$Description>
-      <$Text>
-        Some bombs will be available during the game to eliminate all blocks of
-        one color, even if they are not grouped.
-      </$Text>
-    </$Description>
-
-    <$Flex>
-      <$Screenshot src={ScreenshotExplosion} />
     </$Flex>
 
     <$Description>
@@ -182,16 +188,10 @@ const BattleSquares = () => (
     </$Description>
 
     <$Flex>
-      <$Screenshot src={ScreenshotLeaderboards} />
+      <$Screenshot src={ScreenshotLeaderboard} />
+      <$Screenshot src={ScreenshotQuizz2} />
+      <$Screenshot src={ScreenshotSuggestions} />
     </$Flex>
-
-    <$Flex>
-      <$Screenshot src={ScreenshotDaily} />
-      <$Screenshot src={ScreenshotEndScreen} />
-      <$Screenshot src={ScreenshotAbout} />
-      <$Screenshot src={ScreenshotStore} />
-    </$Flex>
-
     <$Subtitle id="credits">Credits</$Subtitle>
     <$Text>An indie game by Uralys.</$Text>
 
@@ -258,11 +258,11 @@ const BattleSquares = () => (
     </$Flex>
 
     <hr />
-    <$Link to="/battle-squares/press">Press Kit</$Link>
+    <$Link to="/xoozz/press">Press Kit</$Link>
     <$Link to="/">Home</$Link>
-  </$BattleSquares>
+  </$Xoozz>
 );
 
 // -----------------------------------------------------------------------------
 
-export default BattleSquares;
+export default Xoozz;

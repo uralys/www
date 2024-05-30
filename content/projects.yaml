@@ -8,6 +8,31 @@
 #-------------------------------------------------------------------------------
 
 - category: games
+  id: xoozz
+  title: xOOzz
+  location: Toulouse, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Godot Engine
+  dates: May 2024
+  description: "A mobile Quiz game created with Godot Engine, released on Apple Store and Google Play Store. Welcome to xOOzz, the ultimate quiz game to test and expand your knowledge on a multitude of themes!"
+  links:
+    - type: Web page
+      label: Web page
+      url: /xoozz
+    - type: presskit
+      label: Press Kit
+      url: /xoozz/press
+    - type: android
+      label: Play Store
+      url: https://play.google.com/store/apps/details?id=com.uralys.xoozz
+    - type: apple
+      label: App Store
+      url: https://apps.apple.com/app/id6503286401
+
+- category: games
   id: battle-squares
   title: Battle Squares
   location: Toulouse, France
@@ -16,7 +41,7 @@
     - Game Designer
   technos:
     - Godot Engine
-  dates: Dec 2023
+  dates: Apr 2024
   description: "A mobile game created with Godot Engine, released on Apple Store and Google Play Store. Join a competitive game where you need to break as many blocks as possible in 25 or 45 seconds!"
   links:
     - type: Web page
@@ -30,7 +55,7 @@
       url: https://play.google.com/store/apps/details?id=com.uralys.battlesquares
     - type: apple
       label: App Store
-      url: https://apps.apple.com/fr/app/battle-squares/id1609783397
+      url: https://apps.apple.com/app/id1609783397
 
 
 - category: freelance

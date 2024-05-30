@@ -16,6 +16,8 @@ import BattleSquares from './screens/battle-squares';
 import BattleSquaresPressKit from './screens/battle-squares/press';
 import LockeyLand from './screens/lockeyland';
 import LockeyLandPressKit from './screens/lockeyland/press';
+import Xoozz from './screens/xoozz';
+import XoozzPressKit from './screens/xoozz/press';
 import Music from './screens/music';
 import Privacy from './screens/privacy';
 
@@ -60,6 +62,14 @@ const router = createBrowserRouter([
   {
     path: '/lockeyland/press',
     element: <LockeyLandPressKit />
+  },
+  {
+    path: '/xoozz',
+    element: <Xoozz />
+  },
+  {
+    path: '/xoozz/press',
+    element: <XoozzPressKit />
   }
 ]);
 
