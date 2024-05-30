@@ -12,6 +12,7 @@ import useImages from '../../hooks/use-images';
 import useProjects from '../../hooks/use-projects';
 
 import {$Iframe} from '../music';
+import {$Link} from '../../style/common';
 
 // -----------------------------------------------------------------------------
 
@@ -217,13 +218,21 @@ const ProjectDisplay = ({
         {project.links ? (
           <ul>
             {project.links.map(linkInfo => {
-              return (
-                <li>
-                  <a target="_blank" rel="noreferrer" href={linkInfo.url}>
-                    {linkInfo.label}
-                  </a>
-                </li>
-              );
+              if (linkInfo.url.startsWith('http')) {
+                return (
+                  <li>
+                    <a target="_blank" rel="noreferrer" href={linkInfo.url}>
+                      {linkInfo.label}
+                    </a>
+                  </li>
+                );
+              } else {
+                return (
+                  <li>
+                    <$Link to={linkInfo.url}>{linkInfo.label}</$Link>
+                  </li>
+                );
+              }
             })}
           </ul>
         ) : null}

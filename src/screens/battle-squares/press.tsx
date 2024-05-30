@@ -1,6 +1,9 @@
-import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import {maxWidth_736, maxWidth_980} from '../../style/breakpoints';
+import {
+  maxWidth_480,
+  maxWidth_736,
+  maxWidth_980
+} from '../../style/breakpoints';
 
 import LogoTitle from '../../../assets/images/projects/battle-squares/logo-title.webp';
 
@@ -15,7 +18,12 @@ import ScreenshotHome from '../../../assets/images/projects/battle-squares/scree
 import ScreenshotLeaderboards from '../../../assets/images/projects/battle-squares/screenshots/leaderboards-1215x2160.webp';
 import ScreenshotPlayground from '../../../assets/images/projects/battle-squares/screenshots/playground-1215x2160.webp';
 import ScreenshotStore from '../../../assets/images/projects/battle-squares/screenshots/store-1215x2160.webp';
-import {$Video} from '../../style/common';
+import {
+  $Flex,
+  $Link,
+  $Screenshot as BaseScreenshot,
+  $Video
+} from '../../style/common';
 
 // -----------------------------------------------------------------------------
 
@@ -29,8 +37,6 @@ const $Press = styled.div`
   width: 100vw;
   margin: 0;
   padding: 30px 35px;
-  margin-bottom: -62px;
-  margin-top: -62px;
   box-sizing: border-box;
   color: #dddddd;
   background-color: #141414c0;
@@ -128,25 +134,10 @@ const $Info = styled.div`
 
 // -----------------------------------------------------------------------------
 
-const $Screenshots = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-  max-width: 800px;
-`;
-
-const $Screenshot = styled.img`
+const $Screenshot = styled(BaseScreenshot)`
   width: 220px;
-  border-radius: 10px;
-  border: 0;
-  margin: 5px;
-  box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(0, 0, 0, 0.23);
 
-  ${maxWidth_980} {
+  ${maxWidth_480} {
     width: 100%;
   }
 `;
@@ -306,7 +297,7 @@ const LockeyLandPressKit = () => (
       />
 
       <h2>SCREENSHOTS</h2>
-      <$Screenshots>
+      <$Flex>
         <$Screenshot src={ScreenshotHome} />
         <$Screenshot src={ScreenshotPlayground} />
         <$Screenshot src={ScreenshotEndScreen} />
@@ -315,16 +306,17 @@ const LockeyLandPressKit = () => (
         <$Screenshot src={ScreenshotStore} />
         <$Screenshot src={ScreenshotExplosion} />
         <$Screenshot src={ScreenshotAbout} />
-      </$Screenshots>
+      </$Flex>
 
       <h2>LOGOS</h2>
-      <$Screenshots>
+      <$Flex>
         <$SmallLogo src={LogoGame} />
         <$SmallLogo src={LogoUralys} />
-      </$Screenshots>
+      </$Flex>
 
       <h2>Uralys 2024</h2>
-      <Link to="/">home</Link>
+      <hr />
+      <$Link to="/">home</$Link>
     </$Info>
   </$Press>
 );

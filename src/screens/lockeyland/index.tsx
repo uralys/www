@@ -1,6 +1,5 @@
 // -----------------------------------------------------------------------------
 
-import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import {maxWidth_736} from '../../style/breakpoints';
@@ -31,6 +30,17 @@ import Chapter1Screenshot2 from '../../../assets/images/projects/lockeyland/chap
 import Chapter1Screenshot3 from '../../../assets/images/projects/lockeyland/chapters/chapter1/screenshot-3.jpg';
 import Chapter1Screenshot4 from '../../../assets/images/projects/lockeyland/chapters/chapter1/screenshot-4.jpg';
 
+import {
+  $AudioPlayer,
+  $Button,
+  $Flex,
+  $FlexStores,
+  $Link,
+  $LinkButton,
+  $Screenshot,
+  $Video
+} from '../../style/common';
+
 // -----------------------------------------------------------------------------
 
 const CHAPTERS = [
@@ -59,8 +69,6 @@ const $LockeyLand = styled.div`
   background: linear-gradient(#13639e 0%, rgb(27, 28, 29) 100%);
   color: #ededed;
   width: 100vw;
-  margin-bottom: -62px;
-  margin-top: -62px;
   padding: 60px;
 
   p {
@@ -104,36 +112,6 @@ const $Intro = styled.section`
   }
 `;
 
-const $Flex = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  margin-bottom: 55px;
-`;
-
-const $FlexStores = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  ${maxWidth_736} {
-    flex-direction: column;
-  }
-`;
-
-const $Screenshot = styled.img`
-  width: 390px;
-  border-radius: 10px;
-  border: 0;
-  margin: 5px;
-  box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(0, 0, 0, 0.23);
-`;
-
 const $AppIcon = styled.img`
   width: 120px;
   border-radius: 50px;
@@ -142,62 +120,6 @@ const $AppIcon = styled.img`
     0 3px 6px rgba(0, 0, 0, 0.16),
     0 3px 6px rgba(0, 0, 0, 0.23);
   transition: all 0.2s;
-`;
-
-const $Button = styled.img`
-  width: 220px;
-  height: 70px;
-  border-radius: 9px;
-  margin: 5px;
-  box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: all 0.2s;
-  cursor: pointer;
-
-  :hover {
-    transform: scale(1.03);
-  }
-`;
-
-const $LinkButton = styled.img`
-  width: 100px;
-  border-radius: 30px;
-  margin: 5px;
-  box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: all 0.2s;
-  cursor: pointer;
-
-  :hover {
-    transform: scale(1.03);
-  }
-`;
-
-const $AudioPlayer = styled.iframe`
-  border-radius: 10px;
-  border: 0px;
-  height: 80px;
-  width: 320px;
-  box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(0, 0, 0, 0.23);
-`;
-
-const $Video = styled.iframe`
-  margin-top: 50px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  border: 0px;
-
-  box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(0, 0, 0, 0.23);
-
-  ${maxWidth_736} {
-    width: 90%;
-  }
 `;
 
 // -----------------------------------------------------------------------------
@@ -334,7 +256,9 @@ const LockeyLand = () => (
       </a>
     </$Flex>
 
-    <Link to="/lockeyland/press">press kit</Link>
+    <hr />
+    <$Link to="/lockeyland/press">Press Kit</$Link>
+    <$Link to="/">Home</$Link>
   </$LockeyLand>
 );
 

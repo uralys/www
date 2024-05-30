@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
-import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 
 import createLaTaverne from 'taverne';
 import {Taverne} from 'taverne/hooks';
@@ -23,55 +23,28 @@ import Privacy from './screens/privacy';
 
 import GlobalStyle from './style/global';
 import $Wrapper from './style/wrapper';
+import ScrollToTop from './hooks/use-scroll-to-top';
 
 // -----------------------------------------------------------------------------
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />
-  },
-  {
-    path: '/privacy',
-    element: <Privacy />
-  },
-  {
-    path: '/music',
-    element: <Music />
-  },
-  {
-    path: '/avindi',
-    element: <Avindi />
-  },
-  {
-    path: '/avindi/press',
-    element: <AvindiPressKit />
-  },
-  {
-    path: '/battle-squares',
-    element: <BattleSquares />
-  },
-  {
-    path: '/battle-squares/press',
-    element: <BattleSquaresPressKit />
-  },
-  {
-    path: '/lockeyland',
-    element: <LockeyLand />
-  },
-  {
-    path: '/lockeyland/press',
-    element: <LockeyLandPressKit />
-  },
-  {
-    path: '/xoozz',
-    element: <Xoozz />
-  },
-  {
-    path: '/xoozz/press',
-    element: <XoozzPressKit />
-  }
-]);
+// const Layout = () => <></>;
+
+const NavigationTree = (
+  <Route path="/">
+    <Route path="*" element={<Navigate to="/" />} />
+    <Route path="/" element={<Home />} />
+    <Route path="/privacy" element={<Privacy />} />
+    <Route path="/music" element={<Music />} />
+    <Route path="/avindi" element={<Avindi />} />
+    <Route path="/avindi/press" element={<AvindiPressKit />} />
+    <Route path="/battle-squares" element={<BattleSquares />} />
+    <Route path="/battle-squares/press" element={<BattleSquaresPressKit />} />
+    <Route path="/lockeyland" element={<LockeyLand />} />
+    <Route path="/lockeyland/press" element={<LockeyLandPressKit />} />
+    <Route path="/xoozz" element={<Xoozz />} />
+    <Route path="/xoozz/press" element={<XoozzPressKit />} />
+  </Route>
+);
 
 // -----------------------------------------------------------------------------
 
@@ -86,7 +59,10 @@ const App = () => {
   return (
     <$Wrapper>
       <GlobalStyle />
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>{NavigationTree}</Routes>
+      </BrowserRouter>
     </$Wrapper>
   );
 };

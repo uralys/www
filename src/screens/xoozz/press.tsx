@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import {maxWidth_736, maxWidth_980} from '../../style/breakpoints';
+import {
+  maxWidth_480,
+  maxWidth_736,
+  maxWidth_980
+} from '../../style/breakpoints';
 
 import LogoTitle from '../../../assets/images/projects/xoozz/logo-title.webp';
 
@@ -11,7 +15,7 @@ import ScreenshotQuizz1 from '../../../assets/images/projects/xoozz/screenshots/
 import ScreenshotQuizz2 from '../../../assets/images/projects/xoozz/screenshots/quizz2-1215x2160.webp';
 import ScreenshotHome from '../../../assets/images/projects/xoozz/screenshots/home.webp';
 import ScreenshotLeaderboard from '../../../assets/images/projects/xoozz/screenshots/leaderboard-1215x2160.webp';
-import {$Link} from '../../style/common';
+import {$Flex, $Link, $Screenshot as BaseScreenshot} from '../../style/common';
 
 // -----------------------------------------------------------------------------
 
@@ -122,25 +126,10 @@ const $Info = styled.div`
 
 // -----------------------------------------------------------------------------
 
-const $Screenshots = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-  max-width: 800px;
-`;
-
-const $Screenshot = styled.img`
+const $Screenshot = styled(BaseScreenshot)`
   width: 220px;
-  border-radius: 10px;
-  border: 0;
-  margin: 5px;
-  box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(0, 0, 0, 0.23);
 
-  ${maxWidth_980} {
+  ${maxWidth_480} {
     width: 100%;
   }
 `;
@@ -315,19 +304,19 @@ const LockeyLandPressKit = () => (
       /> */}
 
       <h2>SCREENSHOTS</h2>
-      <$Screenshots>
+      <$Flex>
         <$Screenshot src={ScreenshotHome} />
         <$Screenshot src={ScreenshotQuizz1} />
         <$Screenshot src={ScreenshotQuizz2} />
         <$Screenshot src={ScreenshotLeaderboard} />
         <$Screenshot src={ScreenshotSuggestions} />
-      </$Screenshots>
+      </$Flex>
 
       <h2>LOGOS</h2>
-      <$Screenshots>
+      <$Flex>
         <$SmallLogo src={LogoGame} />
         <$SmallLogo src={LogoUralys} />
-      </$Screenshots>
+      </$Flex>
 
       <h2>Uralys 2024</h2>
       <$Link to="/">home</$Link>

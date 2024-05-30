@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {maxWidth_736, maxWidth_980} from '../../style/breakpoints';
 
@@ -14,6 +13,7 @@ import Chapter1Screenshot1 from '../../../assets/images/projects/lockeyland/chap
 import Chapter1Screenshot2 from '../../../assets/images/projects/lockeyland/chapters/chapter1/screenshot-2.jpg';
 import Chapter1Screenshot3 from '../../../assets/images/projects/lockeyland/chapters/chapter1/screenshot-3.jpg';
 import Chapter1Screenshot4 from '../../../assets/images/projects/lockeyland/chapters/chapter1/screenshot-4.jpg';
+import {$Link} from '../../style/common';
 
 // -----------------------------------------------------------------------------
 
@@ -27,8 +27,6 @@ const $Press = styled.div`
   width: 100vw;
   margin: 0;
   padding: 30px 35px;
-  margin-bottom: -62px;
-  margin-top: -62px;
   box-sizing: border-box;
   color: #dddddd;
   background-color: #141414c0;
@@ -334,7 +332,9 @@ const LockeyLandPressKit = () => (
       </$Screenshots>
 
       <h2>Uralys 2022</h2>
-      <Link to="/">home</Link>
+
+      <hr />
+      <$Link to="/">home</$Link>
     </$Info>
   </$Press>
 );
