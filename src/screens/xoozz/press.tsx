@@ -15,7 +15,12 @@ import ScreenshotQuizz1 from '../../../assets/images/projects/xoozz/screenshots/
 import ScreenshotQuizz2 from '../../../assets/images/projects/xoozz/screenshots/quizz2-1215x2160.webp';
 import ScreenshotHome from '../../../assets/images/projects/xoozz/screenshots/home.webp';
 import ScreenshotLeaderboard from '../../../assets/images/projects/xoozz/screenshots/leaderboard-1215x2160.webp';
-import {$Flex, $Link, $Screenshot as BaseScreenshot} from '../../style/common';
+import {
+  $Flex,
+  $Link,
+  $Video,
+  $Screenshot as BaseScreenshot
+} from '../../style/common';
 
 // -----------------------------------------------------------------------------
 
@@ -292,16 +297,16 @@ const LockeyLandPressKit = () => (
     </$Intro>
 
     <$Info>
-      {/* <h2>TRAILER</h2>
+      <h2>TRAILER</h2>
 
       <$Video
         title="video"
         width="860px"
         height="480px"
-        src="https://www.youtube.com/embed/Oj3-F9ifIRM"
+        src="https://www.youtube.com/embed/hYZSf6zSCOY"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-      /> */}
+      />
 
       <h2>SCREENSHOTS</h2>
       <$Flex>

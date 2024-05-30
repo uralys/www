@@ -37,7 +37,8 @@ import {
   $Link,
   $LinkButton,
   $LogoGame,
-  $Screenshot
+  $Screenshot,
+  $Video
 } from '../../style/common';
 
 // -----------------------------------------------------------------------------
@@ -119,14 +120,14 @@ const Xoozz = () => (
       </a>
     </$FlexStores>
 
-    {/* <$Video
+    <$Video
       title="video"
       width="740"
       height="415"
-      src="https://www.youtube.com/embed/Oj3-F9ifIRM"
+      src="https://www.youtube.com/embed/hYZSf6zSCOY"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
-    /> */}
+    />
 
     <$Description>
       <$Text>
