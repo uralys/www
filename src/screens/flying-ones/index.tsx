@@ -29,7 +29,8 @@ import {
   $LinkButton,
   $LogoGame,
   $ScreenshotLandscape,
-  $Title
+  $Title,
+  $Video
 } from '../../style/common';
 import useProjects from '../../hooks/use-projects';
 import useImages from '../../hooks/use-images';
@@ -120,14 +121,14 @@ const FlyingOnes = () => {
         </a>
       </$FlexStores>
 
-      {/* <$Video
+      <$Video
         title="video"
         width="740"
         height="415"
-        src="https://www.youtube.com/embed/Oj3-F9ifIRM"
+        src="https://www.youtube.com/embed/m8wcnyQimH4"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-      /> */}
+      />
 
       <$Flex>
         <$ScreenshotLandscape src={screenshots[0]} />

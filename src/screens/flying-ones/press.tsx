@@ -6,7 +6,8 @@ import {
   $Flex,
   $Link,
   $Screenshot as BaseScreenshot,
-  $Title
+  $Title,
+  $Video
 } from '../../style/common';
 import useProjects from '../../hooks/use-projects';
 import useImages from '../../hooks/use-images';
@@ -295,16 +296,16 @@ const PressKit = () => {
       </$Intro>
 
       <$Info>
-        {/* <h2>TRAILER</h2>
+        <h2>TRAILER</h2>
 
         <$Video
           title="video"
           width="860px"
           height="480px"
-          src="https://www.youtube.com/embed/Oj3-F9ifIRM"
+          src="https://www.youtube.com/embed/m8wcnyQimH4"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        /> */}
+        />
 
         <h2>SCREENSHOTS</h2>
         <$Flex>
