@@ -130,19 +130,22 @@ const FlyingOnes = () => {
         allowFullScreen
       />
 
+      <$Description>
+        <$Text>
+          The game is simple: catch all the flying colored objects without
+          making mistakes.
+        </$Text>
+      </$Description>
+
       <$Flex>
         <$ScreenshotLandscape src={screenshots[0]} />
       </$Flex>
 
       <$Description>
         <$Text>
-          Join a competitive game where you need to break as many blocks as
-          possible in 25 or 45 seconds!
-        </$Text>
-
-        <$Text>
-          Blocks can be broken when at least two blocks of the same color are
-          aligned. The larger the group, the more points you score!
+          The more objects you catch, the higher your score will be. But be
+          careful, if you miss an object, you will lose a life. The game is over
+          when you run out of lives.
         </$Text>
       </$Description>
 
@@ -152,8 +155,20 @@ const FlyingOnes = () => {
 
       <$Description>
         <$Text>
-          Some bombs will be available during the game to eliminate all blocks
-          of one color, even if they are not grouped.
+          <p>Main Features:</p>
+          <p>
+            - Leaderboards: Compete with friends and players from around the
+            world with leaderboards for each quiz.
+          </p>
+          <p>
+            - Global Ranking by Season: Participate in competitive seasons and
+            see where you stand on a global scale.
+          </p>
+          <p>
+            - Daily Challenges: Take on new challenges every day to earn rewards
+            and improve your ranking.
+          </p>
+          <p>- Multiplayer Mode: Face off against other players scores</p>
         </$Text>
       </$Description>
 
@@ -172,6 +187,10 @@ const FlyingOnes = () => {
       <$Flex>
         <$ScreenshotLandscape src={screenshots[5]} />
       </$Flex>
+
+      <$Description>
+        <$Text>Download Flying Ones now and reach to top leaderboards!</$Text>
+      </$Description>
 
       <$Flex>
         <$ScreenshotLandscape src={screenshots[3]} />
