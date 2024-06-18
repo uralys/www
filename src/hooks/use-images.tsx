@@ -5,6 +5,7 @@ import type {Project} from '../screens/home/projects';
 
 type ProjectImages = {
   logo: string;
+  screenshots: string[];
 };
 
 type Images = Record<Project['id'], ProjectImages>;
@@ -22,11 +23,36 @@ const _images: ProjectImages[] = await Promise.all(
         logo = null;
       }
 
-      return {
+      const projectImages: Record<string, ProjectImages> = {
         [p.id]: {
-          logo
+          logo,
+          screenshots: []
         }
       };
+
+      let canLoadMoreScreenshots = true;
+      let i = 0;
+      while (canLoadMoreScreenshots) {
+        let _screenshot = null;
+        i++;
+
+        try {
+          _screenshot = (
+            await import(
+              `../../assets/images/projects/${p.id}/screenshots/${i}.webp`
+            )
+          ).default;
+
+          if (_screenshot) {
+            projectImages[p.id].screenshots.push(_screenshot);
+          }
+        } catch (e) {
+          canLoadMoreScreenshots = false;
+          logo = null;
+        }
+      }
+
+      return projectImages;
     }
   )
 );

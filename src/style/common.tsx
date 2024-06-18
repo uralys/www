@@ -16,6 +16,11 @@ export const $Flex = styled.div`
   margin-bottom: 55px;
 `;
 
+export const $Title = styled.h1`
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+`;
+
 export const $Description = styled($Flex)`
   margin-top: 50px;
   margin-bottom: 55px;
@@ -41,6 +46,16 @@ export const $Screenshot = styled.img`
   box-shadow:
     0 3px 6px rgba(0, 0, 0, 0.16),
     0 3px 6px rgba(0, 0, 0, 0.23);
+`;
+
+export const $ScreenshotPortrait = styled($Screenshot)`
+  aspect-ratio: 9/16;
+`;
+
+export const $ScreenshotLandscape = styled($Screenshot)`
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
 `;
 
 export const $LogoGame = styled.img`

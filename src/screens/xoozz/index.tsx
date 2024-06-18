@@ -38,6 +38,7 @@ import {
   $LinkButton,
   $LogoGame,
   $Screenshot,
+  $ScreenshotLandscape,
   $Video
 } from '../../style/common';
 
@@ -136,7 +137,7 @@ const Xoozz = () => (
       </$Text>
 
       <$Flex>
-        <$Screenshot src={ScreenshotPromo} />
+        <$ScreenshotLandscape src={ScreenshotPromo} />
       </$Flex>
 
       <$Text>

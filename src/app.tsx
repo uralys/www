@@ -16,6 +16,8 @@ import BattleSquares from './screens/battle-squares';
 import BattleSquaresPressKit from './screens/battle-squares/press';
 import LockeyLand from './screens/lockeyland';
 import LockeyLandPressKit from './screens/lockeyland/press';
+import FlyingOnes from './screens/flying-ones';
+import FlyingOnesPressKit from './screens/flying-ones/press';
 import Xoozz from './screens/xoozz';
 import XoozzPressKit from './screens/xoozz/press';
 import Music from './screens/music';
@@ -43,6 +45,8 @@ const NavigationTree = (
     <Route path="/lockeyland/press" element={<LockeyLandPressKit />} />
     <Route path="/xoozz" element={<Xoozz />} />
     <Route path="/xoozz/press" element={<XoozzPressKit />} />
+    <Route path="/flying-ones" element={<FlyingOnes />} />
+    <Route path="/flying-ones/press" element={<FlyingOnesPressKit />} />
   </Route>
 );
 

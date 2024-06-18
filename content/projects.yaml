@@ -8,6 +8,31 @@
 #-------------------------------------------------------------------------------
 
 - category: games
+  id: flying-ones
+  title: Flying Ones
+  location: Toulouse, France
+  roles:
+    - Mobile Developer
+    - Game Designer
+  technos:
+    - Godot Engine
+  dates: June 2024
+  description: "Welcome to Flying Ones, an addictive and fun game that will test your reaction time and hand-eye coordination. The game is simple: catch all the flying colored objects without making mistakes. The more objects you catch, the higher your score will be. But be careful, if you miss an object, you will lose a life. The game is over when you run out of lives."
+  links:
+    - type: Web page
+      label: Web page
+      url: /flying-ones
+    - type: presskit
+      label: Press Kit
+      url: /flying-ones/press
+    - type: android
+      label: Play Store
+      url: https://play.google.com/store/apps/details?id=com.uralys.flyingones
+    - type: apple
+      label: App Store
+      url: https://apps.apple.com/app/id6504112064
+
+- category: games
   id: xoozz
   title: xOOzz
   location: Toulouse, France
@@ -439,8 +464,9 @@
     - type: ld
       label: Ludum Dare
       url: https://ldjam.com/events/ludum-dare/44/uralys-ld44
-    - type: play
-      url: http://www.uralys.com/ld44/
+    - type: twitter
+      label: devlog on X
+      url: https://x.com/chrisdugne/status/1122041386088505344
 
 #-------------------------------------------------------------------------------
 
