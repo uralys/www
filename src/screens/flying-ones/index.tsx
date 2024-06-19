@@ -158,7 +158,7 @@ const FlyingOnes = () => {
           <p>Main Features:</p>
           <p>
             - Leaderboards: Compete with friends and players from around the
-            world with leaderboards for each quiz.
+            world with leaderboards.
           </p>
           <p>
             - Global Ranking by Season: Participate in competitive seasons and
@@ -168,7 +168,6 @@ const FlyingOnes = () => {
             - Daily Challenges: Take on new challenges every day to earn rewards
             and improve your ranking.
           </p>
-          <p>- Multiplayer Mode: Face off against other players scores</p>
         </$Text>
       </$Description>
 
