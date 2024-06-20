@@ -255,7 +255,7 @@ const PressKit = () => {
           </p>
           <p>
             - Leaderboards: Compete with friends and players from around the
-            world with leaderboards for each quiz.
+            world with leaderboards.
           </p>
           <p>
             - Global Ranking by Season: Participate in competitive seasons and
@@ -265,7 +265,6 @@ const PressKit = () => {
             - Daily Challenges: Take on new challenges every day to earn rewards
             and improve your ranking.
           </p>
-          <p>- Multiplayer Mode: Face off against other players scores</p>
           <p>
             A daily and weekly leaderboard is established for each game mode to
             distribute season points. The season ranking will determine the
