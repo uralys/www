@@ -9,6 +9,7 @@ import {createDevtools} from 'taverne/middlewares';
 import filters from './barrels/filters.barrel';
 import navigation from './barrels/navigation.barrel';
 
+import Tiles from './screens/tiles';
 import Home from './screens/home';
 import Avindi from './screens/avindi';
 import AvindiPressKit from './screens/avindi/press';
@@ -35,6 +36,8 @@ const NavigationTree = (
   <Route path="/">
     <Route path="*" element={<Navigate to="/" />} />
     <Route path="/" element={<Home />} />
+    <Route path="/timeline" element={<Home />} />
+    <Route path="/artists" element={<Tiles />} />
     <Route path="/privacy" element={<Privacy />} />
     <Route path="/music" element={<Music />} />
     <Route path="/avindi" element={<Avindi />} />
