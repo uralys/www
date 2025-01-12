@@ -43,10 +43,14 @@ const GlobalStyle = createGlobalStyle`
     transform: scale(1);
     width: 100vw;
     z-index: -1;
-    background-image: linear-gradient(45deg, rgba(28, 29, 39, 0.347) 0%, rgba(0, 0, 0, 0.477) 100%), url(${bg});
-    background-position: 0% 0%, center;
-    background-repeat: repeat, no-repeat;
-    background-size: cover, cover;
+    background-image: radial-gradient(
+      circle farthest-corner at top left, #181822 20%,#433c4b65 80%),
+      radial-gradient(
+        circle farthest-side at top right, #181822 10%, #8b84b8a0 80%
+      ),
+      radial-gradient(
+        ellipse at bottom center, #818695 0%, #1818229a 30%
+    );
   }
 
   body:after {

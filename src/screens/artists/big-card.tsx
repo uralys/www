@@ -12,26 +12,35 @@ const $BigArtistCard = styled.div`
   transform: translate(-50%, -50%);
   width: 100vw;
   height: 100vh;
-  background-color: #8988f0;
-  animation: zoomIn 0.2s linear forwards;
-  transition: all 0.3s;
+  background: linear-gradient(-45deg, #181822, #555571);
+  animation: zoomIn 1s linear forwards;
+  border-radius: 25px;
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+  /* transition: all 2s; */
 
   @keyframes zoomIn {
     0% {
       width: 60px;
       height: 60px;
-      background-color: #f0f0f0;
     }
     30% {
       width: 80vw;
       height: 160px;
-      background-color: #d1d1f4;
+    }
+    99% {
     }
     100% {
-      width: 100vw;
-      height: 100vh;
-      background-color: #7574b8;
+      width: 80vw;
+      height: 80vh;
     }
+  }
+
+  iframe {
+    box-shadow:
+      0 14px 28px rgba(0, 0, 0, 0.25),
+      0 10px 10px rgba(0, 0, 0, 0.22);
   }
 `;
 
@@ -69,6 +78,24 @@ const $ArtistLogo = styled.img`
   }
 `;
 
+const $Cross = styled.p`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 34px;
+  line-height: 10px;
+  margin: 0;
+  font-weight: bold;
+  cursor: pointer;
+  color: #f0f0f0;
+  transition: all 0.3s;
+
+  &:hover {
+    color: #fff;
+    scale: 1.4;
+  }
+`;
+
 const BigArtistCard = ({
   artist,
   onClose
@@ -76,9 +103,17 @@ const BigArtistCard = ({
   artist: Artist;
   onClose: () => void;
 }) => (
-  <$BigArtistCard onClick={onClose}>
-    <p>{artist.name}</p>
+  <$BigArtistCard>
+    <$Cross onClick={onClose}>X</$Cross>
     <$ArtistLogo src={artist.logo} />
+    <iframe
+      width="50%"
+      max-width="600px"
+      height="120px"
+      allow="autoplay"
+      style={{border: 'none', borderRadius: '12px'}}
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2007299579&color=%23333&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"
+    ></iframe>
   </$BigArtistCard>
 );
 
