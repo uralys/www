@@ -11,7 +11,7 @@ const $SmallArtistCard = styled.div`
   color: #f0f0f0;
   border-radius: 25px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
   background: linear-gradient(-45deg, #181822, #555571);
   background-blend-mode: overlay;
 
@@ -21,7 +21,7 @@ const $SmallArtistCard = styled.div`
     0 3px 6px rgba(0, 0, 0, 0.23);
 
   &:hover {
-    width: 280px;
+    scale: 1.03;
     box-shadow:
       0 10px 20px rgba(0, 0, 0, 0.19),
       0 6px 6px rgba(0, 0, 0, 0.23);

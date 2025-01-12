@@ -6,34 +6,27 @@ const $BigArtistCard = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100vw;
-  height: 100vh;
+  max-width: 720px;
   background: linear-gradient(-45deg, #181822, #555571);
   animation: zoomIn 1s linear forwards;
   border-radius: 25px;
   box-shadow:
     0 3px 6px rgba(0, 0, 0, 0.16),
     0 3px 6px rgba(0, 0, 0, 0.23);
-  /* transition: all 2s; */
+  /* overflow-y: auto; */
 
   @keyframes zoomIn {
     0% {
       width: 60px;
-      height: 60px;
     }
     30% {
       width: 80vw;
-      height: 160px;
     }
     99% {
     }
     100% {
       width: 80vw;
-      height: 80vh;
     }
   }
 
@@ -79,7 +72,7 @@ const $ArtistLogo = styled.img`
 `;
 
 const $Cross = styled.p`
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   font-size: 34px;
@@ -96,6 +89,41 @@ const $Cross = styled.p`
   }
 `;
 
+const $SoundCloudIframe = styled.iframe`
+  border: none;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 600px;
+  height: 166px;
+  margin: 10px;
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 2s;
+`;
+
+const SoundCloudEmbed = ({trackUrl}: {trackUrl: string}) => (
+  <$SoundCloudIframe
+    src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(
+      trackUrl
+    )}&color=%23181822&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false`}
+    allow="autoplay"
+  />
+);
+
+const $SpotifyEmbed = styled.iframe`
+  border: 0;
+  height: 700px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 15px;
+  margin: 20px;
+`;
+
+const SpotifyEmbed = ({trackUrl}: {trackUrl: string}) => (
+  <$SpotifyEmbed src={trackUrl} />
+);
+
 const BigArtistCard = ({
   artist,
   onClose
@@ -106,14 +134,14 @@ const BigArtistCard = ({
   <$BigArtistCard>
     <$Cross onClick={onClose}>X</$Cross>
     <$ArtistLogo src={artist.logo} />
-    <iframe
-      width="50%"
-      max-width="600px"
-      height="120px"
-      allow="autoplay"
-      style={{border: 'none', borderRadius: '12px'}}
-      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2007299579&color=%23333&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"
-    ></iframe>
+
+    {artist.spotifyLinks?.map(trackUrl => (
+      <SpotifyEmbed key={trackUrl} trackUrl={trackUrl} />
+    ))}
+
+    {artist.soundcloudLinks?.map(trackUrl => (
+      <SoundCloudEmbed key={trackUrl} trackUrl={trackUrl} />
+    ))}
   </$BigArtistCard>
 );
 

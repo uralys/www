@@ -15,20 +15,48 @@ export type Artist = {
   name: string;
   musicStyle: string;
   logo: string;
+  soundcloudLinks?: string[];
+  spotifyLinks?: string[];
+  deezer?: string;
+  tidal?: string;
+  linktree?: string;
+  appleMusic?: string;
+  instagram?: string;
 };
 
 const URALYS: Artist = {
   name: 'Uralys',
   logo: UralysLogo,
-  musicStyle: 'Glitch Hop'
+  musicStyle: 'Glitch Hop',
+  soundcloudLinks: [
+    'https://api.soundcloud.com/tracks/1060031104',
+    'https://api.soundcloud.com/tracks/1060031089'
+  ],
+  spotifyLinks: [
+    'https://open.spotify.com/embed/artist/1lRNAaGXQBBXR6MWs0pEVp'
+  ],
+  deezer: 'https://www.deezer.com/us/artist/103480612',
+  tidal: 'https://tidal.com/browse/artist/20839032',
+  linktree: 'https://linktr.ee/uralys',
+  appleMusic: 'https://music.apple.com/fr/artist/uralys/1527013922',
+  instagram: 'https://www.instagram.com/uralys.studio'
 };
-const EZOM: Artist = {name: 'Ezom', logo: EzomLogo, musicStyle: 'Ambient'};
+
+const EZOM: Artist = {
+  name: 'Ezom',
+  logo: EzomLogo,
+  musicStyle: 'Ambient',
+  soundcloudLinks: ['https://api.soundcloud.com/tracks/2007299579']
+};
+
 const TUNET: Artist = {name: 'Tunet', logo: TunetLogo, musicStyle: 'Trip Hop'};
+
 const CORIOLIS: Artist = {
   name: 'Coriolis',
   logo: CoriolisLogo,
   musicStyle: 'Piano'
 };
+
 const LITTLE_BIG_ORCHESTRA: Artist = {
   name: 'Little Big Orchestra',
   logo: LittleBigOrchestraLogo,
@@ -80,8 +108,8 @@ const $Tiles = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 80%;
-  max-width: 900px;
+  width: 100%;
+  max-width: 820px;
 `;
 
 // -----------------------------------------------------------------------------
