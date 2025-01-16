@@ -46,7 +46,8 @@ const EZOM: Artist = {
   name: 'Ezom',
   logo: EzomLogo,
   musicStyle: 'Ambient',
-  soundcloudLinks: ['https://api.soundcloud.com/tracks/2007299579']
+  soundcloudLinks: ['https://api.soundcloud.com/tracks/2007299579'],
+  spotifyLinks: ['https://open.spotify.com/embed/artist/42mhVh91vnD3Zomed0JaK7']
 };
 
 const TUNET: Artist = {name: 'Tunet', logo: TunetLogo, musicStyle: 'Trip Hop'};
@@ -54,13 +55,15 @@ const TUNET: Artist = {name: 'Tunet', logo: TunetLogo, musicStyle: 'Trip Hop'};
 const CORIOLIS: Artist = {
   name: 'Coriolis',
   logo: CoriolisLogo,
-  musicStyle: 'Piano'
+  musicStyle: 'Piano',
+  spotifyLinks: ['https://open.spotify.com/embed/artist/0Qw45lsmPHKwfI814L0P0q']
 };
 
 const LITTLE_BIG_ORCHESTRA: Artist = {
   name: 'Little Big Orchestra',
   logo: LittleBigOrchestraLogo,
-  musicStyle: 'Cinematic'
+  musicStyle: 'Cinematic',
+  spotifyLinks: ['https://open.spotify.com/embed/artist/183jCPSRB1FFJhUmU8IZtI']
 };
 
 // -----------------------------------------------------------------------------
