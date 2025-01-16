@@ -73,12 +73,17 @@ const $ArtistsScreen = styled.div`
   width: 80vw;
   margin: 0 auto;
   max-width: 1100px;
+  color: #f0f0f0;
+
+  a {
+    color: #181822;
+    text-decoration: underline;
+  }
 `;
 
 const $Hero = styled.div`
   display: flex;
   flex-direction: row;
-  color: #f0f0f0;
   width: 100%;
   padding: 32px;
 `;
@@ -164,6 +169,11 @@ const ArtistsScreen = () => {
               )
             )}
           </$Tiles>
+
+          <p>
+            Let's talk about your project:{' '}
+            <a href="mailto:hello@uralys.com">hello@uralys.com</a>
+          </p>
         </>
       )}
     </$ArtistsScreen>
