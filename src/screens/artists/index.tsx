@@ -175,7 +175,9 @@ const ArtistsScreen = () => {
 
           <p>
             Let's talk about your project:{' '}
-            <a href="mailto:chris.dugne@uralys.com">chris.dugne@uralys.com</a>
+            <a href="mailto:?to=Uralys<chris.dugne@uralys.com>&subject=Hello Uralys!">
+              chris.dugne@uralys.com
+            </a>
           </p>
         </>
       )}

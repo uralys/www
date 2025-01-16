@@ -55,7 +55,9 @@ const Hero = () => (
     <hr />
     <p>
       Let's talk about your project:{' '}
-      <a href="mailto:hello@uralys.com">hello@uralys.com</a>
+      <a href="mailto:?to=Uralys<hello.dugne@uralys.com>&subject=Hello Uralys!">
+        hello@uralys.com
+      </a>
     </p>
     <p>
       Here is my <a href="./cv-2024.pdf">CV</a>
