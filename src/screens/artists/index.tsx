@@ -145,6 +145,10 @@ const ArtistsScreen = () => {
               <$Subtitle>Meet the artists</$Subtitle>
             </$Left>
             <$Right>
+              <p>
+                Uralys Studio is a Record Label representing the artists Uralys,
+                Ezom, Little Big Orchestra, Coriolis, and Tunet.
+              </p>
               <p>We explore the diverse landscapes of electronic music.</p>
               <p>
                 Our work is dedicated to creativity and collaboration, where
