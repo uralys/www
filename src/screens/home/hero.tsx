@@ -60,7 +60,7 @@ const Hero = () => (
       </a>
     </p>
     <p>
-      Here is my <a href="./cv-2024.pdf">CV</a>
+      Here is my <a href="./cv-2025.pdf">CV</a>
     </p>
   </$Hero>
 );
