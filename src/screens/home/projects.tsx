@@ -11,8 +11,9 @@ import {
 import useImages from '../../hooks/use-images';
 import useProjects from '../../hooks/use-projects';
 
-import {$Iframe} from '../music';
-import {$Link} from '../../style/common';
+import ProjectCard from './project-card';
+import YearSeparator from './year-separator';
+import MusicCard from './music-card';
 
 // -----------------------------------------------------------------------------
 
@@ -50,126 +51,47 @@ export type Project = {
 
 // -----------------------------------------------------------------------------
 
-const $Project = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-  ${maxWidth_736} {
-    flex-direction: column;
-  }
-`;
-
-const $Texts = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  text-align: left;
-  padding: 10px 25px;
-  width: 100%;
-
-  ${maxWidth_736} {
-    order: 1 !important;
-    padding: 10px;
-  }
-`;
-
-const $Title = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-
-const $MiniImage = styled.div`
-  display: none;
-
-  ${maxWidth_736} {
-    display: flex;
-  }
-
-  > img {
-    width: 70px;
-    margin-right: 30px;
-    border-radius: 16px;
-    box-shadow:
-      0 3px 6px rgba(0, 0, 0, 0.16),
-      0 3px 6px rgba(0, 0, 0, 0.23);
-  }
-`;
-
-const $Image = styled.div`
-  padding-top: 20px;
-  padding-bottom: 20px;
-  flex: 0.5;
-
-  ${maxWidth_736} {
-    display: none;
-  }
-
-  > img {
-    width: 100%;
-    border-radius: 16px;
-    box-shadow:
-      0 3px 6px rgba(0, 0, 0, 0.16),
-      0 3px 6px rgba(0, 0, 0, 0.23);
-  }
-`;
-
-const $TitleText = styled.p`
-  text-transform: uppercase;
-  color: #e2e2e2;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 0.275rem;
-  width: calc(100% + 0.275rem);
-  font-size: 0.875em;
-  line-height: 1.375;
-  font-weight: 400;
-
-  ${maxWidth_736} {
-    display: flex;
-    font-size: 1em;
-  }
-`;
-
-const $Description = styled.p`
-  color: #e2e2e2;
-  font-family: 'Source Sans Pro', sans-serif;
-  letter-spacing: 0.025rem;
-  width: calc(100% + 0.025rem);
-  font-size: 1em;
-  line-height: 1.75;
-  font-weight: 200;
-`;
-
-// -----------------------------------------------------------------------------
-
 const $Projects = styled.div`
   overflow: hidden;
   width: 100%;
 `;
 
+const $ProjectsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 32px;
+  margin: 40px 0;
+
+  ${maxWidth_736} {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin: 24px 0;
+  }
+`;
+
+const $MusicSection = styled.div`
+  margin: 40px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+
+  ${maxWidth_736} {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 24px 0;
+  }
+`;
+
 // -----------------------------------------------------------------------------
 
 const ProjectDisplay = ({
-  project,
-  index
+  project
 }: {
   project: Project;
-  index: number;
 }) => {
-  const {dispatch, pour} = useTaverne();
+  const {pour} = useTaverne();
   const filters = pour('filters');
   const images = useImages();
-
-  const selectProject = useCallback(() => {
-    return;
-    dispatch({
-      type: SELECT_PROJECT,
-      payload: {project}
-    } as SelectProjectAction);
-  }, []);
 
   const isSelected = useCallback(
     (filterName: string) => {
@@ -179,13 +101,7 @@ const ProjectDisplay = ({
   );
 
   if (project.category === 'year') {
-    return (
-      <Fragment key={`year-${project.id}`}>
-        <hr />
-        <p> {project.id}</p>
-        <hr />
-      </Fragment>
-    );
+    return <YearSeparator key={`year-${project.id}`} year={project.id} />;
   }
 
   if (!isSelected('everything') && !isSelected(project.category)) {
@@ -194,54 +110,19 @@ const ProjectDisplay = ({
 
   if (project.category === 'music') {
     return (
-      <$Iframe
-        src={project.links.find(link => link.platform === 'spotify')?.url}
+      <MusicCard
+        key={`music-${project.id}`}
+        project={project}
       />
     );
   }
 
   return (
-    <$Project key={`${project.id}`} onClick={selectProject}>
-      <$Texts
-        style={{
-          order: (index + (project.meta?.inverseOrder ? 1 : 0)) % 2
-        }}
-      >
-        <$Title>
-          <$MiniImage>
-            <img src={images[project.id]?.logo} />
-          </$MiniImage>
-          <$TitleText>{project.title}</$TitleText>
-        </$Title>
-        <$Description>{project.description}</$Description>
-
-        {project.links ? (
-          <ul>
-            {project.links.map(linkInfo => {
-              if (linkInfo.url.startsWith('http')) {
-                return (
-                  <li>
-                    <a target="_blank" rel="noreferrer" href={linkInfo.url}>
-                      {linkInfo.label}
-                    </a>
-                  </li>
-                );
-              } else {
-                return (
-                  <li>
-                    <$Link to={linkInfo.url}>{linkInfo.label}</$Link>
-                  </li>
-                );
-              }
-            })}
-          </ul>
-        ) : null}
-      </$Texts>
-
-      <$Image>
-        <img src={images[project.id]?.logo} />
-      </$Image>
-    </$Project>
+    <ProjectCard
+      key={`project-${project.id}`}
+      project={project}
+      image={images[project.id]?.logo}
+    />
   );
 };
 
@@ -249,23 +130,96 @@ const ProjectDisplay = ({
 
 const Projects = () => {
   const projects = useProjects();
-  const homeProjects = projects?.filter(p => !['music'].includes(p.category));
+  const {pour} = useTaverne();
+  const filters = pour('filters');
 
   if (!projects) {
     return null;
   }
 
-  return (
-    <$Projects>
-      {homeProjects?.map((project: Project, index: number) => (
-        <ProjectDisplay
-          key={`project-${index}`}
-          project={project}
-          index={index}
-        />
-      ))}
-    </$Projects>
-  );
+  const isSelected = (filterName: string) => {
+    return filters?.find((f: Filter) => f.name === filterName)?.selected;
+  };
+
+  // Group projects by year sections
+  const renderProjects = () => {
+    const elements: JSX.Element[] = [];
+    let currentYearProjects: Project[] = [];
+    let currentMusicProjects: Project[] = [];
+    let currentYear: string | null = null;
+
+    projects.forEach((project, index) => {
+      if (project.category === 'year') {
+        // Render previous year's projects if any
+        if (currentYear && currentYearProjects.length > 0) {
+          elements.push(
+            <$ProjectsGrid key={`grid-${currentYear}`}>
+              {currentYearProjects.map(p => (
+                <ProjectDisplay key={`project-${p.id}`} project={p} />
+              ))}
+            </$ProjectsGrid>
+          );
+        }
+
+        // Render previous year's music if any
+        if (currentYear && currentMusicProjects.length > 0) {
+          elements.push(
+            <$MusicSection key={`music-${currentYear}`}>
+              {currentMusicProjects.map(p => (
+                <ProjectDisplay key={`music-${p.id}`} project={p} />
+              ))}
+            </$MusicSection>
+          );
+        }
+
+        // Add year separator
+        elements.push(
+          <YearSeparator key={`year-${project.id}`} year={project.id} />
+        );
+
+        // Reset for new year
+        currentYear = project.id;
+        currentYearProjects = [];
+        currentMusicProjects = [];
+      } else if (project.category === 'music') {
+        // Add to music projects
+        if (isSelected('everything') || isSelected('music')) {
+          currentMusicProjects.push(project);
+        }
+      } else {
+        // Add to regular projects
+        if (isSelected('everything') || isSelected(project.category)) {
+          currentYearProjects.push(project);
+        }
+      }
+    });
+
+    // Render last year's projects if any
+    if (currentYearProjects.length > 0) {
+      elements.push(
+        <$ProjectsGrid key={`grid-${currentYear || 'last'}`}>
+          {currentYearProjects.map(p => (
+            <ProjectDisplay key={`project-${p.id}`} project={p} />
+          ))}
+        </$ProjectsGrid>
+      );
+    }
+
+    // Render last year's music if any
+    if (currentMusicProjects.length > 0) {
+      elements.push(
+        <$MusicSection key={`music-${currentYear || 'last'}`}>
+          {currentMusicProjects.map(p => (
+            <ProjectDisplay key={`music-${p.id}`} project={p} />
+          ))}
+        </$MusicSection>
+      );
+    }
+
+    return elements;
+  };
+
+  return <$Projects>{renderProjects()}</$Projects>;
 };
 
 // -----------------------------------------------------------------------------

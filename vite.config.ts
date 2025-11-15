@@ -5,5 +5,8 @@ import topLevelAwait from 'vite-plugin-top-level-await';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [topLevelAwait({}), react(), yaml()]
+  plugins: [topLevelAwait({}), react(), yaml()],
+  server: {
+    port: 6001
+  }
 });
