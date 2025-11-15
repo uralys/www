@@ -51,9 +51,8 @@ const onToggleFilter = {
         }
       } else {
         // Sinon, toggle simple de la catégorie cliquée
-        filter.selected = filter.name === selectedName
-          ? !filter.selected
-          : filter.selected;
+        filter.selected =
+          filter.name === selectedName ? !filter.selected : filter.selected;
       }
 
       if (filter.selected) {

@@ -1,5 +1,4 @@
 import {createGlobalStyle} from 'styled-components';
-import bg from '../../assets/images/bg.webp';
 import {maxWidth_980} from './breakpoints';
 
 const GlobalStyle = createGlobalStyle`

@@ -24,7 +24,11 @@ const $Filters = styled.div<{$scrollPosition: number}>`
   color: #e2e2e2;
   font-size: 1.2rem;
   font-weight: bold;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
@@ -81,15 +85,17 @@ const $Toggle = styled.div<{selected: boolean}>`
   height: 22px;
   margin-right: 12px;
   border-radius: 11px;
-  background-color: ${props => (props.selected
-    ? `linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(139, 92, 246, 0.6))`
-    : `rgba(255, 255, 255, 0.15)`)};
-  background: ${props => (props.selected
-    ? `linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(139, 92, 246, 0.6))`
-    : `rgba(255, 255, 255, 0.15)`)};
-  border: 1px solid ${props => (props.selected
-    ? `rgba(99, 102, 241, 0.4)`
-    : `rgba(255, 255, 255, 0.2)`)};
+  background-color: ${props =>
+    props.selected
+      ? `linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(139, 92, 246, 0.6))`
+      : `rgba(255, 255, 255, 0.15)`};
+  background: ${props =>
+    props.selected
+      ? `linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(139, 92, 246, 0.6))`
+      : `rgba(255, 255, 255, 0.15)`};
+  border: 1px solid
+    ${props =>
+      props.selected ? `rgba(99, 102, 241, 0.4)` : `rgba(255, 255, 255, 0.2)`};
   box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -101,7 +107,8 @@ const $Toggle = styled.div<{selected: boolean}>`
     display: block;
     width: 18px;
     height: 18px;
-    background: ${props => (props.selected ? `#fff` : `rgba(255, 255, 255, 0.8)`)};
+    background: ${props =>
+      props.selected ? `#fff` : `rgba(255, 255, 255, 0.8)`};
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     position: absolute;

@@ -1,6 +1,6 @@
+import React, {useCallback, useEffect} from 'react';
 import styled, {keyframes} from 'styled-components';
 import {useTaverne} from 'taverne/hooks';
-import {useCallback, useEffect} from 'react';
 import {
   SELECT_PROJECT,
   SelectProjectAction
@@ -45,8 +45,9 @@ const $Popin = styled.div<{$visible: boolean}>`
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   padding: 20px;
-  animation: ${props => props.$visible ? fadeIn : 'none'} 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  opacity: ${props => props.$visible ? 1 : 0};
+  animation: ${props => (props.$visible ? fadeIn : 'none')} 0.3s
+    cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: ${props => (props.$visible ? 1 : 0)};
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
@@ -55,13 +56,18 @@ const $DetailledProject = styled.div<{$visible: boolean}>`
   max-height: 90vh;
   width: 900px;
   max-width: 90vw;
-  background: linear-gradient(135deg, rgba(30, 27, 46, 0.98) 0%, rgba(45, 42, 62, 0.98) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 27, 46, 0.98) 0%,
+    rgba(45, 42, 62, 0.98) 100%
+  );
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   color: #e2e2e2;
   border-radius: 24px;
   overflow: hidden;
-  animation: ${props => props.$visible ? scaleIn : 'none'} 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: ${props => (props.$visible ? scaleIn : 'none')} 0.4s
+    cubic-bezier(0.4, 0, 0.2, 1) forwards;
 
   &::before {
     content: '';
@@ -165,11 +171,14 @@ const $Badge = styled.span<{variant?: 'category' | 'tech'}>`
   text-transform: uppercase;
   letter-spacing: 0.05em;
 
-  ${props => props.variant === 'category' ? `
+  ${props =>
+    props.variant === 'category'
+      ? `
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
     color: #a5b4fc;
     border: 1px solid rgba(99, 102, 241, 0.3);
-  ` : `
+  `
+      : `
     background: rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -237,36 +246,6 @@ const $Actions = styled.div`
   }
 `;
 
-const $ActionButton = styled.a`
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1em;
-  font-weight: 600;
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: all 0.2s ease;
-  padding: 14px 28px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
-  border: 1px solid rgba(99, 102, 241, 0.4);
-  text-align: center;
-  flex: 1;
-  min-width: 200px;
-
-  &:hover {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.5));
-    border-color: rgba(99, 102, 241, 0.6);
-    transform: translateY(-2px);
-  }
-
-  ${maxWidth_736} {
-    min-width: auto;
-  }
-`;
-
 const $InternalLink = styled($Link)`
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
@@ -280,14 +259,22 @@ const $InternalLink = styled($Link)`
   transition: all 0.2s ease;
   padding: 14px 28px;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.3),
+    rgba(139, 92, 246, 0.3)
+  );
   border: 1px solid rgba(99, 102, 241, 0.4);
   text-align: center;
   flex: 1;
   min-width: 200px;
 
   &:hover {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.5));
+    background: linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.5),
+      rgba(139, 92, 246, 0.5)
+    );
     border-color: rgba(99, 102, 241, 0.6);
     transform: translateY(-2px);
   }
@@ -336,11 +323,12 @@ const ProjectPanel = () => {
   if (!project) return null;
 
   // Get the web page and press kit URLs
-  const webPageLink = project.links?.find(link =>
-    link.type === 'Web page' && !link.url.startsWith('http')
+  const webPageLink = project.links?.find(
+    (link: {type: string; url: string}) =>
+      link.type === 'Web page' && !link.url.startsWith('http')
   );
-  const pressKitLink = project.links?.find(link =>
-    link.type === 'presskit'
+  const pressKitLink = project.links?.find(
+    (link: {type: string}) => link.type === 'presskit'
   );
 
   if (!webPageLink) return null;
@@ -364,7 +352,9 @@ const ProjectPanel = () => {
 
   // Extract YouTube video ID from project links
   const getYoutubeEmbedUrl = () => {
-    const youtubeLink = project.links?.find(link => link.type === 'youtube');
+    const youtubeLink = project.links?.find(
+      (link: {type: string}) => link.type === 'youtube'
+    );
     if (!youtubeLink) return null;
 
     // Extract video ID from various YouTube URL formats
@@ -398,53 +388,63 @@ const ProjectPanel = () => {
     <$Popin onClick={closeProject} $visible={!!project}>
       <$DetailledProject onClick={stopPropagation} $visible={!!project}>
         <$CloseButton onClick={closeProject}>
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </$CloseButton>
         <$ScrollContainer>
           <$Content>
-          <$Title>{project.title}</$Title>
-          <$Meta>
-            <$Badge variant="category">
-              {categoryInfo.icon} {categoryInfo.label}
-            </$Badge>
-            {project.dates && <$Badge>{project.dates}</$Badge>}
-          </$Meta>
+            <$Title>{project.title}</$Title>
+            <$Meta>
+              <$Badge variant="category">
+                {categoryInfo.icon} {categoryInfo.label}
+              </$Badge>
+              {project.dates && <$Badge>{project.dates}</$Badge>}
+            </$Meta>
 
-          {project.description && (
-            <$Description>{project.description}</$Description>
-          )}
-
-          {trailerUrl && (
-            <$VideoContainer>
-              <iframe
-                src={trailerUrl}
-                title={`${project.title} trailer`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </$VideoContainer>
-          )}
-
-          {screenshots.length > 0 && (
-            <$Screenshots>
-              {screenshots.slice(0, 3).map((screenshot: string, index: number) => (
-                <$Screenshot key={index} src={screenshot} alt={`${project.title} screenshot ${index + 1}`} />
-              ))}
-            </$Screenshots>
-          )}
-
-          <$Actions>
-            <$InternalLink to={webPageLink.url} onClick={closeProject}>
-              View Full Page →
-            </$InternalLink>
-            {pressKitLink && (
-              <$InternalLink to={pressKitLink.url} onClick={closeProject}>
-                Press Kit →
-              </$InternalLink>
+            {project.description && (
+              <$Description>{project.description}</$Description>
             )}
-          </$Actions>
+
+            {trailerUrl && (
+              <$VideoContainer>
+                <iframe
+                  src={trailerUrl}
+                  title={`${project.title} trailer`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </$VideoContainer>
+            )}
+
+            {screenshots.length > 0 && (
+              <$Screenshots>
+                {screenshots
+                  .slice(0, 3)
+                  .map((screenshot: string, index: number) => (
+                    <$Screenshot
+                      key={index}
+                      src={screenshot}
+                      alt={`${project.title} screenshot ${index + 1}`}
+                    />
+                  ))}
+              </$Screenshots>
+            )}
+
+            <$Actions>
+              <$InternalLink to={webPageLink.url} onClick={closeProject}>
+                View Full Page →
+              </$InternalLink>
+              {pressKitLink && (
+                <$InternalLink to={pressKitLink.url} onClick={closeProject}>
+                  Press Kit →
+                </$InternalLink>
+              )}
+            </$Actions>
           </$Content>
         </$ScrollContainer>
       </$DetailledProject>

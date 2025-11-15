@@ -1,8 +1,8 @@
+import React, {useCallback} from 'react';
 import styled, {keyframes} from 'styled-components';
 import {Project} from './projects';
 import {maxWidth_736} from '../../style/breakpoints';
 import {useTaverne} from 'taverne/hooks';
-import {useCallback, useState} from 'react';
 import {
   SELECT_PROJECT,
   SelectProjectAction
@@ -33,23 +33,35 @@ const fadeOutDown = keyframes`
 `;
 
 const $Card = styled.div<{$expanded?: boolean; $isVisible?: boolean}>`
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 20px 24px 16px;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   backdrop-filter: blur(10px);
   overflow: hidden;
   position: relative;
-  animation: ${props => props.$isVisible !== false ? fadeInUp : fadeOutDown} 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: ${props => (props.$isVisible !== false ? fadeInUp : fadeOutDown)}
+    0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow:
       0 12px 24px rgba(0, 0, 0, 0.2),
       0 0 0 1px rgba(255, 255, 255, 0.15);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
   }
 
   &::before {
@@ -60,7 +72,7 @@ const $Card = styled.div<{$expanded?: boolean; $isVisible?: boolean}>`
     right: 0;
     height: 4px;
     background: linear-gradient(90deg, #8b84b8, #7b77b1, #818695);
-    opacity: ${props => props.$expanded ? '1' : '0'};
+    opacity: ${props => (props.$expanded ? '1' : '0')};
     transition: opacity 0.3s ease;
   }
 
@@ -172,11 +184,14 @@ const $Badge = styled.span<{variant?: 'category' | 'tech'}>`
   text-transform: uppercase;
   letter-spacing: 0.05em;
 
-  ${props => props.variant === 'category' ? `
+  ${props =>
+    props.variant === 'category'
+      ? `
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
     color: #a5b4fc;
     border: 1px solid rgba(99, 102, 241, 0.3);
-  ` : `
+  `
+      : `
     background: rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -189,8 +204,8 @@ const $Badge = styled.span<{variant?: 'category' | 'tech'}>`
 `;
 
 const $ExpandableContent = styled.div<{$expanded: boolean}>`
-  max-height: ${props => props.$expanded ? '2000px' : '0'};
-  opacity: ${props => props.$expanded ? '1' : '0'};
+  max-height: ${props => (props.$expanded ? '2000px' : '0')};
+  opacity: ${props => (props.$expanded ? '1' : '0')};
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 `;
@@ -226,7 +241,11 @@ const $MoreButton = styled.button`
   font-size: 0.9em;
   font-weight: 600;
   color: #a5b4fc;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.15),
+    rgba(139, 92, 246, 0.15)
+  );
   border: 1px solid rgba(99, 102, 241, 0.3);
   padding: 10px 24px;
   border-radius: 10px;
@@ -235,7 +254,11 @@ const $MoreButton = styled.button`
   width: 100%;
 
   &:hover {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(139, 92, 246, 0.25));
+    background: linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.25),
+      rgba(139, 92, 246, 0.25)
+    );
     border-color: rgba(99, 102, 241, 0.5);
     transform: translateY(-2px);
   }
@@ -272,8 +295,6 @@ const $Link = styled.a`
   }
 `;
 
-const $InternalLink = styled($Link).attrs({as: 'div'})``;
-
 // -----------------------------------------------------------------------------
 
 interface ProjectCardProps {
@@ -281,7 +302,7 @@ interface ProjectCardProps {
   image?: string;
   isVisible?: boolean;
   expandedCardId?: string | null;
-  setExpandedCardId?: (id: string | null) => void;
+  setExpandedCardId?: (_id: string | null) => void;
 }
 
 const ProjectCard = ({
@@ -342,28 +363,31 @@ const ProjectCard = ({
     return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
   }, [project.links]);
 
-  const openPopup = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation();
+  const openPopup = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
 
-    // Only open popup if project has a dedicated page
-    const hasWebPage = project.links?.some(link =>
-      link.type === 'Web page' && !link.url.startsWith('http')
-    );
+      // Only open popup if project has a dedicated page
+      const hasWebPage = project.links?.some(
+        link => link.type === 'Web page' && !link.url.startsWith('http')
+      );
 
-    if (hasWebPage) {
-      dispatch({
-        type: SELECT_PROJECT,
-        payload: {project}
-      } as SelectProjectAction);
-    }
-  }, [project, dispatch]);
+      if (hasWebPage) {
+        dispatch({
+          type: SELECT_PROJECT,
+          payload: {project}
+        } as SelectProjectAction);
+      }
+    },
+    [project, dispatch]
+  );
 
   const categoryInfo = getCategoryInfo(project.category);
   const trailerUrl = getYoutubeEmbedUrl();
 
   // Check if project has a web page for the More button
-  const hasWebPage = project.links?.some(link =>
-    link.type === 'Web page' && !link.url.startsWith('http')
+  const hasWebPage = project.links?.some(
+    link => link.type === 'Web page' && !link.url.startsWith('http')
   );
 
   return (
@@ -404,7 +428,9 @@ const ProjectCard = ({
         {project.technos && project.technos.length > 0 && (
           <$Meta>
             {project.technos.slice(0, 4).map((tech, index) => (
-              <$Badge key={index} variant="tech">{tech}</$Badge>
+              <$Badge key={index} variant="tech">
+                {tech}
+              </$Badge>
             ))}
           </$Meta>
         )}
@@ -414,7 +440,12 @@ const ProjectCard = ({
             {project.links.map((linkInfo, index) => {
               if (linkInfo.url.startsWith('http')) {
                 return (
-                  <$Link key={index} href={linkInfo.url} target="_blank" rel="noreferrer">
+                  <$Link
+                    key={index}
+                    href={linkInfo.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {linkInfo.label}
                   </$Link>
                 );
@@ -425,9 +456,7 @@ const ProjectCard = ({
         )}
 
         {hasWebPage && (
-          <$MoreButton onClick={openPopup}>
-            View More Details
-          </$MoreButton>
+          <$MoreButton onClick={openPopup}>View More Details</$MoreButton>
         )}
       </$ExpandableContent>
     </$Card>

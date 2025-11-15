@@ -1,13 +1,9 @@
-import {Fragment, useCallback, useState, useEffect} from 'react';
+import React, {useCallback, useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {useTaverne} from 'taverne/hooks';
 
 import {maxWidth_736} from '../../style/breakpoints';
 import {Filter} from '../../barrels/filters.barrel';
-import {
-  SELECT_PROJECT,
-  SelectProjectAction
-} from '../../barrels/navigation.barrel';
 import useImages from '../../hooks/use-images';
 import useProjects from '../../hooks/use-projects';
 
@@ -91,7 +87,7 @@ const ProjectDisplay = ({
 }: {
   project: Project;
   expandedCardId?: string | null;
-  setExpandedCardId?: (id: string | null) => void;
+  setExpandedCardId?: (_id: string | null) => void;
 }) => {
   const {pour} = useTaverne();
   const filters = pour('filters');
@@ -106,7 +102,8 @@ const ProjectDisplay = ({
     [filters]
   );
 
-  const shouldBeVisible = project.category === 'year' ||
+  const shouldBeVisible =
+    project.category === 'year' ||
     isSelected('everything') ||
     isSelected(project.category);
 
@@ -176,15 +173,16 @@ const Projects = () => {
 
   // Group projects by year sections
   const renderProjects = () => {
-    const elements: JSX.Element[] = [];
+    const elements: React.ReactElement[] = [];
     let currentYearProjects: Project[] = [];
     let currentMusicProjects: Project[] = [];
     let currentYear: string | null = null;
 
-    projects.forEach((project, index) => {
+    projects.forEach(project => {
       if (project.category === 'year') {
         // Render previous year's content if any projects are visible
-        const hasVisibleProjects = currentYearProjects.length > 0 || currentMusicProjects.length > 0;
+        const hasVisibleProjects =
+          currentYearProjects.length > 0 || currentMusicProjects.length > 0;
 
         if (currentYear && hasVisibleProjects) {
           // Add year separator only if there are visible projects
@@ -243,7 +241,8 @@ const Projects = () => {
     });
 
     // Render last year's content if any projects are visible
-    const hasVisibleProjects = currentYearProjects.length > 0 || currentMusicProjects.length > 0;
+    const hasVisibleProjects =
+      currentYearProjects.length > 0 || currentMusicProjects.length > 0;
 
     if (currentYear && hasVisibleProjects) {
       // Add year separator only if there are visible projects

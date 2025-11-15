@@ -27,22 +27,34 @@ const fadeOutDown = keyframes`
 `;
 
 const $MusicCard = styled.div<{$isVisible?: boolean}>`
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 24px;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
   overflow: hidden;
   position: relative;
-  animation: ${props => props.$isVisible !== false ? fadeInUp : fadeOutDown} 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: ${props => (props.$isVisible !== false ? fadeInUp : fadeOutDown)}
+    0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow:
       0 12px 24px rgba(0, 0, 0, 0.3),
       0 0 0 1px rgba(255, 255, 255, 0.15);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
   }
 
   &::before {
@@ -73,14 +85,6 @@ const $Header = styled.div`
   margin-bottom: 16px;
 `;
 
-const $Title = styled.h4`
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.1em;
-  font-weight: 600;
-  color: #fff;
-  margin: 0;
-`;
-
 const $Meta = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -98,11 +102,14 @@ const $Badge = styled.span<{variant?: 'category' | 'date'}>`
   text-transform: uppercase;
   letter-spacing: 0.05em;
 
-  ${props => props.variant === 'category' ? `
+  ${props =>
+    props.variant === 'category'
+      ? `
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
     color: #a5b4fc;
     border: 1px solid rgba(99, 102, 241, 0.3);
-  ` : `
+  `
+      : `
     background: rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -130,7 +137,8 @@ interface MusicCardProps {
 }
 
 const MusicCard = ({project, isVisible = true}: MusicCardProps) => {
-  const spotifyUrl = project.links.find(link => link.platform === 'spotify')?.url;
+  const spotifyUrl = project.links.find(link => link.platform === 'spotify')
+    ?.url;
 
   if (!spotifyUrl) {
     return null;

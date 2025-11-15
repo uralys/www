@@ -20,6 +20,12 @@
         "trailingComma": "none",
         "arrowParens": "avoid"
       }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
     ]
   }
 }
