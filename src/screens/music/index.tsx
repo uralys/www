@@ -1,8 +1,8 @@
 import Panel from './../../style/panel';
-import {type Project} from '../home/projects';
+import {type Project} from '../timeline/projects';
 import useProjects from '../../hooks/use-projects';
+import YearSeparator from '../timeline/year-separator';
 import {styled} from 'styled-components';
-import {Fragment} from 'react';
 
 // -----------------------------------------------------------------------------
 
@@ -52,16 +52,10 @@ const MusicScreen = () => {
   return (
     <Panel alignItems="flex-start">
       <h1>Music</h1>
-      <p>You can fin all titles on most of streaming platforms</p>
+      <p>You can find all titles on most streaming platforms</p>
       {musics?.map((project: Project) => {
         if (project.category === 'year') {
-          return (
-            <Fragment key={`year-${project.id}`}>
-              <hr />
-              <p> {project.id}</p>
-              <hr />
-            </Fragment>
-          );
+          return <YearSeparator key={`year-${project.id}`} year={project.id} />;
         }
 
         if (project.category === 'music') {
