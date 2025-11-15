@@ -1,18 +1,41 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {Project} from './projects';
 import {maxWidth_736} from '../../style/breakpoints';
 
 // -----------------------------------------------------------------------------
 
-const $MusicCard = styled.div`
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+`;
+
+const fadeOutDown = keyframes`
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+`;
+
+const $MusicCard = styled.div<{$isVisible?: boolean}>`
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 24px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
   overflow: hidden;
   position: relative;
+  animation: ${props => props.$isVisible !== false ? fadeInUp : fadeOutDown} 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 
   &:hover {
     transform: translateY(-4px);
@@ -103,9 +126,10 @@ const $IframeContainer = styled.div`
 
 interface MusicCardProps {
   project: Project;
+  isVisible?: boolean;
 }
 
-const MusicCard = ({project}: MusicCardProps) => {
+const MusicCard = ({project, isVisible = true}: MusicCardProps) => {
   const spotifyUrl = project.links.find(link => link.platform === 'spotify')?.url;
 
   if (!spotifyUrl) {
@@ -113,7 +137,7 @@ const MusicCard = ({project}: MusicCardProps) => {
   }
 
   return (
-    <$MusicCard>
+    <$MusicCard $isVisible={isVisible}>
       <$Header>
         <$Meta>
           <$Badge variant="category">🎵 Music</$Badge>

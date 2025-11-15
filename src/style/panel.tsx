@@ -20,7 +20,7 @@ export type PanelProps = {
   alignItems?: CSSProperties['alignItems'];
 };
 
-const $Panel = styled.div<PanelProps & {opacity: number; translateY: number}>`
+const $Panel = styled.div<PanelProps & {$opacity: number; $translateY: number}>`
   max-width: 100%;
   z-index: 1;
   background-color: rgba(34, 32, 42, 0.733);
@@ -33,8 +33,8 @@ const $Panel = styled.div<PanelProps & {opacity: number; translateY: number}>`
   line-height: 1.75;
   width: 38rem;
   border-radius: 0.5rem;
-  opacity: ${props => `${props.opacity}`};
-  transform: ${props => `translateY(${props.translateY}px)`};
+  opacity: ${props => `${props.$opacity}`};
+  transform: ${props => `translateY(${props.$translateY}px)`};
   transition:
     opacity 1.25s ease 0s,
     transform 1.25s ease 0s;
@@ -42,13 +42,13 @@ const $Panel = styled.div<PanelProps & {opacity: number; translateY: number}>`
   ${withMarginOrPadding('padding')}
 `;
 
-const $InnerPanel = styled.div<CSSProperties & {opacity: number}>`
+const $InnerPanel = styled.div<CSSProperties & {$opacity: number}>`
   width: 100%;
   flex-direction: column;
   align-items: ${props => props.alignItems || 'center'};
   justify-content: ${props => props.justifyContent || 'center'};
   text-align: ${props => (props.alignItems ? '' : 'center')};
-  opacity: ${props => `${props.opacity}`};
+  opacity: ${props => `${props.$opacity}`};
   transition: opacity 1.25s ease;
 `;
 
@@ -71,11 +71,11 @@ const Panel = (props: PanelProps) => {
   return (
     <$Panel
       className="panel"
-      opacity={opacity}
-      translateY={translateY}
+      $opacity={opacity}
+      $translateY={translateY}
       {...props}
     >
-      <$InnerPanel className="inner-panel" opacity={innerOpacity} {...props} />
+      <$InnerPanel className="inner-panel" $opacity={innerOpacity} {...props} />
     </$Panel>
   );
 };

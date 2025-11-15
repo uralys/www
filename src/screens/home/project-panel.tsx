@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {useTaverne} from 'taverne/hooks';
 import {useCallback, useEffect} from 'react';
 import {
@@ -11,10 +11,28 @@ import {$Link} from '../../style/common';
 
 // -----------------------------------------------------------------------------
 
-const $Popin = styled.div<{visible: boolean}>`
-  pointer-events: ${props => `${props.visible ? 'all' : 'none'}`};
-  transition: opacity 0.3s ease;
-  opacity: ${props => `${props.visible ? '1' : '0'}`};
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const scaleIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+`;
+
+const $Popin = styled.div<{$visible: boolean}>`
+  pointer-events: ${props => `${props.$visible ? 'all' : 'none'}`};
   z-index: 1000;
   display: flex;
   height: 100vh;
@@ -27,9 +45,12 @@ const $Popin = styled.div<{visible: boolean}>`
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   padding: 20px;
+  animation: ${props => props.$visible ? fadeIn : 'none'} 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: ${props => props.$visible ? 1 : 0};
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
-const $DetailledProject = styled.div`
+const $DetailledProject = styled.div<{$visible: boolean}>`
   position: relative;
   max-height: 90vh;
   width: 900px;
@@ -39,8 +60,8 @@ const $DetailledProject = styled.div`
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   color: #e2e2e2;
   border-radius: 24px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
+  animation: ${props => props.$visible ? scaleIn : 'none'} 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 
   &::before {
     content: '';
@@ -58,42 +79,57 @@ const $DetailledProject = styled.div`
   }
 `;
 
-const $Header = styled.div`
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: flex-end;
-  padding: 16px 20px;
-  background: linear-gradient(135deg, rgba(30, 27, 46, 0.98) 0%, rgba(45, 42, 62, 0.98) 100%);
-  z-index: 20;
-  backdrop-filter: blur(10px);
+const $ScrollContainer = styled.div`
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 20px;
 `;
 
 const $CloseButton = styled.button`
-  width: 40px;
-  height: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
   color: #fff;
-  font-size: 1.5em;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  z-index: 30;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
     transform: scale(1.1);
+  }
+
+  ${maxWidth_736} {
+    top: 16px;
+    right: 16px;
   }
 `;
 
 const $Content = styled.div`
-  padding: 0 40px 40px;
+  padding: 20px 40px 40px;
 
   ${maxWidth_736} {
-    padding: 0 24px 24px;
+    padding: 16px 24px 24px;
   }
 `;
 
@@ -326,24 +362,48 @@ const ProjectPanel = () => {
   const images = allImages[project.id];
   const screenshots = images?.screenshots || [];
 
-  // Hardcoded trailer URLs for now (you can add this to the YAML later)
-  const trailerUrls: {[key: string]: string} = {
-    'flying-ones': 'https://www.youtube.com/embed/m8wcnyQimH4',
-    'xoozz': 'https://www.youtube.com/embed/VIDEO_ID', // Add actual video IDs
-    'battle-squares': 'https://www.youtube.com/embed/VIDEO_ID',
-    'avindi': 'https://www.youtube.com/embed/VIDEO_ID',
-    'lockeyland': 'https://www.youtube.com/embed/VIDEO_ID'
+  // Extract YouTube video ID from project links
+  const getYoutubeEmbedUrl = () => {
+    const youtubeLink = project.links?.find(link => link.type === 'youtube');
+    if (!youtubeLink) return null;
+
+    // Extract video ID from various YouTube URL formats
+    const url = youtubeLink.url;
+    let videoId = null;
+
+    // Format: https://www.youtube.com/watch?v=VIDEO_ID
+    const watchMatch = url.match(/[?&]v=([^&]+)/);
+    if (watchMatch) {
+      videoId = watchMatch[1];
+    }
+
+    // Format: https://youtu.be/VIDEO_ID
+    const shortMatch = url.match(/youtu\.be\/([^?]+)/);
+    if (shortMatch) {
+      videoId = shortMatch[1];
+    }
+
+    // Format: https://www.youtube.com/embed/VIDEO_ID
+    const embedMatch = url.match(/\/embed\/([^?]+)/);
+    if (embedMatch) {
+      videoId = embedMatch[1];
+    }
+
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
   };
 
-  const trailerUrl = trailerUrls[project.id];
+  const trailerUrl = getYoutubeEmbedUrl();
 
   return (
-    <$Popin onClick={closeProject} visible={!!project}>
-      <$DetailledProject onClick={stopPropagation}>
-        <$Header>
-          <$CloseButton onClick={closeProject}>×</$CloseButton>
-        </$Header>
-        <$Content>
+    <$Popin onClick={closeProject} $visible={!!project}>
+      <$DetailledProject onClick={stopPropagation} $visible={!!project}>
+        <$CloseButton onClick={closeProject}>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </$CloseButton>
+        <$ScrollContainer>
+          <$Content>
           <$Title>{project.title}</$Title>
           <$Meta>
             <$Badge variant="category">
@@ -385,7 +445,8 @@ const ProjectPanel = () => {
               </$InternalLink>
             )}
           </$Actions>
-        </$Content>
+          </$Content>
+        </$ScrollContainer>
       </$DetailledProject>
     </$Popin>
   );

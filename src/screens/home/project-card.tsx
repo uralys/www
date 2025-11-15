@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {Project} from './projects';
 import {maxWidth_736} from '../../style/breakpoints';
 import {useTaverne} from 'taverne/hooks';
@@ -10,16 +10,39 @@ import {
 
 // -----------------------------------------------------------------------------
 
-const $Card = styled.div<{$expanded?: boolean}>`
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+`;
+
+const fadeOutDown = keyframes`
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+`;
+
+const $Card = styled.div<{$expanded?: boolean; $isVisible?: boolean}>`
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 20px 24px 16px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   backdrop-filter: blur(10px);
   overflow: hidden;
   position: relative;
+  animation: ${props => props.$isVisible !== false ? fadeInUp : fadeOutDown} 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 
   &:hover {
     transform: translateY(-4px);
@@ -46,7 +69,7 @@ const $Card = styled.div<{$expanded?: boolean}>`
   }
 
   ${maxWidth_736} {
-    padding: 16px 20px 12px;
+    padding: 12px 16px 10px;
   }
 `;
 
@@ -57,7 +80,7 @@ const $CardHeader = styled.div`
   gap: 16px;
 
   ${maxWidth_736} {
-    flex-direction: column;
+    gap: 12px;
   }
 `;
 
@@ -82,8 +105,9 @@ const $ImageContainer = styled.div`
   }
 
   ${maxWidth_736} {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
   }
 `;
 
@@ -103,7 +127,8 @@ const $Title = styled.h3`
   text-align: left;
 
   ${maxWidth_736} {
-    font-size: 1.25em;
+    font-size: 1.1em;
+    margin: 0 0 8px 0;
   }
 `;
 
@@ -129,6 +154,11 @@ const $Meta = styled.div`
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 16px;
+
+  ${maxWidth_736} {
+    gap: 6px;
+    margin-bottom: 12px;
+  }
 `;
 
 const $Badge = styled.span<{variant?: 'category' | 'tech'}>`
@@ -151,13 +181,37 @@ const $Badge = styled.span<{variant?: 'category' | 'tech'}>`
     color: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
   `}
+
+  ${maxWidth_736} {
+    padding: 4px 10px;
+    font-size: 0.7em;
+  }
 `;
 
 const $ExpandableContent = styled.div<{$expanded: boolean}>`
-  max-height: ${props => props.$expanded ? '1000px' : '0'};
+  max-height: ${props => props.$expanded ? '2000px' : '0'};
   opacity: ${props => props.$expanded ? '1' : '0'};
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+`;
+
+const $VideoContainer = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 `;
 
 const $Links = styled.div`
@@ -225,11 +279,20 @@ const $InternalLink = styled($Link).attrs({as: 'div'})``;
 interface ProjectCardProps {
   project: Project;
   image?: string;
+  isVisible?: boolean;
+  expandedCardId?: string | null;
+  setExpandedCardId?: (id: string | null) => void;
 }
 
-const ProjectCard = ({project, image}: ProjectCardProps) => {
+const ProjectCard = ({
+  project,
+  image,
+  isVisible = true,
+  expandedCardId,
+  setExpandedCardId
+}: ProjectCardProps) => {
   const {dispatch} = useTaverne();
-  const [expanded, setExpanded] = useState(false);
+  const expanded = expandedCardId === project.id;
 
   const getCategoryInfo = (category: string) => {
     const info: {[key: string]: {label: string; icon: string}} = {
@@ -245,8 +308,39 @@ const ProjectCard = ({project, image}: ProjectCardProps) => {
   };
 
   const toggleExpand = useCallback(() => {
-    setExpanded(prev => !prev);
-  }, []);
+    if (setExpandedCardId) {
+      setExpandedCardId(expanded ? null : project.id);
+    }
+  }, [expanded, project.id, setExpandedCardId]);
+
+  // Extract YouTube video ID from project links
+  const getYoutubeEmbedUrl = useCallback(() => {
+    const youtubeLink = project.links?.find(link => link.type === 'youtube');
+    if (!youtubeLink) return null;
+
+    const url = youtubeLink.url;
+    let videoId = null;
+
+    // Format: https://www.youtube.com/watch?v=VIDEO_ID
+    const watchMatch = url.match(/[?&]v=([^&]+)/);
+    if (watchMatch) {
+      videoId = watchMatch[1];
+    }
+
+    // Format: https://youtu.be/VIDEO_ID
+    const shortMatch = url.match(/youtu\.be\/([^?]+)/);
+    if (shortMatch) {
+      videoId = shortMatch[1];
+    }
+
+    // Format: https://www.youtube.com/embed/VIDEO_ID
+    const embedMatch = url.match(/\/embed\/([^?]+)/);
+    if (embedMatch) {
+      videoId = embedMatch[1];
+    }
+
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+  }, [project.links]);
 
   const openPopup = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
@@ -265,6 +359,7 @@ const ProjectCard = ({project, image}: ProjectCardProps) => {
   }, [project, dispatch]);
 
   const categoryInfo = getCategoryInfo(project.category);
+  const trailerUrl = getYoutubeEmbedUrl();
 
   // Check if project has a web page for the More button
   const hasWebPage = project.links?.some(link =>
@@ -272,7 +367,7 @@ const ProjectCard = ({project, image}: ProjectCardProps) => {
   );
 
   return (
-    <$Card onClick={toggleExpand} $expanded={expanded}>
+    <$Card onClick={toggleExpand} $expanded={expanded} $isVisible={isVisible}>
       <$CardHeader>
         <$Content>
           <$Title>{project.title}</$Title>
@@ -293,6 +388,17 @@ const ProjectCard = ({project, image}: ProjectCardProps) => {
       <$ExpandableContent $expanded={expanded}>
         {project.description && (
           <$Description>{project.description}</$Description>
+        )}
+
+        {trailerUrl && (
+          <$VideoContainer>
+            <iframe
+              src={trailerUrl}
+              title={`${project.title} trailer`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </$VideoContainer>
         )}
 
         {project.technos && project.technos.length > 0 && (

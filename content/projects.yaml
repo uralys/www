@@ -25,6 +25,9 @@
     - type: presskit
       label: Press Kit
       url: /flying-ones/press
+    - type: youtube
+      label: Youtube
+      url: https://www.youtube.com/watch?v=m8wcnyQimH4
     - type: android
       label: Play Store
       url: https://play.google.com/store/apps/details?id=com.uralys.flyingones
@@ -50,6 +53,9 @@
     - type: presskit
       label: Press Kit
       url: /xoozz/press
+    - type: youtube
+      label: Youtube
+      url: https://www.youtube.com/watch?v=hYZSf6zSCOY
     - type: android
       label: Play Store
       url: https://play.google.com/store/apps/details?id=com.uralys.xoozz
@@ -75,6 +81,9 @@
     - type: presskit
       label: Press Kit
       url: /battle-squares/press
+    - type: youtube
+      label: Youtube
+      url: https://www.youtube.com/watch?v=Oj3-F9ifIRM
     - type: android
       label: Play Store
       url: https://play.google.com/store/apps/details?id=com.uralys.battlesquares
@@ -142,6 +151,9 @@
     - type: presskit
       label: Press Kit
       url: /avindi/press
+    - type: youtube
+      label: Youtube
+      url: https://www.youtube.com/watch?v=jzXGpT6z-aU
     - type: android
       label: Play Store
       url: https://play.google.com/store/apps/details?id=com.uralys.avindi
@@ -318,6 +330,9 @@
     - type: presskit
       label: Press Kit
       url: /lockeyland/press
+    - type: youtube
+      label: Youtube
+      url: https://www.youtube.com/watch?v=UYhbYkd27BM
     - type: android
       label: Play Store
       url: https://play.google.com/store/apps/details?id=com.uralys.lockeyland.chapter0

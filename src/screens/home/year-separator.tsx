@@ -1,7 +1,18 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {maxWidth_736} from '../../style/breakpoints';
 
 // -----------------------------------------------------------------------------
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
 
 const $YearContainer = styled.div`
   position: relative;
@@ -9,6 +20,7 @@ const $YearContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 60px 0 40px;
+  animation: ${fadeIn} 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 
   ${maxWidth_736} {
     margin: 40px 0 30px;

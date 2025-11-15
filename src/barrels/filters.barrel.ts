@@ -5,7 +5,7 @@ export const TOGGLE_FILTER = '@@filters/TOGGLE';
 // -----------------------------------------------------------------------------
 
 export type Filter = {
-  name: 'everything' | 'games' | 'freelance';
+  name: 'everything' | 'games' | 'freelance' | 'music';
   text: string;
   selected: boolean;
 };
@@ -13,9 +13,10 @@ export type Filter = {
 type State = Array<Filter>;
 
 const initialState: State = [
-  {name: 'everything', text: 'all projects', selected: true},
+  {name: 'everything', text: 'all projects', selected: false},
   {name: 'games', text: 'games', selected: true},
-  {name: 'freelance', text: 'freelance', selected: true}
+  {name: 'freelance', text: 'freelance', selected: true},
+  {name: 'music', text: 'music', selected: false}
 ];
 
 // -----------------------------------------------------------------------------
@@ -37,13 +38,22 @@ const onToggleFilter = {
     let nbSelected = 0;
     state.forEach(filter => {
       if ('everything' === selectedName) {
+        // Clic sur "everything" : tout sélectionner
         filter.selected = true;
+      } else if (isEverythingSelected) {
+        // Si "everything" est sélectionné et qu'on clique sur une catégorie :
+        // - Désélectionner "everything" et la catégorie cliquée
+        // - Sélectionner toutes les autres catégories
+        if (filter.name === 'everything' || filter.name === selectedName) {
+          filter.selected = false;
+        } else {
+          filter.selected = true;
+        }
       } else {
-        filter.selected = isEverythingSelected
-          ? filter.name === selectedName
-          : filter.name === selectedName
-            ? !filter.selected
-            : false;
+        // Sinon, toggle simple de la catégorie cliquée
+        filter.selected = filter.name === selectedName
+          ? !filter.selected
+          : filter.selected;
       }
 
       if (filter.selected) {
@@ -51,11 +61,13 @@ const onToggleFilter = {
       }
     });
 
+    // Si aucun filtre n'est sélectionné, tout sélectionner
     if (nbSelected === 0) {
       state.forEach(filter => (filter.selected = true));
     }
 
-    if (nbSelected === state.length - 1) {
+    // Si tous les filtres (sauf "everything") sont sélectionnés, sélectionner "everything"
+    if (nbSelected === state.length - 1 && !everythingFilter.selected) {
       everythingFilter.selected = true;
     }
   }
